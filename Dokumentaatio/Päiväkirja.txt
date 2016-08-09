@@ -1,3 +1,8 @@
 Jore 8.8.2016 21:26
 ---
 repo pystyyn + dokumentaatio
+
+
+Jore 9.8.2016 16:33
+---
+triggerisysteemi pystyyn
