@@ -1,8 +1,22 @@
-Jore 8.8.2016 21:26
+Jore 
+8.8.2016 21:26
 ---
 repo pystyyn + dokumentaatio
 
+____________________________
 
-Jore 9.8.2016 16:33
+
+Jore 
+9.8.2016 16:33
 ---
 triggerisysteemi pystyyn
+
+____________________________
+
+
+Jore & Osama 
+10.8.2016 18:27
+---
+eka kokeiluversio
+
+____________________________
