@@ -5,13 +5,20 @@ using System;
 
 public class Player : MonoBehaviour
 {
-
     public GameObject projectile;
     public float launchForce = 1f;
+
     private Rigidbody2D rb;
+    private Health health;
+
+    private PointCounter counter;
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        health = this.GetComponent<Health>();
+
+        counter = FindObjectOfType<PointCounter>();
     }
 
     void Update()
@@ -34,5 +41,21 @@ public class Player : MonoBehaviour
         proj.GetComponent<Rigidbody2D>().velocity = rb.velocity;
         proj.GetComponent<Rigidbody2D>().AddForce(launchForce * dir);
         rb.AddForce(-launchForce * dir);
+
+        counter.balls++;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(health == null)
+        {
+            return;
+        }
+
+        if (collision.gameObject.tag.Equals("bullet"))
+        {
+            health.loseHealth(1);
+            counter.balls--;
+        }
     }
 }
