@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/empty_square.unity
-  isLoaded: 1
-  isActive: 1
