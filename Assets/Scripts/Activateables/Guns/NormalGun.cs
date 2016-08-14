@@ -2,17 +2,25 @@
 using System.Collections;
 using System;
 
-public class NormalGun : Gun {
+public class NormalGun : ProjectileGun
+{
+    public GameObject projectilePrefab;
 
-    public float weidth;
+    public float KnockbackMultiplier;
+    public float ShootForceMultiplier;
+
+    public override GameObject Projectile()
+    {
+        return projectilePrefab;
+    }
 
     public override Vector3 KnockBackAmount()
     {
-        throw new NotImplementedException();
+        return - owner.transform.right * KnockbackMultiplier;
     }
 
-    public override bool Shoot()
+    public override Vector3 ShootForce()
     {
-        throw new NotImplementedException();
+        return owner.transform.right * ShootForceMultiplier;
     }
 }

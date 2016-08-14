@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
         transform.right = mousePosition - transform.position;
+
+        Act();
     }
 
     private void Act()

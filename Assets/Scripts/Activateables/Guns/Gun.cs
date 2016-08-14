@@ -5,33 +5,31 @@ using System;
 
 public abstract class Gun : Activateable
 {
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns>true if shoots, flase otherwise</returns>
-    ///
-
     public override bool Act()
     {
-        bool shot = Shoot();
-        if (shot)
+        if (CanShoot())
         {
+            Shoot();
             KnockBack();
+            return true;
         }
 
         return false;
     }
 
-    public void KnockBack()
+
+    public virtual bool CanShoot()
     {
-        Vector3 knockback = KnockBackAmount();
-        owner.GetComponent<Rigidbody2D>().AddForce(knockback);
+        return true;
     }
 
-    public abstract bool Shoot();
+    public abstract void Shoot();
+
+    public virtual void KnockBack()
+    {
+        owner.GetComponent<Rigidbody2D>().AddForce(KnockBackAmount());
+    }
 
     public abstract Vector3 KnockBackAmount();
-
     
 }
