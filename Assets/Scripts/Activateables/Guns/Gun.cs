@@ -27,7 +27,7 @@ public abstract class Gun : Activateable
 
     public virtual void KnockBack()
     {
-        owner.GetComponent<Rigidbody2D>().AddForce(KnockBackAmount());
+        owner.GetComponent<Rigidbody2D>().AddForce(KnockBackAmount(), ForceMode2D.Impulse);
     }
 
     public abstract Vector3 KnockBackAmount();

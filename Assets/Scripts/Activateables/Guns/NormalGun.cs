@@ -14,13 +14,20 @@ public class NormalGun : ProjectileGun
         return projectilePrefab;
     }
 
+    private float bulletMass()
+    {
+        Rigidbody2D rb = projectilePrefab.GetComponent<Rigidbody2D>();
+
+        return rb.mass;
+    }
+
     public override Vector3 KnockBackAmount()
     {
-        return - owner.transform.right * KnockbackMultiplier;
+        return -owner.transform.right * (KnockbackMultiplier * bulletMass());
     }
 
     public override Vector3 ShootForce()
     {
-        return owner.transform.right * ShootForceMultiplier;
+        return owner.transform.right * (ShootForceMultiplier * bulletMass());
     }
 }

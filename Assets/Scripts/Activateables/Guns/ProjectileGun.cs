@@ -8,18 +8,29 @@ public abstract class ProjectileGun : Gun
 
     public override void Shoot()
     {
+        GameObject projectile = createProjectile();
+
+        setProjectileSpeed(projectile);
+    }
+
+    private GameObject createProjectile()
+    {
         Vector3 offset = owner.transform.right;
         offset.Scale(new Vector3(0.5f, 0.5f, 0.5f));
 
         Vector3 spawnPosition = owner.transform.position + offset;
-        GameObject proj = Instantiate(Projectile(), spawnPosition, owner.transform.rotation) as GameObject;
+        return Instantiate(Projectile(), spawnPosition, owner.transform.rotation) as GameObject;
+    }
 
-        Vector2 ownerVelocity = owner.GetComponent<Rigidbody2D>().velocity;
+    private void setProjectileSpeed(GameObject proj)
+    {
+        Rigidbody2D ownerbody = owner.GetComponent<Rigidbody2D>();
+        Rigidbody2D projbody = proj.GetComponent<Rigidbody2D>();
+        Vector3 startSpeedAddition = new Vector3(ownerbody.velocity.x * projbody.mass, ownerbody.velocity.y * projbody.mass, 0);
 
-        Vector3 projectileVelocity = ShootForce();
-        projectileVelocity += new Vector3(ownerVelocity.x, ownerVelocity.y, 0);
+        Vector3 projectileVelocity = ShootForce() + startSpeedAddition;
 
-        proj.GetComponent<Rigidbody2D>().AddForce(projectileVelocity);
+        projbody.AddForce(projectileVelocity, ForceMode2D.Impulse);
     }
 
     public abstract Vector3 ShootForce();

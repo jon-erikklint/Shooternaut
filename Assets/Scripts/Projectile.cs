@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("Player"))
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.01f);
         }
     }
 }
