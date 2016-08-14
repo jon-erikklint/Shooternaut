@@ -6,10 +6,6 @@ using System;
 public abstract class Gun : Activateable
 {
 
-    public Projectile projectile;
-    public GameObject owner;
-    public float knockBack;
-
     /// <summary>
     /// 
     /// </summary>
@@ -18,14 +14,24 @@ public abstract class Gun : Activateable
 
     public override bool Act()
     {
-        return Shoot();
+        bool shot = Shoot();
+        if (shot)
+        {
+            KnockBack();
+        }
+
+        return false;
+    }
+
+    public void KnockBack()
+    {
+        Vector3 knockback = KnockBackAmount();
+        owner.GetComponent<Rigidbody2D>().AddForce(knockback);
     }
 
     public abstract bool Shoot();
 
-    public void KnockBack()
-    {
-        Vector3 dir = owner.transform.right.normalized;
-        owner.GetComponent<Rigidbody2D>().AddForce(knockBack * dir);
-    }
+    public abstract Vector3 KnockBackAmount();
+
+    
 }
