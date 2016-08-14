@@ -5,20 +5,16 @@ using System;
 
 public class Player : MonoBehaviour
 {
-    public GameObject projectile;
-    public float launchForce = 1f;
+    public Activateable mouseLeft;
+    public Activateable mouseRight;
 
     private Rigidbody2D rb;
     private Health health;
-
-    private PointCounter counter;
 
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         health = this.GetComponent<Health>();
-
-        counter = FindObjectOfType<PointCounter>();
     }
 
     void Update()
@@ -26,23 +22,19 @@ public class Player : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
         transform.right = mousePosition - transform.position;
-        if (Input.GetMouseButtonDown(1))
-        {
-            Shoot(mousePosition);
-        }
     }
 
-    void Shoot(Vector3 mousePos)
+    private void Act()
     {
-        Vector3 dir = mousePos - transform.position;
-        dir /= dir.magnitude;
-        GameObject proj = Instantiate<GameObject>(projectile);
-        proj.transform.position = transform.position + dir*0.5f;
-        proj.GetComponent<Rigidbody2D>().velocity = rb.velocity;
-        proj.GetComponent<Rigidbody2D>().AddForce(launchForce * dir);
-        rb.AddForce(-launchForce * dir);
+        if(Input.GetMouseButtonDown(0))
+        {
+            mouseLeft.Act();
+        }
 
-        counter.balls++;
+        if (Input.GetMouseButtonDown(1))
+        {
+            mouseRight.Act();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -55,7 +47,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag.Equals("bullet"))
         {
             health.loseHealth(1);
-            counter.balls--;
         }
     }
 }

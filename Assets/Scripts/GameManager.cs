@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	    
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public Player player;
 
-    public void GameOver ()
+    void Start()
+    {
+        UnityEvent playerDies = player.GetComponent<Health>().onDeath;
+        playerDies.AddListener(GameOver);
+    }
+
+	public void GameOver ()
     {
         Debug.Log("Game Over!");
         SceneManager.LoadScene(0);
