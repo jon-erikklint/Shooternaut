@@ -13,20 +13,24 @@ public class PointCounter : MonoBehaviour {
     private Text text;
 	
 	void Start () {
+        FindObjectOfType<Player>().GetComponent<Health>().onDamageTaken.AddListener(ballRemoved);
+
         balls = 0;
         _points = 0;
 
         text = GetComponent<Text>();
-	}
+    }
 	
 	void Update () {
         float elapsed = Time.deltaTime;
-
-        //Debug.Log(elapsed);
-        //Debug.Log(points);
 
         _points += (int) (elapsed * (Math.Pow(2, balls)-1)*100);
 
         text.text = ""+points;
 	}
+
+    public void ballRemoved()
+    {
+        balls--;
+    }
 }

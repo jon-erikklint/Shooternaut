@@ -67,13 +67,13 @@
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\NormalGun.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\PointCounter.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\Triggerit\ListaTriggerer.cs" />
     <Compile Include="Assets\Scripts\Triggerit\Objekti.cs" />
     <Compile Include="Assets\Scripts\Triggerit\Tapahtuma.cs" />
     <Compile Include="Assets\Scripts\Triggerit\TapahtumaHandler.cs" />
     <Compile Include="Assets\Scripts\Triggerit\Triggerer.cs" />
+    <Compile Include="Assets\Scripts\UI\PointCounter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

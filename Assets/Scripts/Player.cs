@@ -7,13 +7,11 @@ public class Player : MonoBehaviour
 {
     public Activateable mouseLeft;
     public Activateable mouseRight;
-
-    private Rigidbody2D rb;
+    
     private Health health;
 
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
         health = this.GetComponent<Health>();
     }
 
