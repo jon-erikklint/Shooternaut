@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 using System;
-using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour {
 
     public int startHealth = 0;
+    public UnityEvent onDeath;
+    public GameManager gm;
 
     public int currentHealth { get { return _currentHealth; } }
     private int _currentHealth;
@@ -13,6 +15,8 @@ public class Health : MonoBehaviour {
     void Start()
     {
         _currentHealth = startHealth;
+        gm = FindObjectOfType<GameManager>();
+        onDeath.AddListener(gm.GameOver);
     }
 
     public void initialize(int startHealth)
@@ -27,7 +31,7 @@ public class Health : MonoBehaviour {
 
         if(_currentHealth == 0)
         {
-            SceneManager.LoadScene(0);
+            onDeath.Invoke();
         }
     }
 

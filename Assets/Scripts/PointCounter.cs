@@ -22,10 +22,10 @@ public class PointCounter : MonoBehaviour {
 	void Update () {
         float elapsed = Time.deltaTime;
 
-        Debug.Log(elapsed);
-        Debug.Log(points);
+        //Debug.Log(elapsed);
+        //Debug.Log(points);
 
-        _points += (int) (elapsed * (Math.Pow(2, balls)-1) * 1000);
+        _points += (int) (elapsed * (Math.Pow(2, balls)-1)*100);
 
         text.text = ""+points;
 	}
