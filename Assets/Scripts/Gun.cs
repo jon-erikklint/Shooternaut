@@ -1,25 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using System;
 
-public class Gun : MonoBehaviour {
+public abstract class Gun : Activateable
+{
 
     public Projectile projectile;
     public GameObject owner;
-    public UnityEvent onShoot;
+    public float knockBack;
 
-	// Use this for initialization
-	void Start () {
-	    
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns>true if shoots, flase otherwise</returns>
+    ///
 
-    void Shoot()
+    public override bool Act()
     {
-        onShoot.Invoke();
+        return Shoot();
+    }
+
+    public abstract bool Shoot();
+
+    public void KnockBack()
+    {
+        Vector3 dir = owner.transform.right.normalized;
+        owner.GetComponent<Rigidbody2D>().AddForce(knockBack * dir);
     }
 }
