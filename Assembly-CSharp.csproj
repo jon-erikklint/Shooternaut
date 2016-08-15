@@ -45,17 +45,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Activateables\Activateable.cs" />
+     <Compile Include="Assets\Scripts\Activateables\Guns\CooldownGun.cs" />
+     <Compile Include="Assets\Scripts\Activateables\Guns\Gun.cs" />
+     <Compile Include="Assets\Scripts\Activateables\Guns\NormalGun.cs" />
+     <Compile Include="Assets\Scripts\Activateables\Guns\ProjectileGun.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\PointCounter.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
-     <Compile Include="Assets\Scripts\Triggerit\ListaTriggerer.cs" />
-     <Compile Include="Assets\Scripts\Triggerit\Objekti.cs" />
-     <Compile Include="Assets\Scripts\Triggerit\Tapahtuma.cs" />
-     <Compile Include="Assets\Scripts\Triggerit\TapahtumaHandler.cs" />
-     <Compile Include="Assets\Scripts\Triggerit\Triggerer.cs" />
+     <Compile Include="Assets\Scripts\UI\CameraHandler.cs" />
+     <Compile Include="Assets\Scripts\UI\PointCounter.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
