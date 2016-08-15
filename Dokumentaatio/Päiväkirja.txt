@@ -42,3 +42,13 @@ Osama
 15.8.2016 13:08
 ---
 Räjähtävät ammukset tehty
+
+
+____________________________
+
+Jore
+15.8.2016 15:55
+---
+Ammusten rajapinnat tehty kunnolla, Prefabeja tehty 
+environmettia ja uusia scenejä varten, refaktorointia
+ja uusi pieni testikartta
