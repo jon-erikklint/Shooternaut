@@ -46,9 +46,20 @@ Räjähtävät ammukset tehty
 
 ____________________________
 
+
 Jore
 15.8.2016 15:55
 ---
 Ammusten rajapinnat tehty kunnolla, Prefabeja tehty 
 environmettia ja uusia scenejä varten, refaktorointia
 ja uusi pieni testikartta
+
+____________________________
+
+Jore & Osama
+15.8.2016 23:45
+---
+Button lisätty, ensimmäinen kunnon testikenttä,
+Destructable-luokka tehty, yleistä refaktorointia,
+Spikes lisätty, törmäyskäsittely korjattu,
+kananmunanuudelia syöty.
