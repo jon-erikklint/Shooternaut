@@ -50,6 +50,8 @@
      <Compile Include="Assets\Scripts\Activateables\Guns\Gun.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\NormalGun.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\ProjectileGun.cs" />
+     <Compile Include="Assets\Scripts\Activateables\Projectiles\ExplosiveProjectile.cs" />
+     <Compile Include="Assets\Scripts\Explosion.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
