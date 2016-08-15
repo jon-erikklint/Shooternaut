@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+        if(player == null)
+        {
+            player = FindObjectOfType<Player>();
+        }
+        
         UnityEvent playerDies = player.GetComponent<Health>().onDeath;
         playerDies.AddListener(GameOver);
     }
