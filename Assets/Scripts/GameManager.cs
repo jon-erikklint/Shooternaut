@@ -29,4 +29,12 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Game Over!");
         SceneManager.LoadScene(0);
     }
+
+    void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
 }
