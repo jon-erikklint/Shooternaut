@@ -65,10 +65,10 @@ public class Health : Destroyable{
         onDeath.Invoke();
     }
 
-    public override void Destroy()
+    public override void DestroySelf()
     {
         Die();
-        base.Destroy();
+        base.DestroySelf();
     }
 
 }

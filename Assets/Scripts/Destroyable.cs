@@ -3,13 +3,13 @@ using System.Collections;
 
 public class Destroyable : MonoBehaviour {
 
-	public virtual void Destroy()
+	public virtual void DestroySelf()
     {
         Destroy(this.gameObject);
     }
 
-    public void Destroy(float time)
+    public void DestroySelf(float time)
     {
-        Invoke("Destroy", time);
+        Invoke("DestroySelf", time);
     }
 }
