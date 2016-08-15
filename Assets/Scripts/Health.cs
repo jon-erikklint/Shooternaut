@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using System.Collections;
 using System;
 
-public class Health : MonoBehaviour {
+public class Health : Destroyable{
 
     public float startHealth = 0;
     public UnityEvent onDeath;
@@ -63,6 +63,12 @@ public class Health : MonoBehaviour {
     public void Die()
     {
         onDeath.Invoke();
+    }
+
+    public override void Destroy()
+    {
+        Die();
+        base.Destroy();
     }
 
 }

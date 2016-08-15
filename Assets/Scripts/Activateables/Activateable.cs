@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Activateable : MonoBehaviour {
+public abstract class Activateable : Destroyable {
 
     public Player owner;
 

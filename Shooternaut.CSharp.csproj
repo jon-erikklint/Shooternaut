@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Activateables\Guns\Gun.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\NormalGun.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\ProjectileGun.cs" />
+    <Compile Include="Assets\Scripts\Destroyable.cs" />
     <Compile Include="Assets\Scripts\Environment\Buttons\Button.cs" />
     <Compile Include="Assets\Scripts\Environment\Buttons\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Environment\Exit.cs" />

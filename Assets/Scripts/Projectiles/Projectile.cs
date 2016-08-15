@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Projectile : MonoBehaviour
+public abstract class Projectile : Destroyable
 {
     public abstract int Damage();
 
@@ -17,8 +17,13 @@ public abstract class Projectile : MonoBehaviour
 
         if (GetsDestroyed(col.collider.tag))
         {
-            OnDestruction();
-            Destroy(this.gameObject, 0.01f);
+            Destroy();
         }
+    }
+
+    public override void Destroy()
+    {
+        OnDestruction();
+        Destroy(this.gameObject, 0.01f);
     }
 }
