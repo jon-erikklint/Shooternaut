@@ -3,11 +3,10 @@ using System.Collections;
 
 public class CameraHandler : MonoBehaviour {
 
-    public float howFarAway = -10f;
-    public float smoothness = 7.0f;
-    public float mouseSensitivity = 0.2f;
-    public float maxLookDistance = 1.0f;
-    public bool inverse = false;
+    public float howFarAway = -10f;         // How high the camera is
+    public float smoothness = 7.0f;         // How smooth the camera moves - lower value, smoother camera
+    public float mouseSensitivity = 0.1f;   // How strongly camera reacts to mouse position. Must be within range ]-1,1[
+    public bool inverse = false;            // Look towards movement, if true
 
     private Transform playerTransform;
     private Transform cameraTransform;
@@ -38,6 +37,6 @@ public class CameraHandler : MonoBehaviour {
 
         Vector3 lookingVector = mousePosition - playerTransform.position;
 
-        cameraTransform.localPosition += (lookingVector).normalized * Mathf.Min(lookingVector.magnitude*mouseSensitivity, maxLookDistance);
+        cameraTransform.localPosition += lookingVector * mouseSensitivity;
     }
 }
