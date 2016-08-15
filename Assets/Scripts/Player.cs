@@ -7,12 +7,12 @@ public class Player : MonoBehaviour
 {
     public Activateable mouseLeft;
     public Activateable mouseRight;
-    
-    private Health health;
+
+    public Health health;
 
     void Start()
     {
-        health = this.GetComponent<Health>();
+        health = GetComponent<Health>();
     }
 
     void Update()
@@ -34,19 +34,6 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             mouseRight.Act();
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(health == null)
-        {
-            return;
-        }
-
-        if (collision.gameObject.tag.Equals("bullet"))
-        {
-            health.loseHealth(1);
         }
     }
 }

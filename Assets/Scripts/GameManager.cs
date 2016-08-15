@@ -15,10 +15,16 @@ public class GameManager : MonoBehaviour {
         }
         
         UnityEvent playerDies = player.GetComponent<Health>().onDeath;
-        playerDies.AddListener(GameOver);
+        playerDies.AddListener(Defeat);
     }
 
-	public void GameOver ()
+    public void Victory()
+    {
+        Debug.Log("Victory!");
+        SceneManager.LoadScene(0);
+    }
+
+	public void Defeat ()
     {
         Debug.Log("Game Over!");
         SceneManager.LoadScene(0);

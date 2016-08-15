@@ -14,7 +14,7 @@ public class Exit : MonoBehaviour {
     {
         if (other.tag.Equals("Player"))
         {
-            gameManager.GameOver();
+            gameManager.Victory();
         }
     }
 }

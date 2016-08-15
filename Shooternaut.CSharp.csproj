@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\Projectiles\NormalProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\OnDeathCreatorProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Spikes.cs" />
     <Compile Include="Assets\Scripts\UI\CameraHandler.cs" />
     <Compile Include="Assets\Scripts\UI\PointCounter.cs" />
   </ItemGroup>

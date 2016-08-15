@@ -36,8 +36,33 @@ public class Health : MonoBehaviour {
 
         if(_currentHealth <= 0)
         {
-            onDeath.Invoke();
+            Die();
         }
+    }
+
+    public void setHealth(float amount)
+    {
+        _currentHealth = Math.Max(Math.Min(startHealth, amount), 0);
+        
+        if(_currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Bullet"))
+        {
+            Projectile proj = collision.gameObject.GetComponent<Projectile>();
+
+            loseHealth(proj.Damage());
+        }
+    }
+
+    public void Die()
+    {
+        onDeath.Invoke();
     }
 
 }
