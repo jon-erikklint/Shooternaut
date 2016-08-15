@@ -12,4 +12,10 @@ public class Button : MonoBehaviour {
         if (tagList.Contains(col.gameObject.tag))
             onPress.Invoke();
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (tagList.Contains(col.gameObject.tag))
+            onPress.Invoke();
+    }
 }
