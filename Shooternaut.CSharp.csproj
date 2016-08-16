@@ -75,13 +75,23 @@
     <Compile Include="Assets\Scripts\Environment\Explosion.cs" />
     <Compile Include="Assets\Scripts\Environment\Spikes.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Gamemode\Achievements\Achievement.cs" />
+    <Compile Include="Assets\Scripts\Gamemode\Conditions\Condition.cs" />
+    <Compile Include="Assets\Scripts\Gamemode\Conditions\Speedrun.cs" />
+    <Compile Include="Assets\Scripts\Gamemode\Conditions\Survival.cs" />
+    <Compile Include="Assets\Scripts\Gamemode\Gamemode.cs" />
+    <Compile Include="Assets\Scripts\Gamemode\Objectives\ExitReached.cs" />
+    <Compile Include="Assets\Scripts\Gamemode\Objectives\Objective.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Projectiles\MultipleHitProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\NormalProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\OnDeathCreatorProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\Projectile.cs" />
+    <Compile Include="Assets\Scripts\RespawnManager.cs" />
+    <Compile Include="Assets\Scripts\RespawnPoint.cs" />
     <Compile Include="Assets\Scripts\UI\CameraHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\KeyboardListener.cs" />
     <Compile Include="Assets\Scripts\UI\PointCounter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

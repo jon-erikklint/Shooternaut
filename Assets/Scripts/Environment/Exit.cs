@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Exit : MonoBehaviour {
 
-    private GameManager gameManager;
+    public UnityEvent exitReached;
 
-    void Start()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
-
-	void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag.Equals("Player"))
         {
-            gameManager.Victory();
+            exitReached.Invoke();
         }
     }
 }

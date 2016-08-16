@@ -22,6 +22,8 @@ public class CameraHandler : MonoBehaviour {
         camera = cameraTransform.GetComponent<Camera>();
         camera.orthographicSize = howFarAway;
         z = transform.position.z;
+
+        this.transform.position = playerTransform.position;
     }
     
 	void FixedUpdate () {

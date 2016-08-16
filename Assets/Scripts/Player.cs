@@ -5,6 +5,10 @@ using System;
 
 public class Player : MonoBehaviour
 {
+    public UnityEvent playerActs;
+
+    public RespawnManager respawnPoint;
+
     public Activateable mouseLeft;
     public Activateable mouseRight;
 
@@ -29,11 +33,13 @@ public class Player : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             mouseLeft.Act();
+            playerActs.Invoke();
         }
 
         if (Input.GetMouseButtonDown(1))
         {
             mouseRight.Act();
+            playerActs.Invoke();
         }
     }
 }

@@ -6,6 +6,10 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour {
 
     public Player player;
+    public Gamemode gamemode;
+    public RespawnManager respawnManager;
+
+    public RespawnPoint start;
 
     void Start()
     {
@@ -13,9 +17,8 @@ public class GameManager : MonoBehaviour {
         {
             player = FindObjectOfType<Player>();
         }
-        
-        UnityEvent playerDies = player.GetComponent<Health>().onDeath;
-        playerDies.AddListener(Defeat);
+
+        respawnManager.SetSpawnpoint(start);
     }
 
     public void Victory()
@@ -26,15 +29,25 @@ public class GameManager : MonoBehaviour {
 
 	public void Defeat ()
     {
-        Debug.Log("Game Over!");
+        Debug.Log("Loser!");
         SceneManager.LoadScene(0);
     }
 
     void Update()
     {
-        if (Input.GetKey("escape"))
+        if (!gamemode.hasStarted)
         {
-            Application.Quit();
+            return;
+        }
+
+        if (gamemode.Victory())
+        {
+            Victory();
+        }
+
+        if (gamemode.Defeat())
+        {
+            Defeat();
         }
     }
 }

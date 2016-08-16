@@ -60,15 +60,14 @@ public class Health : Destroyable{
         }
     }
 
+    public void Reset()
+    {
+        _currentHealth = startHealth;
+    }
+
     public void Die()
     {
         onDeath.Invoke();
-    }
-
-    public override void DestroySelf()
-    {
-        Die();
-        base.DestroySelf();
     }
 
 }

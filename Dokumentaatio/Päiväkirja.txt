@@ -71,3 +71,15 @@ Osama
 ---
 Kamera zoomaa ulos liikkuessa, kamera seuraa
 hiirtä pehmeästi.
+
+____________________________
+
+Jore
+16.8.2016 17:36
+---
+Erilaiset pelimuodot mahdollistettu. Tähän liittyen
+tehty objektivet (kun nämä on toteutettu, peli
+loppuu), conditionit (jos tämä epäonnistuu, peli
+loppuu ja häviät) ja achievementit (ekstratehtäviä).
+Lisäksi respawnaussysteemi tehty ja spawnpointit
+lisätty.
