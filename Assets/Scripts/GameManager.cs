@@ -18,7 +18,24 @@ public class GameManager : MonoBehaviour {
             player = FindObjectOfType<Player>();
         }
 
+        if(gamemode == null)
+        {
+            gamemode = FindObjectOfType<Gamemode>();
+        }
+
+        if(respawnManager == null)
+        {
+            respawnManager = FindObjectOfType<RespawnManager>();
+        }
+
         respawnManager.SetSpawnpoint(start);
+
+    }
+
+    public void Reset()
+    {
+        Debug.Log("Resetted!");
+        SceneManager.LoadScene(0);
     }
 
     public void Victory()

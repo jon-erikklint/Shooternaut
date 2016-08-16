@@ -2,46 +2,56 @@
 using System.Collections;
 using System;
 
-public class Speedrun : MonoBehaviour, Condition
+public class Speedrun : Condition
 {
     public float TimeLimit;
 
-    private float startTime;
+    private float? startTime;
     private float? endTime;
 
-    public string Name()
+    public override string Name()
     {
         return "Gotta go fast!";
     }
 
-    public string Description()
+    public override string Description()
     {
         return "Complete other objectives before time runs out!";
     }
 
-    public void Begin()
+    public override void Begin()
     {
         startTime = Time.time;
         endTime = null;
     }
 
-    public void End()
+    public override void End()
     {
         endTime = Time.time;
     }
 
-    public bool Lost()
+    public override bool Lost()
     {
         return TimeLeft() < 0;
     }
 
     public float TimeLeft()
     {
-        if(endTime != null)
+        if(startTime == null)
         {
-            return TimeLimit - (float) endTime + startTime;
+            return TimeLimit;
         }
 
-        return TimeLimit - Time.time + startTime;
+        if(endTime != null)
+        {
+            return TimeLimit - (float) endTime + (float) startTime;
+        }
+
+        return TimeLimit - Time.time + (float) startTime;
+    }
+
+    public override void initialize(GameObject uiElement)
+    {
+        uiElement.GetComponentInChildren<SpeedrunClock>().speedrun = this;
     }
 }

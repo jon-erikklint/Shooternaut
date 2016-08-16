@@ -91,6 +91,8 @@
     <Compile Include="Assets\Scripts\RespawnManager.cs" />
     <Compile Include="Assets\Scripts\RespawnPoint.cs" />
     <Compile Include="Assets\Scripts\UI\CameraHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\Conditions\SpeedrunClock.cs" />
+    <Compile Include="Assets\Scripts\UI\Conditions\SurvivalLives.cs" />
     <Compile Include="Assets\Scripts\UI\KeyboardListener.cs" />
     <Compile Include="Assets\Scripts\UI\PointCounter.cs" />
   </ItemGroup>

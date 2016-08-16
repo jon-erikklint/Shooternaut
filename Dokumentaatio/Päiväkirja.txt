@@ -83,3 +83,12 @@ loppuu), conditionit (jos tämä epäonnistuu, peli
 loppuu ja häviät) ja achievementit (ekstratehtäviä).
 Lisäksi respawnaussysteemi tehty ja spawnpointit
 lisätty.
+
+____________________________
+
+Jore
+16.8.2016 21:21
+---
+Speedrunille ja survivalille tehty ui-elementit.
+Lisäksi päivitetty pelimuotoprefab-rakenne ja siihen'
+liittyen hiukan skriptejä. R-niinkuni ragereset lisätty.

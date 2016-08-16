@@ -15,9 +15,9 @@ public class Gamemode: MonoBehaviour{
 
     void Start()
     {
-        objectives = new List<Objective>(GetComponents<Objective>());
-        conditions = new List<Condition>(GetComponents<Condition>());
-        achievements = new List<Achievement>(GetComponents<Achievement>());
+        objectives = new List<Objective>(GetComponentsInChildren<Objective>());
+        conditions = new List<Condition>(GetComponentsInChildren<Condition>());
+        achievements = new List<Achievement>(GetComponentsInChildren<Achievement>());
 
         player = FindObjectOfType<Player>();
         player.playerActs.AddListener(Begin);

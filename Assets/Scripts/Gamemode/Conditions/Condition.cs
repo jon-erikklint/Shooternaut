@@ -1,13 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface Condition{
+public abstract class Condition: MonoBehaviour{
 
-    void Begin();
-    void End();
+    public abstract void Begin();
+    public abstract void End();
 
-    string Name();
-    string Description();
+    public abstract string Name();
+    public abstract string Description();
 
-    bool Lost();
+    public abstract bool Lost();
+
+    void Start()
+    {
+        initializeUI();
+    }
+
+    public void initializeUI()
+    {
+        GameObject uiElement = transform.GetChild(0).gameObject;
+        uiElement.transform.SetParent(GameObject.Find("Canvas").transform, false);
+
+        initialize(uiElement);
+    }
+
+    public abstract void initialize(GameObject uiElement);
 }

@@ -2,32 +2,32 @@
 using System.Collections;
 using System;
 
-public class Survival : MonoBehaviour, Condition
+public class Survival : Condition
 {
     public int lives;
 
-    public string Name()
+    public override string Name()
     {
         return "Survive to the end!";
     }
 
-    public string Description()
+    public override string Description()
     {
         return "Survive to the end without losing all of your " + lives + " lives.";
     }
 
-    public bool Lost()
+    public override bool Lost()
     {
         return lives <= 0;
     }
 
-    public void End(){}
+    public override void End(){}
 
-    public void Begin(){}
+    public override void Begin(){}
 
-    void Start()
+    public override void initialize(GameObject uiElement)
     {
-        RespawnManager rm = FindObjectOfType<RespawnManager>();
-        rm.survival = this;
+        FindObjectOfType<RespawnManager>().survival = this;
+        uiElement.GetComponentInChildren<SurvivalLives>().survival = this;
     }
 }
