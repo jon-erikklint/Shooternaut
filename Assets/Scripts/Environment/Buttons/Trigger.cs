@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using System.Collections.Generic;
 
-public class Button : MonoBehaviour {
+public class Trigger : MonoBehaviour {
 
     public UnityEvent onPress;
     public List<string> tagList;

@@ -41,13 +41,13 @@ public class GameManager : MonoBehaviour {
     public void Victory()
     {
         Debug.Log("Victory!");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 	public void Defeat ()
     {
         Debug.Log("Loser!");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void Update()

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class KeyboardListener : MonoBehaviour {
 
@@ -12,6 +13,11 @@ public class KeyboardListener : MonoBehaviour {
         if (Input.GetKey(KeyCode.R))
         {
             FindObjectOfType<GameManager>().Reset();
+        }
+
+        if (Input.GetKey(KeyCode.M))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

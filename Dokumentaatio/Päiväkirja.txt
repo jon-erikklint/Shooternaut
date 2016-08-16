@@ -92,3 +92,10 @@ Jore
 Speedrunille ja survivalille tehty ui-elementit.
 Lis‰ksi p‰ivitetty pelimuotoprefab-rakenne ja siihen'
 liittyen hiukan skriptej‰. R-niinkuni ragereset lis‰tty.
+
+____________________________
+
+Jore
+16.8.2016 23:12
+---
+Alkumenu tehty, M:st‰ p‰‰see takaisin siihen.
