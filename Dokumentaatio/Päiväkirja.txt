@@ -63,3 +63,11 @@ Button lisätty, ensimmäinen kunnon testikenttä,
 Destructable-luokka tehty, yleistä refaktorointia,
 Spikes lisätty, törmäyskäsittely korjattu,
 kananmunanuudelia syöty.
+
+____________________________
+
+Osama
+16.8.2016 09:08
+---
+Kamera zoomaa ulos liikkuessa, kamera seuraa
+hiirtä pehmeästi.
