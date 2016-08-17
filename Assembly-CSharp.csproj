@@ -50,6 +50,10 @@
      <Compile Include="Assets\Scripts\Activateables\Guns\Gun.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\NormalGun.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\ProjectileGun.cs" />
+     <Compile Include="Assets\Scripts\Actors\Actor.cs" />
+     <Compile Include="Assets\Scripts\Actors\Player.cs" />
+     <Compile Include="Assets\Scripts\Actors\Shooter.cs" />
+     <Compile Include="Assets\Scripts\Actors\TurningShooter.cs" />
      <Compile Include="Assets\Scripts\Destroyable.cs" />
      <Compile Include="Assets\Scripts\Environment\Buttons\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Environment\Buttons\Trigger.cs" />
@@ -70,10 +74,12 @@
      <Compile Include="Assets\Scripts\Gamemode\Conditions\Survival.cs" />
      <Compile Include="Assets\Scripts\Gamemode\Gamemode.cs" />
      <Compile Include="Assets\Scripts\Gamemode\Objectives\ExitReached.cs" />
+     <Compile Include="Assets\Scripts\Gamemode\Objectives\NoObjectives.cs" />
      <Compile Include="Assets\Scripts\Gamemode\Objectives\Objective.cs" />
-     <Compile Include="Assets\Scripts\Health.cs" />
+     <Compile Include="Assets\Scripts\Health\Health.cs" />
+     <Compile Include="Assets\Scripts\Health\HealthInterface.cs" />
+     <Compile Include="Assets\Scripts\Health\InfiteHealth.cs" />
      <Compile Include="Assets\Scripts\OnRespawn.cs" />
-     <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Projectiles\EnvironmentMine.cs" />
      <Compile Include="Assets\Scripts\Projectiles\MultipleHitProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\NormalProjectile.cs" />
@@ -84,9 +90,11 @@
      <Compile Include="Assets\Scripts\UI\Conditions\SpeedrunClock.cs" />
      <Compile Include="Assets\Scripts\UI\Conditions\SurvivalLives.cs" />
      <Compile Include="Assets\Scripts\UI\KeyboardListener.cs" />
-     <Compile Include="Assets\Scripts\UI\Menu\MapButton.cs" />
      <Compile Include="Assets\Scripts\UI\Menu\MapOptions.cs" />
+     <Compile Include="Assets\Scripts\UI\Menu\PlayMapButton.cs" />
      <Compile Include="Assets\Scripts\UI\PointCounter.cs" />
+     <Compile Include="Assets\Scripts\UI\ReturnToMenu.cs" />
+     <Compile Include="Assets\Scripts\UI\ShowHealth.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

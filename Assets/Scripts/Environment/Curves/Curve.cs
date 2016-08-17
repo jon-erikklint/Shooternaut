@@ -38,10 +38,6 @@ public abstract class Curve : MonoBehaviour {
     public virtual Vector3 PointAtTime(float t)
     {
         float x = startSpeed * t + 0.5f * acceleration * t * t;
-        if(x > length)
-        {
-            Debug.Log(acceleration);
-        }
         return PointAt(x / length);
     }
 

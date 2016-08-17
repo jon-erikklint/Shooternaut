@@ -24,13 +24,11 @@ public class Line : Curve {
     {
         v0 = startingPoint.transform.position;
         v1 = endPoint.transform.position;
-        print("moi1");
+
         Destroy(startingPoint.gameObject);
         Destroy(endPoint.gameObject);
-        print("moi2");
 
         base.Init();
-        print("moi3");
     }
 
     protected override float CalculateLength()

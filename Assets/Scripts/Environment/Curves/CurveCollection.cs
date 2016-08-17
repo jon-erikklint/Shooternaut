@@ -18,7 +18,6 @@ public class CurveCollection : Curve
         InitializeStartingLists();
         _length = CalculateLength();
         _time = CalculateTime();
-        print(_time + ", " + _length);
     }
 
     void InitializeStartingLists()
@@ -45,7 +44,6 @@ public class CurveCollection : Curve
         float result = 0.0f;
         foreach (Curve curve in curves)
         {
-            print("len: " + curve.length);
             result += curve.length;
         }
         return result;
@@ -70,7 +68,6 @@ public class CurveCollection : Curve
     {
         int i = BinarySearch(startingTimes, t);
         float t2 = t - startingTimes[i];
-        print(t + ", " + startingTimes[i] + ", " + curves[i].PointAtTime(t2));
         return curves[i].PointAtTime(t2);
     }
 
@@ -91,10 +88,8 @@ public class CurveCollection : Curve
         int i = list.Count-1;
         while (i > 0 && list[i] > value)
         {
-
             i--;
         }
-        print(i + ", " + list[i] + ", " + value);
         return i;
     }
 }
