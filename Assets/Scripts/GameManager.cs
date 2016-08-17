@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour {
     public void Victory()
     {
         Debug.Log("Victory!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
     }
 
 	public void Defeat ()

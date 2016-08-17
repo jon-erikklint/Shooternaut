@@ -110,3 +110,12 @@ Heleille tehty interface ja kuolemien vastuu pois.
 Luotu Actor jolla on helet ja vastaa kuolemista.
 Luotu shooter, joka on actor gunilla. Pyörivä shooter
 luotu myös.
+
+____________________________
+
+Jore
+17.8.2016 20:38
+---
+Voittoruutu tehty, ja siihen ja siitä liikkumiset 
+toteutettu. Bugi jonka vuoksi respawnit ei toimineet
+korjattu.

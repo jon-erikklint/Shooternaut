@@ -106,9 +106,10 @@
     <Compile Include="Assets\Scripts\UI\Conditions\SpeedrunClock.cs" />
     <Compile Include="Assets\Scripts\UI\Conditions\SurvivalLives.cs" />
     <Compile Include="Assets\Scripts\UI\KeyboardListener.cs" />
-    <Compile Include="Assets\Scripts\UI\Menu\MapButton.cs" />
     <Compile Include="Assets\Scripts\UI\Menu\MapOptions.cs" />
+    <Compile Include="Assets\Scripts\UI\Menu\PlayMapButton.cs" />
     <Compile Include="Assets\Scripts\UI\PointCounter.cs" />
+    <Compile Include="Assets\Scripts\UI\ReturnToMenu.cs" />
     <Compile Include="Assets\Scripts\UI\ShowHealth.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

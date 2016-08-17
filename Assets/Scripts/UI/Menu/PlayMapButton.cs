@@ -3,23 +3,19 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MapButton : MonoBehaviour {
-
-    private Button button;
+public class PlayMapButton : MonoBehaviour {
 
     private Dropdown choice;
 
     void Start()
     {
-        button = GetComponent<Button>();
-        
-        button.onClick.AddListener(SelectMap);
+        GetComponent<Button>().onClick.AddListener(SelectMap);
 
         choice = FindObjectOfType<Dropdown>();
     }
 
     public void SelectMap()
     {
-        SceneManager.LoadScene(choice.value+1);
+        SceneManager.LoadScene(choice.value+2);
     }
 }

@@ -11,9 +11,21 @@ public class RespawnManager : MonoBehaviour {
 
     void Start()
     {
+        AddRespawnPointListeners();
+
         player = FindObjectOfType<Player>();
 
         player.playerDies.AddListener(TryRespawn);
+    }
+
+    private void AddRespawnPointListeners()
+    {
+        RespawnPoint[] respawns = FindObjectsOfType<RespawnPoint>();
+
+        foreach(RespawnPoint respawn in respawns)
+        {
+            respawn.respawnPointReached.AddListener(SetSpawnpoint);
+        }
     }
 
     public void SetSpawnpoint(RespawnPoint newSpawnpoint)
