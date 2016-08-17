@@ -5,6 +5,13 @@ public abstract class Projectile : Destroyable
 {
     private bool isBeingDestroyed = false;
 
+    void Start()
+    {
+        init();
+    }
+
+    public abstract void init();
+
     public abstract int Damage();
 
     public abstract void OnHit();

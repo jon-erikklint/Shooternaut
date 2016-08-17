@@ -30,7 +30,7 @@ public class RespawnManager : MonoBehaviour {
         }
 
         RemoveBullets();
-
+        ResetHazards();
         ResetPlayer();
     }
 
@@ -53,6 +53,20 @@ public class RespawnManager : MonoBehaviour {
         }
 
         return survival.lives > 0;
+    }
+
+    private void ResetHazards()
+    {
+        
+
+        OnRespawn[] activated = FindObjectsOfType<OnRespawn>();
+
+        Debug.Log(activated.Length);
+
+        foreach (OnRespawn activate in activated)
+        {
+            activate.onRespawn.Invoke();
+        }
     }
 
     private void RemoveBullets()

@@ -10,7 +10,7 @@ public class NormalProjectile : Projectile
 
     public HashSet<string> tagsThatDestroyThis;
 
-    void Start()
+    public override void init()
     {
         initialize(destroyerTags);
     }

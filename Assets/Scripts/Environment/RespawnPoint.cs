@@ -6,7 +6,9 @@ using System;
 [Serializable]
 public class SpawnpointEvent : UnityEvent<RespawnPoint> { }
 
-public class RespawnPoint : MonoBehaviour {
+public class RespawnPoint : MonoBehaviour{
+
+    public int id;
 
     public Vector3 spawnpoint;
 
@@ -30,4 +32,8 @@ public class RespawnPoint : MonoBehaviour {
         }
     }
 
+    public int GetIndex()
+    {
+        return id;
+    }
 }
