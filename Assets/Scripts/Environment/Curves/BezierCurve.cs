@@ -19,7 +19,7 @@ public class BezierCurve: WayPointCurve {
         pallo.transform.position = PointAt(t);
     }
 
-    public override float CalculateLength()
+    protected override float CalculateLength()
     {
         return len;
     }
