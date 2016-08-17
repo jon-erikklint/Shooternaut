@@ -19,5 +19,10 @@ public class KeyboardListener : MonoBehaviour {
         {
             SceneManager.LoadScene(0);
         }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            FindObjectOfType<RespawnManager>().TryRespawn();
+        }
     }
 }

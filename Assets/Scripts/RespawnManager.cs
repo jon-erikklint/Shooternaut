@@ -28,9 +28,15 @@ public class RespawnManager : MonoBehaviour {
         {
             survival.lives--;
         }
-
+        
         RemoveBullets();
-        ResetHazards();
+        RemoveExplosions();
+        Invoke("ResetScriptsAndPlayer", 0.05f);
+    }
+
+    private void ResetScriptsAndPlayer()
+    {
+        ResetScripts();
         ResetPlayer();
     }
 
@@ -42,7 +48,6 @@ public class RespawnManager : MonoBehaviour {
 
         player.transform.position = spawnpoint.spawnpoint;
         player.transform.localRotation = Quaternion.identity;
-
     }
 
     public bool CanRespawn()
@@ -55,13 +60,9 @@ public class RespawnManager : MonoBehaviour {
         return survival.lives > 0;
     }
 
-    private void ResetHazards()
+    private void ResetScripts()
     {
-        
-
         OnRespawn[] activated = FindObjectsOfType<OnRespawn>();
-
-        Debug.Log(activated.Length);
 
         foreach (OnRespawn activate in activated)
         {
@@ -69,13 +70,28 @@ public class RespawnManager : MonoBehaviour {
         }
     }
 
+    private void RemoveExplosions()
+    {
+        GameObject[] explosions = GameObject.FindGameObjectsWithTag("Explosion");
+
+        for (int i = explosions.Length - 1; i >= 0; i--)
+        {
+            explosions[i].GetComponent<Destroyable>().DestroySelf();
+        }
+    }
+
     private void RemoveBullets()
     {
         GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Bullet");
 
-        for(int i = projectiles.Length - 1 ; i >= 0; i--)
+        DestroyAll(projectiles);
+    }
+
+    private void DestroyAll(GameObject[] destroy)
+    {
+        for (int i = destroy.Length - 1; i >= 0; i--)
         {
-            Destroy(projectiles[i]);
+            Destroy(destroy[i]);
         }
     }
 }

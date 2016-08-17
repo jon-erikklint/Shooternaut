@@ -5,7 +5,7 @@ public class Destroyable : MonoBehaviour {
 
 	public virtual void DestroySelf()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     public void DestroySelf(float time)

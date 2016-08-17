@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class Explosion : MonoBehaviour {
+public class Explosion : Destroyable {
 
     public float maxDamage;
 
@@ -28,6 +28,7 @@ public class Explosion : MonoBehaviour {
         float deltaTime = Time.time - birth;
         while(deltaTime <= duration)
         {
+            
             deltaTime = Time.time - birth;
             col.radius = radius * deltaTime / duration;
             yield return null;
@@ -54,5 +55,11 @@ public class Explosion : MonoBehaviour {
         float damageDealt = maxDamage * (Time.deltaTime/duration);
 
         health.loseHealth(damageDealt);
+    }
+
+    public override void DestroySelf()
+    {
+        StopAllCoroutines();
+        base.DestroySelf();
     }
 }

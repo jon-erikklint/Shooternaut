@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
     public void Reset()
     {
         Debug.Log("Resetted!");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Victory()
