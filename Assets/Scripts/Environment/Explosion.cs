@@ -42,19 +42,19 @@ public class Explosion : Destroyable {
         Vector3 displacement = other.transform.position - transform.position;
         other.GetComponent<Rigidbody2D>().AddForce(displacement/displacement.sqrMagnitude * energy/duration);
 
-        reduceHealth(other.GetComponent<Health>());
+        DoDamage(other.GetComponent<Actor>());
     }
 
-    private void reduceHealth(Health health)
+    private void DoDamage(Actor actor)
     {
-        if(health == null)
+        if(actor == null)
         {
             return;
         }
 
         float damageDealt = maxDamage * (Time.deltaTime/duration);
 
-        health.loseHealth(damageDealt);
+        actor.LoseHealth(damageDealt);
     }
 
     public override void DestroySelf()

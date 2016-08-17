@@ -9,6 +9,13 @@ public class RespawnManager : MonoBehaviour {
     public Player player;
     public Survival survival;
 
+    void Start()
+    {
+        player = FindObjectOfType<Player>();
+
+        player.playerDies.AddListener(TryRespawn);
+    }
+
     public void SetSpawnpoint(RespawnPoint newSpawnpoint)
     {
         spawnpoint = newSpawnpoint;

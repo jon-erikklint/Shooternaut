@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class Activateable : Destroyable {
 
-    public Player owner;
+    public Actor owner;
 
     public abstract bool Act();
 

@@ -99,3 +99,14 @@ Jore
 16.8.2016 23:12
 ---
 Alkumenu tehty, M:stä pääsee takaisin siihen.
+
+____________________________
+
+Jore
+17.8.2016 19:43
+---
+Respawnatessa miinat resetoituu ja räjähdykset tuhoutuu.
+Heleille tehty interface ja kuolemien vastuu pois.
+Luotu Actor jolla on helet ja vastaa kuolemista.
+Luotu shooter, joka on actor gunilla. Pyörivä shooter
+luotu myös.

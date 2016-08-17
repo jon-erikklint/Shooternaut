@@ -13,7 +13,7 @@ public class PointCounter : MonoBehaviour {
     private Text text;
 	
 	void Start () {
-        FindObjectOfType<Player>().GetComponent<Health>().onDamageTaken.AddListener(ballRemoved);
+        //FindObjectOfType<Player>().GetComponent<Health>().onDamageTaken.AddListener(ballRemoved);
 
         balls = 0;
         _points = 0;

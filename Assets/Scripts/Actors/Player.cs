@@ -3,8 +3,9 @@ using UnityEngine.Events;
 using System.Collections;
 using System;
 
-public class Player : MonoBehaviour
+public class Player : Actor
 {
+    public UnityEvent playerDies;
     public UnityEvent playerActs;
 
     public RespawnManager respawnPoint;
@@ -12,12 +13,7 @@ public class Player : MonoBehaviour
     public Activateable mouseLeft;
     public Activateable mouseRight;
 
-    public Health health;
-
-    void Start()
-    {
-        health = GetComponent<Health>();
-    }
+    public override void init(){}
 
     void Update()
     {
@@ -41,5 +37,16 @@ public class Player : MonoBehaviour
             mouseRight.Act();
             playerActs.Invoke();
         }
+    }
+
+    public override void DestroySelf()
+    {
+        Debug.Log("DIE");
+        playerDies.Invoke();
+    }
+
+    public override bool Hit(string tag)
+    {
+        return tag.Equals("Bullet");
     }
 }

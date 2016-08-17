@@ -16,7 +16,6 @@ public class CameraHandler : MonoBehaviour {
     private float z;
     void Start()
     {
-        Debug.Log("Start!");
         playerTransform = FindObjectOfType<Player>().transform;
         cameraTransform = transform.Find("Main Camera");
         camera = cameraTransform.GetComponent<Camera>();
