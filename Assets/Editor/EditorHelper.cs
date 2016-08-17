@@ -10,7 +10,7 @@ public static class EditorHelper {
 
     public static void RemoveNullReferences<T>(List<T> list)
     {
-        list.RemoveAll(element => IsNullReference(element));
+        list.RemoveAll(element => System.Object.ReferenceEquals(element, null));
     }
 
     public static GameObject CreateSphereIfNull(GameObject obj, string name, Vector3 pos)

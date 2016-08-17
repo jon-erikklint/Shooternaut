@@ -16,14 +16,14 @@ public abstract class Curve : MonoBehaviour {
     [HideInInspector]
     public float acceleration { get { return _acceleration; } }
 
-    private float _length;
-    private float _time;
-    private float _acceleration;
+    protected float _length;
+    protected float _time;
+    protected float _acceleration;
     
     public abstract Vector3 PointAt(float x);
     protected abstract float CalculateLength();
 
-    void Start()
+    void Awake()
     {
         Init();
     }
@@ -31,26 +31,35 @@ public abstract class Curve : MonoBehaviour {
     protected virtual void Init()
     {
         _length = CalculateLength();
-        _time = (startSpeed + endSpeed) * length / 2;
-        _acceleration = 2 * (endSpeed - startSpeed) / (length * (endSpeed + startSpeed));
+        _time = CalculateTime();
+        _acceleration = (endSpeed * endSpeed - startSpeed * startSpeed) / (2 * length);
     }
 
-    protected virtual Vector3 PointAtTime(float t)
+    public virtual Vector3 PointAtTime(float t)
     {
-        float x = startSpeed * time + 0.5f * acceleration * time * time;
-        return PointAt(x);
+        float x = startSpeed * t + 0.5f * acceleration * t * t;
+        if(x > length)
+        {
+            Debug.Log(acceleration);
+        }
+        return PointAt(x / length);
     }
 
     public virtual void MoveGameObjects(float dt)
     {
-        for(int i = 0; i < gameObjects.Count; i++)
+        for (int i = 0; i < gameObjects.Count; i++)
         {
-            gameObjectsPositions[i] += dt % time*(isLoop ? 1 : 2);
-            float t = gameObjectsPositions[i] / time;
-            if (!isLoop) t -= (Mathf.Max(0, gameObjectsPositions[i]/time - 1));
+            gameObjectsPositions[i] = (gameObjectsPositions[i] + dt) % (time * (isLoop ? 1 : 2));
+            float t = gameObjectsPositions[i];
+            t -= 2*(Mathf.Max(0, gameObjectsPositions[i] - time));
             gameObjects[i].transform.position = PointAtTime(t);
-            gameObjects[i].transform.Rotate(new Vector3(rotationDegrees*dt/time, 0, 0));
+            gameObjects[i].transform.Rotate(new Vector3(0, 0, rotationDegrees * dt / time));
         }
+    }
+
+    protected virtual float CalculateTime()
+    {
+        return 2 * length / (startSpeed + endSpeed);
     }
 
     public virtual bool OutOfRange(float t)

@@ -55,7 +55,9 @@
      <Compile Include="Assets\Scripts\Environment\Buttons\Trigger.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\BezierCurve.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\Curve.cs" />
+     <Compile Include="Assets\Scripts\Environment\Curves\CurveCollection.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\Line.cs" />
+     <Compile Include="Assets\Scripts\Environment\Curves\Polyline.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\WayPointCurve.cs" />
      <Compile Include="Assets\Scripts\Environment\Exit.cs" />
      <Compile Include="Assets\Scripts\Environment\Explosion.cs" />
@@ -70,7 +72,9 @@
      <Compile Include="Assets\Scripts\Gamemode\Objectives\ExitReached.cs" />
      <Compile Include="Assets\Scripts\Gamemode\Objectives\Objective.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
+     <Compile Include="Assets\Scripts\OnRespawn.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\Projectiles\EnvironmentMine.cs" />
      <Compile Include="Assets\Scripts\Projectiles\MultipleHitProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\NormalProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\OnDeathCreatorProjectile.cs" />
