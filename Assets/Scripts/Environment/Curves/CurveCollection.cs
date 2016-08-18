@@ -43,9 +43,7 @@ public class CurveCollection : Curve
     {
         float result = 0.0f;
         foreach (Curve curve in curves)
-        {
             result += curve.length;
-        }
         return result;
     }
 
@@ -73,23 +71,8 @@ public class CurveCollection : Curve
 
     private int BinarySearch(List<float> list, float value)
     {
-        //int min = 0;
-        //int max = list.Count;
-        //int mid = 0;
-        //while (min < max)
-        //{
-        //    mid = (min + max) / 2;
-        //    if (list[mid] < value)
-        //        min = mid;
-        //    else max = mid;
-        //}
-
-        //return mid;
         int i = list.Count-1;
-        while (i > 0 && list[i] > value)
-        {
-            i--;
-        }
+        while (i > 0 && list[i] > value) i--;
         return i;
     }
 }

@@ -3,25 +3,19 @@ using System.Collections.Generic;
 using System;
 
 public class BezierCurve: WayPointCurve {
-
-    float len;
-    float t = 0;
+    
     public GameObject pallo;
-
-    public void Start()
-    {
-        len = LengthOfCurve();
-    }
-
-    void Update()
-    {
-        t = (t + Time.deltaTime) % 1;
-        pallo.transform.position = PointAt(t);
-    }
 
     protected override float CalculateLength()
     {
-        return len;
+        
+        return 0;
+    }
+
+    protected override float CalculateTime()
+    {
+
+        return base.CalculateTime();
     }
 
     public override Vector3 PointAt(float t)
@@ -49,10 +43,4 @@ public class BezierCurve: WayPointCurve {
         else
             return wayPoints;
     }
-
-    private float LengthOfCurve()
-    {
-        return 0.0f;
-    }
-
 }

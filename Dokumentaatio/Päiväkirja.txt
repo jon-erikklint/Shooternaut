@@ -113,9 +113,18 @@ luotu myös.
 
 ____________________________
 
-Jore
+Jore & Osama
 17.8.2016 20:38
 ---
 Voittoruutu tehty, ja siihen ja siitä liikkumiset 
 toteutettu. Bugi jonka vuoksi respawnit ei toimineet
-korjattu.
+korjattu. Curven ensimmäinen suhteellisen toimiva
+versio lisätty.
+
+____________________________
+
+Osama
+18.8.2016 16:01
+---
+Curvessa olevien GameObjectien vuorovaikutus
+ympäristön kanssa korjattu.

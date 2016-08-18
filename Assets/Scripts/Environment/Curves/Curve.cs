@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public abstract class Curve : MonoBehaviour {
     public bool isLoop;
+    public bool rotatesFreely;
     public float startSpeed;
     public float endSpeed;
     public float rotationDegrees;
@@ -15,10 +16,13 @@ public abstract class Curve : MonoBehaviour {
     public float time { get { return _time; } }
     [HideInInspector]
     public float acceleration { get { return _acceleration; } }
+    [HideInInspector]
+    public float angularVelocity { get { return _angularVelocity; } }
 
     protected float _length;
     protected float _time;
     protected float _acceleration;
+    protected float _angularVelocity;
     
     public abstract Vector3 PointAt(float x);
     protected abstract float CalculateLength();
@@ -31,8 +35,19 @@ public abstract class Curve : MonoBehaviour {
     protected virtual void Init()
     {
         _length = CalculateLength();
-        _time = CalculateTime();
         _acceleration = (endSpeed * endSpeed - startSpeed * startSpeed) / (2 * length);
+        _time = CalculateTime();
+        _angularVelocity = rotationDegrees / time;
+        SetStartingPositions();
+
+    }
+
+    private void SetStartingPositions()
+    {
+        for(int i = 0; i < gameObjects.Count; i++)
+        {
+            gameObjects[i].transform.position = PointAt(gameObjectsPositions[i]);
+        }
     }
 
     public virtual Vector3 PointAtTime(float t)
@@ -41,15 +56,38 @@ public abstract class Curve : MonoBehaviour {
         return PointAt(x / length);
     }
 
+    public virtual float SpeedAtTime(float t)
+    {
+        return startSpeed + acceleration * t;
+    }
+
     public virtual void MoveGameObjects(float dt)
     {
         for (int i = 0; i < gameObjects.Count; i++)
         {
-            gameObjectsPositions[i] = (gameObjectsPositions[i] + dt) % (time * (isLoop ? 1 : 2));
+            GameObject obj = gameObjects[i];
+            float currTime = gameObjectsPositions[i];
+
+            //obj.transform.position = PointAt(currTime);
+            gameObjectsPositions[i] = (currTime + dt) % (time * (isLoop ? 1 : 2));
             float t = gameObjectsPositions[i];
             t -= 2*(Mathf.Max(0, gameObjectsPositions[i] - time));
-            gameObjects[i].transform.position = PointAtTime(t);
-            gameObjects[i].transform.Rotate(new Vector3(0, 0, rotationDegrees * dt / time));
+
+            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+
+            if(rb == null)
+            {
+                obj.transform.position = PointAtTime(t);
+                obj.transform.Rotate(new Vector3(0, 0, rotationDegrees * dt / time));
+            }
+            else
+            {
+                rb.velocity = (PointAtTime(t) - obj.transform.position).normalized*SpeedAtTime(t) * (t < time ? 1 : -1);
+                if (!rotatesFreely)
+                    rb.angularVelocity = angularVelocity;
+
+            }
+
         }
     }
 
