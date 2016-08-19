@@ -7,8 +7,8 @@ public class Line : Curve {
     public GameObject startingPoint;
     public GameObject endPoint;
 
-    [HideInInspector] public Vector3 v0;
-    [HideInInspector] public Vector3 v1;
+    [HideInInspector] public Vector3 v0 { get { return startingPoint.transform.position; } }
+    [HideInInspector] public Vector3 v1 { get { return endPoint.transform.position; } }
 
     void Awake()
     {
@@ -18,17 +18,6 @@ public class Line : Curve {
     void Update()
     {
         MoveGameObjects(Time.deltaTime);
-    }
-
-    protected override void Init()
-    {
-        v0 = startingPoint.transform.position;
-        v1 = endPoint.transform.position;
-
-        Destroy(startingPoint.gameObject);
-        Destroy(endPoint.gameObject);
-
-        base.Init();
     }
 
     protected override float CalculateLength()

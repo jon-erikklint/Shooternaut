@@ -128,3 +128,13 @@ Osama
 ---
 Curvessa olevien GameObjectien vuorovaikutus
 ympäristön kanssa korjattu.
+
+____________________________
+
+Osama
+19.8.2016 23:33
+---
+Curvet kulkevat toisissa Curveissa oikein.
+Curve Collectionin toimintaa korjattu.
+Circle-Curve lisätty. Curve-luokkaa
+hieman refaktoroitu (vaatii tosin lisää).

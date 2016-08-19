@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Environment\Buttons\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Environment\Buttons\Trigger.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\BezierCurve.cs" />
+     <Compile Include="Assets\Scripts\Environment\Curves\Circle.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\Curve.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\CurveCollection.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\Line.cs" />

@@ -24,8 +24,6 @@ public abstract class Curve : MonoBehaviour {
     protected float _acceleration;
     protected float _angularVelocity;
     
-    public abstract Vector3 PointAt(float x);
-    protected abstract float CalculateLength();
 
     void Awake()
     {
@@ -39,7 +37,7 @@ public abstract class Curve : MonoBehaviour {
         _time = CalculateTime();
         _angularVelocity = rotationDegrees / time;
         SetStartingPositions();
-
+        SetGameObjectsAsChilds();
     }
 
     private void SetStartingPositions()
@@ -50,10 +48,51 @@ public abstract class Curve : MonoBehaviour {
         }
     }
 
+    private void SetGameObjectsAsChilds()
+    {
+        foreach (GameObject obj in gameObjects)
+        {
+            Transform objParent = obj.transform.parent;
+            if (objParent != null && objParent.gameObject != gameObject)
+            {
+                Debug.LogWarning(obj.name + " is already " + objParent.name + "'s child. It's parent is now changed to " + gameObject.name + ".");
+                if (objParent.gameObject.GetComponent<Curve>() != null)
+                    Debug.LogWarning(obj.name + " may already be moving in multiple curves.");
+            }
+            obj.transform.parent = this.transform;
+        }
+    }
+
+    public virtual float XAtTime(float t)
+    {
+        return startSpeed * t + 0.5f * acceleration * t * t;
+    }
+
+    public abstract Vector3 PointAt(float x);
+
+    private Vector3 GlobalPointAt(float x)
+    {
+        return PointAt(x) + transform.position;
+    }
+
     public virtual Vector3 PointAtTime(float t)
     {
-        float x = startSpeed * t + 0.5f * acceleration * t * t;
-        return PointAt(x / length);
+        return PointAt(XAtTime(t) / length);
+    }
+
+    private Vector3 GlobalPointAtTime(float t)
+    {
+        return PointAtTime(t) + transform.position;
+    }
+
+    public virtual Vector3 RotationVector(float x, float dt)
+    {
+        return new Vector3(0, 0, rotationDegrees * dt / time);
+    }
+
+    public Vector3 RotationVectorAtTime(float t, float dt)
+    {
+        return RotationVector(XAtTime(t), dt);
     }
 
     public virtual float SpeedAtTime(float t)
@@ -67,8 +106,7 @@ public abstract class Curve : MonoBehaviour {
         {
             GameObject obj = gameObjects[i];
             float currTime = gameObjectsPositions[i];
-
-            //obj.transform.position = PointAt(currTime);
+            
             gameObjectsPositions[i] = (currTime + dt) % (time * (isLoop ? 1 : 2));
             float t = gameObjectsPositions[i];
             t -= 2*(Mathf.Max(0, gameObjectsPositions[i] - time));
@@ -77,19 +115,20 @@ public abstract class Curve : MonoBehaviour {
 
             if(rb == null)
             {
-                obj.transform.position = PointAtTime(t);
-                obj.transform.Rotate(new Vector3(0, 0, rotationDegrees * dt / time));
+                obj.transform.position = GlobalPointAtTime(t);                
+                obj.transform.Rotate(RotationVectorAtTime(t, dt));
             }
             else
             {
-                rb.velocity = (PointAtTime(t) - obj.transform.position).normalized*SpeedAtTime(t) * (t < time ? 1 : -1);
+                rb.velocity = (GlobalPointAtTime(t) - obj.transform.position).normalized*SpeedAtTime(t) * (t < time ? 1 : -1);
                 if (!rotatesFreely)
-                    rb.angularVelocity = angularVelocity;
-
+                    rb.angularVelocity = RotationVectorAtTime(t, dt).z;
             }
 
         }
     }
+
+    protected abstract float CalculateLength();
 
     protected virtual float CalculateTime()
     {

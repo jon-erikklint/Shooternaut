@@ -59,14 +59,26 @@ public class CurveCollection : Curve
     {
         int i = BinarySearch(startingDistances, x);
         float x2 = x - startingDistances[i];
-        return curves[i].PointAt(x2);
+        return curves[i].PointAt(x2) - transform.position;
     }
 
     public override Vector3 PointAtTime(float t)
     {
         int i = BinarySearch(startingTimes, t);
         float t2 = t - startingTimes[i];
-        return curves[i].PointAtTime(t2);
+        return curves[i].PointAtTime(t2) - transform.position;
+    }
+
+    public override float XAtTime(float t)
+    {
+        int i = BinarySearch(startingTimes, t);
+        return startingDistances[i] + curves[i].XAtTime(t - startingTimes[i]);
+    }
+
+    public override Vector3 RotationVector(float x, float dt)
+    {
+        int i = BinarySearch(startingDistances, x);
+        return curves[i].RotationVector(x, dt);
     }
 
     private int BinarySearch(List<float> list, float value)
