@@ -32,14 +32,22 @@ public class Player : Actor
     {
         if(Input.GetMouseButtonDown(0))
         {
-            mouseLeft.Act();
+            ActivateableAct(mouseLeft);
             playerActs.Invoke();
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            mouseRight.Act();
+            ActivateableAct(mouseRight);
             playerActs.Invoke();
+        }
+    }
+
+    private void ActivateableAct(Activateable act)
+    {
+        if (act.CanAct())
+        {
+            act.Act();
         }
     }
 

@@ -64,6 +64,4 @@ public class Health : MonoBehaviour, HealthInterface{
     {
         return _currentHealth + "/" + _maxHealth;
     }
-
-    
 }

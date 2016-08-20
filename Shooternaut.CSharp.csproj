@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\CooldownController.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\GunController.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\NoController.cs" />
+    <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\OverheatController.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Gun.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\GunShooter.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\NormalShooter.cs" />

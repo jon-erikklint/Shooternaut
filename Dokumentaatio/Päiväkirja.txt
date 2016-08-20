@@ -147,3 +147,11 @@ Jore
 ---
 Activateableille laitettu canact-metodi ja aseet
 päivitetty modulaarisiksi
+
+____________________________
+
+
+Jore
+20.8.2016 20:47
+---
+Overheat guncontroller lisätty
