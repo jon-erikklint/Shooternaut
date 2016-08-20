@@ -8,8 +8,8 @@ public class CurveCollection : Curve
     
     public List<Curve> curves;
 
-    private List<float> startingTimes;
-    private List<float> startingDistances;
+    protected List<float> startingTimes;
+    protected List<float> startingDistances;
 
     protected override void Init() { }
 
@@ -20,7 +20,7 @@ public class CurveCollection : Curve
         _time = CalculateTime();
     }
 
-    void InitializeStartingLists()
+    private void InitializeStartingLists()
     {
         startingTimes = new List<float>();
         startingDistances = new List<float>();
@@ -32,6 +32,7 @@ public class CurveCollection : Curve
             startingTimes.Add(startingTimes[i] + curves[i].time);
             startingDistances.Add(startingDistances[i] + curves[i].length);
         }
+        SetGameObjectsAsChilds();
     }
 
     void Update()
@@ -59,14 +60,14 @@ public class CurveCollection : Curve
     {
         int i = BinarySearch(startingDistances, x);
         float x2 = x - startingDistances[i];
-        return curves[i].PointAt(x2) - transform.position;
+        return curves[i].PointAt(x2);
     }
 
     public override Vector3 PointAtTime(float t)
     {
         int i = BinarySearch(startingTimes, t);
         float t2 = t - startingTimes[i];
-        return curves[i].PointAtTime(t2) - transform.position;
+        return curves[i].PointAtTime(t2);
     }
 
     public override float XAtTime(float t)
@@ -87,4 +88,11 @@ public class CurveCollection : Curve
         while (i > 0 && list[i] > value) i--;
         return i;
     }
+
+    protected override void DoOnValidate()
+    {
+        InitializeStartingLists();
+        base.DoOnValidate();
+    }
+
 }

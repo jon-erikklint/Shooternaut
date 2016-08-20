@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public abstract class Curve : MonoBehaviour {
     public bool isLoop;
     public bool rotatesFreely;
-    public float startSpeed;
-    public float endSpeed;
+    public float startSpeed = 1;
+    public float endSpeed = 1;
     public float rotationDegrees;
     public List<GameObject> gameObjects;
     public List<float> gameObjectsPositions;
@@ -44,11 +44,11 @@ public abstract class Curve : MonoBehaviour {
     {
         for(int i = 0; i < gameObjects.Count; i++)
         {
-            gameObjects[i].transform.position = PointAt(gameObjectsPositions[i]);
+            gameObjects[i].transform.localPosition = PointAt(gameObjectsPositions[i]);
         }
     }
 
-    private void SetGameObjectsAsChilds()
+    protected void SetGameObjectsAsChilds()
     {
         foreach (GameObject obj in gameObjects)
         {
@@ -70,7 +70,7 @@ public abstract class Curve : MonoBehaviour {
 
     public abstract Vector3 PointAt(float x);
 
-    private Vector3 GlobalPointAt(float x)
+    public Vector3 GlobalPointAt(float x)
     {
         return PointAt(x) + transform.position;
     }
@@ -80,7 +80,7 @@ public abstract class Curve : MonoBehaviour {
         return PointAt(XAtTime(t) / length);
     }
 
-    private Vector3 GlobalPointAtTime(float t)
+    public Vector3 GlobalPointAtTime(float t)
     {
         return PointAtTime(t) + transform.position;
     }
@@ -115,7 +115,7 @@ public abstract class Curve : MonoBehaviour {
 
             if(rb == null)
             {
-                obj.transform.position = GlobalPointAtTime(t);                
+                obj.transform.localPosition = PointAtTime(t);                
                 obj.transform.Rotate(RotationVectorAtTime(t, dt));
             }
             else
@@ -138,6 +138,18 @@ public abstract class Curve : MonoBehaviour {
     public virtual bool OutOfRange(float t)
     {
         return t > time * (isLoop ? 1 : 2);
+    }
+
+    void OnValidate()
+    {
+        DoOnValidate();
+    }
+
+    protected virtual void DoOnValidate()
+    {
+        SetGameObjectsAsChilds();
+        CalculateLength();
+        SetStartingPositions();
     }
 
 }

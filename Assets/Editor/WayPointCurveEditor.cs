@@ -5,8 +5,16 @@ using System.Collections.Generic;
 [CustomEditor(typeof(WayPointCurve), true)]
 public class WayPointCurveEditor : Editor
 {
-
     private List<Transform> wayPoints;
+    private WayPointCurve wayPointCurve;
+
+    void OnEnable()
+    {
+        wayPointCurve = target as WayPointCurve;
+        wayPoints = wayPointCurve.wayPoints;
+        foreach (Transform trans in wayPoints)
+            trans.gameObject.SetActive(true);
+    }
 
     void OnDisable()
     {
@@ -16,12 +24,6 @@ public class WayPointCurveEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        BezierCurve curve = (target as BezierCurve);
-        wayPoints = curve.wayPoints;
-        ClearList();
-        foreach (Transform trans in wayPoints)
-            trans.gameObject.SetActive(true);
-
         base.OnInspectorGUI();
         EditorGUILayout.LabelField("Edit transform list.");
 
@@ -37,14 +39,9 @@ public class WayPointCurveEditor : Editor
                 obj = Instantiate(o, (target as WayPointCurve).transform.position, new Quaternion());
             else
                 obj = Instantiate(o, wayPoints[numberOfWayPoints - 1].transform.position, new Quaternion());
-            (obj as GameObject).transform.parent = curve.transform;
+            //(obj as GameObject).transform.parent = curve.transform;
             wayPoints.Add((obj as GameObject).transform);
             DestroyImmediate(o);
-        }
-
-        if (GUI.changed)
-        {
-            ClearList();
         }
     }
 

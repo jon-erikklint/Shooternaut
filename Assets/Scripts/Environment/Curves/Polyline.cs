@@ -7,6 +7,10 @@ public class Polyline : CurveCollection {
     public List<float> speeds;
     public List<float> rotations;
 
+    protected override void Init()
+    {
 
+        base.Init();
+    }
 
 }

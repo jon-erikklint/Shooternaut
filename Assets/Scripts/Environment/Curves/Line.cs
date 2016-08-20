@@ -7,8 +7,8 @@ public class Line : Curve {
     public GameObject startingPoint;
     public GameObject endPoint;
 
-    [HideInInspector] public Vector3 v0 { get { return startingPoint.transform.position; } }
-    [HideInInspector] public Vector3 v1 { get { return endPoint.transform.position; } }
+    [HideInInspector] public Vector3 v0 { get { return startingPoint.transform.localPosition; } }
+    [HideInInspector] public Vector3 v1 { get { return endPoint.transform.localPosition; } }
 
     void Awake()
     {
