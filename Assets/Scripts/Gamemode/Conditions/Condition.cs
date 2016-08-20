@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public abstract class Condition: MonoBehaviour{
+public abstract class Condition: MonoBehaviour, UIAdder{
 
     public abstract void Begin();
     public abstract void End();
@@ -11,18 +12,14 @@ public abstract class Condition: MonoBehaviour{
 
     public abstract bool Lost();
 
-    void Start()
-    {
-        initializeUI();
-    }
-
-    public void initializeUI()
+    public GameObject UIElement()
     {
         GameObject uiElement = transform.GetChild(0).gameObject;
-        uiElement.transform.SetParent(GameObject.Find("Canvas").transform, false);
-
         initialize(uiElement);
+
+        return uiElement;
     }
 
     public abstract void initialize(GameObject uiElement);
+    
 }

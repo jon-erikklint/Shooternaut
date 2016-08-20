@@ -25,8 +25,6 @@ public class OverheatController : GunController {
 
     void Update()
     {
-        Debug.Log(currentCharge);
-
         if(shootCharge == maxCharge)
         {
             return;
@@ -63,5 +61,10 @@ public class OverheatController : GunController {
     private void changeCharge(float amount)
     {
         currentCharge = Math.Max(0, Math.Min(maxCharge, currentCharge+amount));
+    }
+
+    public override void initialize(GameObject uiElement)
+    {
+        
     }
 }

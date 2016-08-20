@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CooldownController : GunController {
 
@@ -19,5 +20,10 @@ public class CooldownController : GunController {
 
         prevFire = Time.time;
         return true;
+    }
+
+    public override void initialize(GameObject uiElement)
+    {
+        
     }
 }
