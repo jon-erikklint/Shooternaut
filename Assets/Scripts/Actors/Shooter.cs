@@ -5,19 +5,19 @@ using System.Collections.Generic;
 
 public class Shooter : Actor
 {
-    private Gun gun;
+    private Activateable action;
 
     public override void init()
     {
-        gun = GetComponentInChildren<Gun>();
-        gun.owner = this;
+        action = GetComponentInChildren<Activateable>();
+        action.SetOwner(this);
     }
 
     void Update()
     {
-        if (gun.CanShoot())
+        if (action.CanAct())
         {
-            gun.Shoot();
+            action.Act();
         }
 
         Act();

@@ -13,7 +13,11 @@ public class Player : Actor
     public Activateable mouseLeft;
     public Activateable mouseRight;
 
-    public override void init(){}
+    public override void init()
+    {
+        mouseLeft.SetOwner(this);
+        mouseRight.SetOwner(this);
+    }
 
     void Update()
     {

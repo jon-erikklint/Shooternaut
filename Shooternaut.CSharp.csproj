@@ -64,10 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Activateables\Activateable.cs" />
-    <Compile Include="Assets\Scripts\Activateables\Guns\CooldownGun.cs" />
+    <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\CooldownController.cs" />
+    <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\GunController.cs" />
+    <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\NoController.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Gun.cs" />
-    <Compile Include="Assets\Scripts\Activateables\Guns\NormalGun.cs" />
-    <Compile Include="Assets\Scripts\Activateables\Guns\ProjectileGun.cs" />
+    <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\GunShooter.cs" />
+    <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\NormalShooter.cs" />
+    <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\ProjectileShooter.cs" />
     <Compile Include="Assets\Scripts\Actors\Actor.cs" />
     <Compile Include="Assets\Scripts\Actors\Player.cs" />
     <Compile Include="Assets\Scripts\Actors\Shooter.cs" />
@@ -76,8 +79,11 @@
     <Compile Include="Assets\Scripts\Environment\Buttons\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Environment\Buttons\Trigger.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\BezierCurve.cs" />
+    <Compile Include="Assets\Scripts\Environment\Curves\Circle.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\Curve.cs" />
+    <Compile Include="Assets\Scripts\Environment\Curves\CurveCollection.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\Line.cs" />
+    <Compile Include="Assets\Scripts\Environment\Curves\Polyline.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\WayPointCurve.cs" />
     <Compile Include="Assets\Scripts\Environment\Exit.cs" />
     <Compile Include="Assets\Scripts\Environment\Explosion.cs" />

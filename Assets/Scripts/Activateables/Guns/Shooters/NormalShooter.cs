@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class NormalGun : ProjectileGun
+public class NormalShooter : ProjectileShooter
 {
     public GameObject projectilePrefab;
 

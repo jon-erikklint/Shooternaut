@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public abstract class ProjectileGun : Gun
+public abstract class ProjectileShooter : GunShooter
 {
     public abstract GameObject Projectile();
 

@@ -3,33 +3,36 @@ using UnityEngine.Events;
 using System.Collections;
 using System;
 
-public abstract class Gun : Activateable
+public class Gun : Activateable
 {
-    public override bool Act()
-    {
-        if (CanShoot())
-        {
-            Shoot();
-            KnockBack();
-            return true;
-        }
+    private GunController controller;
+    private GunShooter shooter;
 
-        return false;
+    public override void SetOwner(Actor owner)
+    {
+        base.SetOwner(owner);
+
+        controller = GetComponent<GunController>();
+        shooter = GetComponent<GunShooter>();
+
+        controller.Initialize();
+        shooter.Initialize();
     }
 
-
-    public virtual bool CanShoot()
+    public override void Act()
     {
-        return true;
+        shooter.Shoot();
+        KnockBack();
     }
 
-    public abstract void Shoot();
+    public override bool CanAct()
+    {
+        return controller.CanShoot();
+    }
 
     public virtual void KnockBack()
     {
-        owner.GetComponent<Rigidbody2D>().AddForce(KnockBackAmount(), ForceMode2D.Impulse);
+        owner.GetComponent<Rigidbody2D>().AddForce(shooter.KnockBackAmount(), ForceMode2D.Impulse);
     }
-
-    public abstract Vector3 KnockBackAmount();
     
 }
