@@ -10,7 +10,7 @@ public class LineEditor : CurveEditor
     GameObject t0;
     GameObject t1;
 
-    void OnEnable()
+    protected override void DoOnEnable()
     {
         line = target as Line;
         t0 = line.startingPoint;

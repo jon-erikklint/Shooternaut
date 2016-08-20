@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System;
 
 public class BezierCurve: WayPointCurve {
-    
-    public GameObject pallo;
 
     protected override float CalculateLength()
     {
-        
         return 0;
     }
 

@@ -68,6 +68,11 @@ public abstract class Curve : MonoBehaviour {
         return startSpeed * t + 0.5f * acceleration * t * t;
     }
 
+    public virtual float TimeAtX(float x)
+    {
+        return 2 * (x - startSpeed) / acceleration;
+    }
+
     public abstract Vector3 PointAt(float x);
 
     public Vector3 GlobalPointAt(float x)
@@ -106,7 +111,7 @@ public abstract class Curve : MonoBehaviour {
         {
             GameObject obj = gameObjects[i];
             float currTime = gameObjectsPositions[i];
-            
+            Debug.Log("Movessa: " + obj.transform.position + ", " + currTime);
             gameObjectsPositions[i] = (currTime + dt) % (time * (isLoop ? 1 : 2));
             float t = gameObjectsPositions[i];
             t -= 2*(Mathf.Max(0, gameObjectsPositions[i] - time));
@@ -148,7 +153,7 @@ public abstract class Curve : MonoBehaviour {
     protected virtual void DoOnValidate()
     {
         SetGameObjectsAsChilds();
-        CalculateLength();
+        _length = CalculateLength();
         SetStartingPositions();
     }
 

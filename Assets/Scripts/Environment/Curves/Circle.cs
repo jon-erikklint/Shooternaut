@@ -15,12 +15,12 @@ public class Circle: Curve
 
     public override Vector3 PointAt(float x)
     {
-        Quaternion rotator = Quaternion.AngleAxis((endAngle - startingAngle)*x, Vector3.forward);
+        Quaternion rotator = Quaternion.AngleAxis((endAngle - startingAngle)*x + startingAngle, Vector3.forward);
         return rotator * (new Vector3(radius, 0, 0));
     }
 
     protected override float CalculateLength()
     {
-        return (float)(2*Math.PI*(endAngle-startingAngle)/360);
+        return (float)(2*radius*Math.PI*(endAngle-startingAngle)/360);
     }
 }

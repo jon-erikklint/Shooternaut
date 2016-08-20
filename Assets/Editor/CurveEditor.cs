@@ -3,6 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 
 [CustomEditor(typeof(Curve), true)]
+[CanEditMultipleObjects]
 public class CurveEditor : Editor
 {
 
