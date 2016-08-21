@@ -58,6 +58,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -99,9 +105,6 @@
     <Compile Include="Assets\Scripts\Gamemode\Objectives\ExitReached.cs" />
     <Compile Include="Assets\Scripts\Gamemode\Objectives\NoObjectives.cs" />
     <Compile Include="Assets\Scripts\Gamemode\Objectives\Objective.cs" />
-    <Compile Include="Assets\Scripts\Health\Health.cs" />
-    <Compile Include="Assets\Scripts\Health\HealthInterface.cs" />
-    <Compile Include="Assets\Scripts\Health\InfiteHealth.cs" />
     <Compile Include="Assets\Scripts\OnRespawn.cs" />
     <Compile Include="Assets\Scripts\Projectiles\EnvironmentMine.cs" />
     <Compile Include="Assets\Scripts\Projectiles\MultipleHitProjectile.cs" />
@@ -112,13 +115,16 @@
     <Compile Include="Assets\Scripts\UI\CameraHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Conditions\SpeedrunClock.cs" />
     <Compile Include="Assets\Scripts\UI\Conditions\SurvivalLives.cs" />
+    <Compile Include="Assets\Scripts\UI\GunUI.cs" />
+    <Compile Include="Assets\Scripts\UI\Health\Health.cs" />
+    <Compile Include="Assets\Scripts\UI\Health\HealthInterface.cs" />
+    <Compile Include="Assets\Scripts\UI\Health\InfiteHealth.cs" />
     <Compile Include="Assets\Scripts\UI\KeyboardListener.cs" />
     <Compile Include="Assets\Scripts\UI\Menu\MapOptions.cs" />
     <Compile Include="Assets\Scripts\UI\Menu\PlayMapButton.cs" />
     <Compile Include="Assets\Scripts\UI\PointCounter.cs" />
     <Compile Include="Assets\Scripts\UI\ReturnToMenu.cs" />
     <Compile Include="Assets\Scripts\UI\ShowHealth.cs" />
-    <Compile Include="Assets\Scripts\UI\UIAdder.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

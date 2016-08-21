@@ -2,6 +2,7 @@
 using UnityEngine.Events;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class Player : Actor
 {
@@ -60,5 +61,15 @@ public class Player : Actor
     public override bool Hit(string tag)
     {
         return tag.Equals("Bullet");
+    }
+
+    public Activateable GetRight()
+    {
+        if (mouseLeft.Equals(mouseRight))
+        {
+            return null;
+        }
+
+        return mouseRight;
     }
 }

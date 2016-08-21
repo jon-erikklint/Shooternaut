@@ -27,7 +27,6 @@ public class Survival : Condition
 
     public override void initialize(GameObject uiElement)
     {
-        Debug.Log("SD");
         FindObjectOfType<RespawnManager>().survival = this;
         uiElement.GetComponentInChildren<SurvivalLives>().survival = this;
     }

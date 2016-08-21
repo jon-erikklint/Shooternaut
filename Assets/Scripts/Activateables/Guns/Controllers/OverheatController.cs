@@ -63,8 +63,14 @@ public class OverheatController : GunController {
         currentCharge = Math.Max(0, Math.Min(maxCharge, currentCharge+amount));
     }
 
-    public override void initialize(GameObject uiElement)
+    public override string ToString()
     {
-        
+        return currentCharge.ToString("0.00")+"/"+maxCharge.ToString("0.00");
+    }
+
+    public override void Reset()
+    {
+        currentCharge = maxCharge;
+        lastShot = 0;
     }
 }

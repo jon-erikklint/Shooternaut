@@ -18,10 +18,11 @@ public abstract class GunController : MonoBehaviour{
     public GameObject UIElement()
     {
         GameObject uiElement = transform.GetChild(0).gameObject;
-        initialize(uiElement);
+        uiElement.GetComponent<GunUI>().gun = this;
 
         return uiElement;
     }
 
-    public abstract void initialize(GameObject uiElement);
+    public abstract void Reset();
+    
 }

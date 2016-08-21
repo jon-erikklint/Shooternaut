@@ -141,7 +141,6 @@ hieman refaktoroitu (vaatii tosin lis‰‰).
 
 ____________________________
 
-
 Jore
 20.8.2016 20:10
 ---
@@ -150,8 +149,17 @@ p‰ivitetty modulaarisiksi
 
 ____________________________
 
-
 Jore
 20.8.2016 20:47
 ---
 Overheat guncontroller lis‰tty
+
+____________________________
+
+Jore
+21.8.2016 17:19
+---
+UI-managerille annettu vastuu ui:n sijoittelusta.
+Aseille tehty ui-skripti ja reset-metodi, jota kutsutaan
+pelaajan respawnatessa. UI skaalautuu ikkunan koon
+mukaan.

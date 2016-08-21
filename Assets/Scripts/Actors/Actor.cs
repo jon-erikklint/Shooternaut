@@ -5,7 +5,7 @@ public abstract class Actor : Destroyable {
 
     public HealthInterface health;
 
-    void Start()
+    void Awake()
     {
         health = GetComponent<HealthInterface>();
         init();

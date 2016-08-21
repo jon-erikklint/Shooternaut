@@ -15,4 +15,6 @@ public abstract class GunShooter : MonoBehaviour {
     public abstract void Shoot();
 
     public abstract Vector3 KnockBackAmount();
+
+    public virtual void Reset() { }
 }

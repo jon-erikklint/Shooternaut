@@ -34,5 +34,18 @@ public class Gun : Activateable
     {
         owner.GetComponent<Rigidbody2D>().AddForce(shooter.KnockBackAmount(), ForceMode2D.Impulse);
     }
-    
+
+    public override GameObject UIElement()
+    {
+        GameObject uiElement = transform.GetChild(0).gameObject;
+        uiElement.GetComponent<GunUI>().gun = controller;
+
+        return uiElement;
+    }
+
+    public override void Reset()
+    {
+        shooter.Reset();
+        controller.Reset();
+    }
 }

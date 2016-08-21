@@ -9,8 +9,5 @@ public class NoController : GunController {
         return true;
     }
 
-    public override void initialize(GameObject uiElement)
-    {
-        
-    }
+    public override void Reset(){}
 }

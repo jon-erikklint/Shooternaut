@@ -13,7 +13,7 @@ public class Gamemode: MonoBehaviour{
 
     private Player player;
 
-    void Start()
+    void Awake()
     {
         objectives = new List<Objective>(GetComponentsInChildren<Objective>());
         conditions = new List<Condition>(GetComponentsInChildren<Condition>());

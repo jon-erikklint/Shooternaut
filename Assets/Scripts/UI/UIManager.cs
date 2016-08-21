@@ -4,31 +4,70 @@ using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour {
 
-    void Start () {
-        List<UIAdder> uiadders = FindUIAdders();
+    private float xMin;
+    private float xMax;
+    private float yMin;
+    private float yMax;
 
-        foreach (UIAdder ui in uiadders)
-        {
-            ui.UIElement().transform.SetParent(this.transform, false);
-        }
+    private Transform canvas;
+
+    void Start () {
+        xMin = - (Screen.width / 2);
+        xMax = Screen.width / 2;
+        yMax = Screen.height / 2;
+        yMin = - (Screen.height / 2);
+
+        canvas = transform;
+
+        InitializeGamemode();
+        InitializePlayerUI();
 	}
 
-    private List<UIAdder> FindUIAdders()
+    private void InitializeGamemode()
     {
-        List<UIAdder> uis = new List<UIAdder>();
+        Gamemode gamemode = FindObjectOfType<Gamemode>();
 
-        GameObject[] gameObjects = FindObjectsOfType<GameObject>();
+        List<Condition> conditions = gamemode.conditions;
 
-        foreach (GameObject gameObject in gameObjects)
+        for(int i = 0; i < conditions.Count; i++)
         {
-            Component[] uiAdders = gameObject.GetComponents(typeof(UIAdder));
-
-            foreach(Component ui in uiAdders)
+            float y = yMax - (50 * ((i / 2) + 1));
+            float x;
+            if(i%2 == 0)
             {
-                uis.Add( (UIAdder) ui );
+                x = xMin + 170;
             }
-        }
+            else
+            {
+                x = xMax - 170;
+            }
 
-        return uis;
+            GameObject uiElement = conditions[i].UIElement();
+            InitializeUiElement(uiElement, x, y);
+        }
+    }
+
+    private void InitializePlayerUI()
+    {
+        Player player = FindObjectOfType<Player>();
+        Activateable left = player.mouseLeft;
+        Activateable right = player.GetRight();
+
+        float y = yMin + 50;
+        float leftX = xMin + 170;
+        float rightX = xMax - 300;
+
+        InitializeUiElement(left.UIElement(), leftX, y);
+
+        if(right != null)
+        {
+            InitializeUiElement(player.mouseRight.UIElement(), rightX, y);
+        }
+    }
+
+    private void InitializeUiElement(GameObject element, float x, float y)
+    {
+        element.transform.SetParent(canvas);
+        element.transform.localPosition = new Vector3(x, y, 0);
     }
 }

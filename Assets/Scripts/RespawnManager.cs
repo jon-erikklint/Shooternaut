@@ -50,13 +50,24 @@ public class RespawnManager : MonoBehaviour {
         
         RemoveBullets();
         RemoveExplosions();
-        Invoke("ResetScriptsAndPlayer", 0.05f);
+        Invoke("Reset", 0.05f);
     }
 
-    private void ResetScriptsAndPlayer()
+    private void Reset()
     {
         ResetScripts();
         ResetPlayer();
+        ResetActivateables();
+    }
+
+    private void ResetActivateables()
+    {
+        Activateable[] activateables = FindObjectsOfType<Activateable>();
+
+        foreach(Activateable act in activateables)
+        {
+            act.Reset();
+        }
     }
 
     private void ResetPlayer()

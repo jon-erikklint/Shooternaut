@@ -22,8 +22,8 @@ public class CooldownController : GunController {
         return true;
     }
 
-    public override void initialize(GameObject uiElement)
+    public override void Reset()
     {
-        
+        prevFire = 0;
     }
 }

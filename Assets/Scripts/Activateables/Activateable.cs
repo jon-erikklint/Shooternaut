@@ -14,4 +14,8 @@ public abstract class Activateable : Destroyable {
     public abstract bool CanAct();
     public abstract void Act();
 
+    public abstract void Reset();
+
+    public abstract GameObject UIElement();
+
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public abstract class Condition: MonoBehaviour, UIAdder{
+public abstract class Condition: MonoBehaviour{
 
     public abstract void Begin();
     public abstract void End();
