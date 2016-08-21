@@ -163,3 +163,11 @@ UI-managerille annettu vastuu ui:n sijoittelusta.
 Aseille tehty ui-skripti ja reset-metodi, jota kutsutaan
 pelaajan respawnatessa. UI skaalautuu ikkunan koon
 mukaan.
+
+____________________________
+
+Jore
+21.8.2016 17:36
+---
+Pelaaja voi pit‰‰ ampumisn‰pp‰int‰ pohjassa
+ampuakseen. OverheatGun muokattu t‰t‰ varten.

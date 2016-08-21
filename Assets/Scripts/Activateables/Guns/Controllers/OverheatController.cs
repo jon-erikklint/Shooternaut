@@ -10,6 +10,8 @@ public class OverheatController : GunController {
     public float rechargeTime;
     public float rechargeCooldown;
 
+    public float shootCooldown;
+
     private float currentCharge;
 
     private float lastShot;
@@ -41,7 +43,7 @@ public class OverheatController : GunController {
 
     public override bool CanShoot()
     {
-        if(currentCharge >= shootCharge)
+        if(currentCharge >= shootCharge && Time.time - lastShot > shootCooldown)
         {
             SaveShot();
 

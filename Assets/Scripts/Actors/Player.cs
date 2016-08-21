@@ -31,16 +31,14 @@ public class Player : Actor
 
     private void Act()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0))
         {
             ActivateableAct(mouseLeft);
-            playerActs.Invoke();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             ActivateableAct(mouseRight);
-            playerActs.Invoke();
         }
     }
 
@@ -49,12 +47,12 @@ public class Player : Actor
         if (act.CanAct())
         {
             act.Act();
+            playerActs.Invoke();
         }
     }
 
     public override void DestroySelf()
     {
-        Debug.Log("DIE");
         playerDies.Invoke();
     }
 
