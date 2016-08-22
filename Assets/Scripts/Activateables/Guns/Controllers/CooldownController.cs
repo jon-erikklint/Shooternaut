@@ -11,7 +11,7 @@ public class CooldownController : GunController {
     {
         base.Initialize();
 
-        prevFire = 0;
+        prevFire = -2 * coolDownTime;
     }
 
     public override bool CanShoot()

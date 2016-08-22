@@ -112,7 +112,6 @@ public abstract class Curve : MonoBehaviour {
         {
             GameObject obj = gameObjects[i];
             float currTime = gameObjectsPositions[i];
-            Debug.Log("Movessa: " + obj.transform.position + ", " + currTime);
             gameObjectsPositions[i] = (currTime + dt) % (time * (isLoop ? 1 : 2));
             float t = gameObjectsPositions[i];
             t -= 2*(Mathf.Max(0, gameObjectsPositions[i] - time));
