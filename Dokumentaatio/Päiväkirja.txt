@@ -171,3 +171,10 @@ Jore
 ---
 Pelaaja voi pit‰‰ ampumisn‰pp‰int‰ pohjassa
 ampuakseen. OverheatGun muokattu t‰t‰ varten.
+
+____________________________
+
+Jore ja Osama
+22.8.2016 23:36
+---
+Uudet testikent‰t, HealthGun ja Curvesekoilua

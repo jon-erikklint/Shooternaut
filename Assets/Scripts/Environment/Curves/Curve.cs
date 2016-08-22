@@ -23,6 +23,8 @@ public abstract class Curve : MonoBehaviour {
     protected float _time;
     protected float _acceleration;
     protected float _angularVelocity;
+
+    private List<float> objectPositions;
     
 
     void Awake()
@@ -38,6 +40,7 @@ public abstract class Curve : MonoBehaviour {
         _angularVelocity = rotationDegrees / time;
         SetStartingPositions();
         SetGameObjectsAsChilds();
+        objectPositions = new List<float>(gameObjectsPositions);
         Physics2D.IgnoreLayerCollision(8, 9);
     }
 
@@ -155,6 +158,22 @@ public abstract class Curve : MonoBehaviour {
         SetGameObjectsAsChilds();
         _length = CalculateLength();
         SetStartingPositions();
+    }
+
+    public void resetPoistions()
+    {
+        for(int i = 0; i < gameObjects.Count; i++)
+        {
+            GameObject obj = gameObjects[i];
+            gameObjectsPositions[i] = 0;
+            obj.transform.rotation = Quaternion.identity;
+            if (obj.GetComponent<Rigidbody2D>() != null)
+            {
+                Debug.Log(gameObjectsPositions);
+                obj.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            }
+            obj.transform.localPosition = PointAt(0);
+        }
     }
 
 }

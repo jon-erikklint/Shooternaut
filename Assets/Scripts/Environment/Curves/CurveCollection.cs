@@ -82,6 +82,12 @@ public class CurveCollection : Curve
         return curves[i].RotationVector(x, dt);
     }
 
+    public override float SpeedAtTime(float t)
+    {
+        int i = BinarySearch(startingTimes, t);
+        return curves[i].startSpeed + curves[i].acceleration * t;
+    }
+
     private int BinarySearch(List<float> list, float value)
     {
         int i = list.Count-1;
@@ -93,6 +99,11 @@ public class CurveCollection : Curve
     {
         InitializeStartingLists();
         base.DoOnValidate();
+    }
+
+    public void Debuug()
+    {
+        Debug.Log("moi");
     }
 
 }
