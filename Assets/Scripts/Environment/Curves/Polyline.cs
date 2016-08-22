@@ -9,7 +9,10 @@ public class Polyline : CurveCollection {
 
     protected override void Init()
     {
-
+        for(int i = 0; i < wayPoints.Count-1; i++)
+        {
+            Line line = new Line();
+        }
         base.Init();
     }
 

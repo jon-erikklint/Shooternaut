@@ -38,6 +38,7 @@ public abstract class Curve : MonoBehaviour {
         _angularVelocity = rotationDegrees / time;
         SetStartingPositions();
         SetGameObjectsAsChilds();
+        Physics2D.IgnoreLayerCollision(8, 9);
     }
 
     private void SetStartingPositions()
