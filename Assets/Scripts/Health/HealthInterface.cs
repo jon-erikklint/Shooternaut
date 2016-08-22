@@ -9,6 +9,8 @@ public interface HealthInterface {
 
     void SetHealth(float amount);
 
+    float CurrentHealth();
+
     bool Dead();
 
     void Reset();

@@ -8,15 +8,17 @@ public class Health : MonoBehaviour, HealthInterface{
     public float startHealth = 0;
 
     public float maxHealth { get { return _maxHealth; } }
-    private float _maxHealth;
+    private float _maxHealth = 0;
 
     public float currentHealth { get { return _currentHealth; } }
-    private float _currentHealth;
+    private float _currentHealth = 0;
 
     void Start()
     {
-        _currentHealth = startHealth;
-        _maxHealth = startHealth;
+        if(startHealth > 0)
+        {
+            initialize(startHealth);
+        }
     }
 
     public void initialize(float startHealth)
@@ -42,7 +44,7 @@ public class Health : MonoBehaviour, HealthInterface{
 
     public void GetHealth(float amount)
     {
-        if(amount <= 0)
+        if (amount <= 0)
         {
             return;
         }
@@ -63,5 +65,10 @@ public class Health : MonoBehaviour, HealthInterface{
     public override string ToString()
     {
         return _currentHealth + "/" + _maxHealth;
+    }
+
+    public float CurrentHealth()
+    {
+        return _currentHealth;
     }
 }

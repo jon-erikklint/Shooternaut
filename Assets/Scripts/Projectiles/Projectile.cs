@@ -14,9 +14,9 @@ public abstract class Projectile : Destroyable
 
     public abstract int Damage();
 
-    public abstract void OnHit();
+    public virtual void OnHit() { }
 
-    public abstract void OnDestruction();
+    public virtual void OnDestruction() { }
 
     public abstract bool GetsDestroyed(string colliderTag);
 

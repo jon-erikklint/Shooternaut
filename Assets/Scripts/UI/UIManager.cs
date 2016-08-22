@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour {
 
         float y = yMin + 50;
         float leftX = xMin + 170;
-        float rightX = xMax - 300;
+        float rightX = xMax - 170;
 
         InitializeUiElement(left.UIElement(), leftX, y);
 
@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour {
 
     private void InitializeUiElement(GameObject element, float x, float y)
     {
-        element.transform.SetParent(canvas);
+        element.transform.SetParent(canvas, false);
         element.transform.localPosition = new Vector3(x, y, 0);
     }
 }

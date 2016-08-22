@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class InfiteHealth : MonoBehaviour, HealthInterface
+public class InfiniteHealth : MonoBehaviour, HealthInterface
 {
     public bool Dead()
     {
@@ -20,5 +20,10 @@ public class InfiteHealth : MonoBehaviour, HealthInterface
     public override string ToString()
     {
         return "Infinite";
+    }
+
+    public float CurrentHealth()
+    {
+        return 0;
     }
 }
