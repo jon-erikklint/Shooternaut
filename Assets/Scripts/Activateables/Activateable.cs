@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Collections.Generic;
 
-public abstract class Activateable : Destroyable {
+public abstract class Activateable : Destroyable, Respawnable {
 
     public Actor owner{get{ return _owner; }}
     private Actor _owner;
@@ -18,4 +20,13 @@ public abstract class Activateable : Destroyable {
 
     public abstract GameObject UIElement();
 
+    public List<object> RespawnPointReached(RespawnPoint respawn)
+    {
+        return new List<object>();
+    }
+
+    public void Respawn(List<object> lastState)
+    {
+        Reset();
+    }
 }

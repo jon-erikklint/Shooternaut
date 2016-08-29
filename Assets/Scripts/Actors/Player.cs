@@ -9,8 +9,6 @@ public class Player : Actor
     public UnityEvent playerDies;
     public UnityEvent playerActs;
 
-    public RespawnManager respawnPoint;
-
     public Activateable mouseLeft;
     public Activateable mouseRight;
 
@@ -69,5 +67,27 @@ public class Player : Actor
         }
 
         return mouseRight;
+    }
+
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
+    {
+        List<object> list = base.RespawnPointReached(respawn);
+        
+        list.Add(respawn.spawnpoint);
+
+        return list;
+    }
+
+    public override void Respawn(List<object> lastState)
+    {
+        int lastElement = lastState.Count - 1;
+
+        Vector3 respawnLocation = (Vector3) lastState[lastElement];
+
+        this.transform.position = respawnLocation;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        lastState.RemoveRange(lastElement, 1);
+        base.Respawn(lastState);
     }
 }

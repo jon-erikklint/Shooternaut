@@ -3,19 +3,15 @@ using System.Collections;
 using UnityEngine.Events;
 using System;
 
-[Serializable]
-public class SpawnpointEvent : UnityEvent<RespawnPoint> { }
-
 public class RespawnPoint : MonoBehaviour{
 
     public int id;
 
     public Vector3 spawnpoint;
 
-    public SpawnpointEvent respawnPointReached;
+    public RespawnpointEvent respawnPointReached;
 
-	void Start () {
-        respawnPointReached.AddListener(FindObjectOfType<RespawnManager>().SetSpawnpoint);
+	void Awake () {
 
         if(spawnpoint.Equals(Vector3.zero))
         {

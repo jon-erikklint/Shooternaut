@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Collections.Generic;
 
-public class EnvironmentMine : OnDeathCreatorProjectile {
+public class EnvironmentMine : OnDeathCreatorProjectile, Respawnable {
 
     private Vector3 startPosition;
 
     public override void init()
     {
         base.init();
-
-        GetComponent<OnRespawn>().onRespawn.AddListener(Activate);
+        
         startPosition = transform.position;
     }
 
@@ -37,4 +38,13 @@ public class EnvironmentMine : OnDeathCreatorProjectile {
         GetComponent<Collider2D>().enabled = true;
     }
 
+    public List<object> RespawnPointReached(RespawnPoint respawn)
+    {
+        return new List<object>();
+    }
+
+    public void Respawn(List<object> lastState)
+    {
+        Activate();
+    }
 }

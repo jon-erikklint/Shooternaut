@@ -27,9 +27,6 @@ public class GameManager : MonoBehaviour {
         {
             respawnManager = FindObjectOfType<RespawnManager>();
         }
-
-        respawnManager.SetSpawnpoint(start);
-
     }
 
     public void Reset()

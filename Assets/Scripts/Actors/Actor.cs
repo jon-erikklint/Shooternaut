@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Collections.Generic;
 
-public abstract class Actor : Destroyable {
+public abstract class Actor : Destroyable, Respawnable {
 
     public HealthInterface health;
 
@@ -47,4 +49,13 @@ public abstract class Actor : Destroyable {
         }
     }
 
+    public virtual List<object> RespawnPointReached(RespawnPoint respawn)
+    {
+        return new List<object>();
+    }
+
+    public virtual void Respawn(List<object> lastState)
+    {
+        health.Reset();
+    }
 }

@@ -169,7 +169,6 @@ public abstract class Curve : MonoBehaviour {
             obj.transform.rotation = Quaternion.identity;
             if (obj.GetComponent<Rigidbody2D>() != null)
             {
-                Debug.Log(gameObjectsPositions);
                 obj.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             }
             obj.transform.localPosition = PointAt(0);

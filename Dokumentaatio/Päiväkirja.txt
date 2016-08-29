@@ -178,3 +178,10 @@ Jore ja Osama
 22.8.2016 23:36
 ---
 Uudet testikentät, HealthGun ja Curvesekoilua
+
+____________________________
+
+Jore
+29.8.2016 15:16
+---
+Uusi respawnsysteemi toimii!

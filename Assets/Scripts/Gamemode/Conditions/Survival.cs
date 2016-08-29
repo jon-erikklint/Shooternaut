@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
-public class Survival : Condition
+public class Survival : Condition, Respawnable
 {
     public int lives;
 
@@ -29,5 +30,15 @@ public class Survival : Condition
     {
         FindObjectOfType<RespawnManager>().survival = this;
         uiElement.GetComponentInChildren<SurvivalLives>().survival = this;
+    }
+
+    public List<object> RespawnPointReached(RespawnPoint respawn)
+    {
+        return new List<object>();
+    }
+
+    public void Respawn(List<object> lastState)
+    {
+        lives--;
     }
 }
