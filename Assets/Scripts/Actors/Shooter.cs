@@ -36,4 +36,11 @@ public class Shooter : Actor
     {
         return false;
     }
+
+    public override void Respawn(List<object> lastState)
+    {
+        base.Respawn(lastState);
+
+        startTime = Time.time;
+    }
 }

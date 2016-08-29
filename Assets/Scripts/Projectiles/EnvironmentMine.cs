@@ -5,13 +5,21 @@ using System.Collections.Generic;
 
 public class EnvironmentMine : OnDeathCreatorProjectile, Respawnable {
 
+    public Vector3 startVelocity;
+
     private Vector3 startPosition;
+
+    private Rigidbody2D rb;
 
     public override void init()
     {
         base.init();
-        
+
+        rb = GetComponent<Rigidbody2D>();
+
         startPosition = transform.position;
+
+        AddVelocity();
     }
 
     public override void DestroySelf()
@@ -28,14 +36,20 @@ public class EnvironmentMine : OnDeathCreatorProjectile, Respawnable {
 
     public void Activate()
     {
-        transform.position = startPosition;
-
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector3.zero;
         rb.isKinematic = false;
 
         GetComponent<Renderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;
+
+        transform.position = startPosition;
+        AddVelocity();
+    }
+
+    private void AddVelocity()
+    {
+        rb.AddForce(startVelocity * rb.mass, ForceMode2D.Impulse);
     }
 
     public List<object> RespawnPointReached(RespawnPoint respawn)

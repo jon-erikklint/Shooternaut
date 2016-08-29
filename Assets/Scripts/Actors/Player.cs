@@ -56,6 +56,8 @@ public class Player : Actor
 
     public override bool Hit(string tag)
     {
+        playerActs.Invoke();
+
         return tag.Equals("Bullet");
     }
 

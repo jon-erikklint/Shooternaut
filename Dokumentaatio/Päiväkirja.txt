@@ -185,3 +185,12 @@ Jore
 29.8.2016 15:16
 ---
 Uusi respawnsysteemi toimii!
+
+____________________________
+
+Jore
+29.8.2016 16:29
+---
+Miinoihin lisätty mahdollisuus alkuvauhdille, turrettien
+aloituscooldown toimii ja pyörivät turretit resettaa
+pyörimiskulmansa respawnin yhteydessä.
