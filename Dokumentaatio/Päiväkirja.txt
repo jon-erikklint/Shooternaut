@@ -194,3 +194,10 @@ Jore
 Miinoihin lisätty mahdollisuus alkuvauhdille, turrettien
 aloituscooldown toimii ja pyörivät turretit resettaa
 pyörimiskulmansa respawnin yhteydessä.
+
+____________________________
+
+Jore
+1.9.2016 19:28
+---
+Laserit lisätty

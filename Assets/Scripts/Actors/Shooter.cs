@@ -9,11 +9,11 @@ public class Shooter : Actor
 
     private float startTime;
 
-    private Activateable action;
+    private ClickingActivateable action;
 
     public override void init()
     {
-        action = GetComponentInChildren<Activateable>();
+        action = GetComponentInChildren<ClickingActivateable>();
         action.SetOwner(this);
         startTime = Time.time;
     }

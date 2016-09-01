@@ -15,6 +15,8 @@ public abstract class GunController : MonoBehaviour{
 
     public abstract bool CanShoot();
 
+    public virtual void StopShooting() { }
+
     public GameObject UIElement()
     {
         GameObject uiElement = transform.GetChild(0).gameObject;

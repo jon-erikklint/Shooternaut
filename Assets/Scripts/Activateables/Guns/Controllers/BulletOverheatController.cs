@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class OverheatController : GunController {
+public class BulletOverheatController : GunController {
 
     public float shootCharge;
     public float maxCharge;

@@ -29,24 +29,30 @@ public class Player : Actor
 
     private void Act()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            ActivateableAct(mouseLeft);
+            SetActivateable(true, mouseLeft);
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
-            ActivateableAct(mouseRight);
+            SetActivateable(true, mouseRight);
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            SetActivateable(false, mouseLeft);
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            SetActivateable(false, mouseRight);
         }
     }
 
-    private void ActivateableAct(Activateable act)
+    private void SetActivateable(bool active, Activateable act)
     {
-        if (act.CanAct())
-        {
-            act.Act();
-            playerActs.Invoke();
-        }
+        act.SetActive(active);
     }
 
     public override void DestroySelf()

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using System.Collections;
 using System;
 
-public class Gun : Activateable
+public class Gun : ClickingActivateable
 {
     private GunController controller;
     private GunShooter shooter;
@@ -27,7 +27,22 @@ public class Gun : Activateable
 
     public override bool CanAct()
     {
-        return controller.CanShoot();
+        bool shoots = controller.CanShoot();
+
+        if (!shoots)
+        {
+            shooter.StopShooting();
+        }
+
+        return shoots;
+    }
+
+    public override void Deactivate()
+    {
+        base.Deactivate();
+
+        shooter.StopShooting();
+        controller.StopShooting();
     }
 
     public virtual void KnockBack()

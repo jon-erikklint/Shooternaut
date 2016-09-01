@@ -6,10 +6,14 @@ using System.Collections.Generic;
 public abstract class Actor : Destroyable, Respawnable {
 
     public HealthInterface health;
+    public float invulnerabilityTime;
+
+    private float lastHit;
 
     void Awake()
     {
         health = GetComponent<HealthInterface>();
+        lastHit = 0;
         init();
     }
 
@@ -17,9 +21,14 @@ public abstract class Actor : Destroyable, Respawnable {
 
     public void LoseHealth(float amount)
     {
-        health.LoseHealth(amount);
+        if(invulnerabilityTime < Time.time - lastHit)
+        {
+            lastHit = Time.time;
 
-        TestDead();
+            health.LoseHealth(amount);
+
+            TestDead();
+        }
     }
 
     public void SetHealth(float amount)
@@ -56,6 +65,18 @@ public abstract class Actor : Destroyable, Respawnable {
 
     public virtual void Respawn(List<object> lastState)
     {
+        lastHit = 0;
+
         health.Reset();
+    }
+
+    public Vector3 Position()
+    {
+        return transform.position;
+    }
+
+    public Vector3 Angle()
+    {
+        return transform.right;
     }
 }

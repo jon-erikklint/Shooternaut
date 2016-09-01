@@ -13,8 +13,14 @@ public abstract class GunShooter : MonoBehaviour {
     }
 
     public abstract void Shoot();
+    public abstract void StopShooting();
 
     public abstract Vector3 KnockBackAmount();
 
     public virtual void Reset() { }
+
+    protected Vector3 FacedDirection()
+    {
+        return owner.transform.right;
+    }
 }

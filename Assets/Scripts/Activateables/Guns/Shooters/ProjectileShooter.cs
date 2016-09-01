@@ -10,7 +10,7 @@ public abstract class ProjectileShooter : GunShooter
     {
         GameObject projectile = createProjectile();
 
-        setProjectileSpeed(projectile);
+        SetProjectileSpeed(projectile);
     }
 
     private GameObject createProjectile()
@@ -22,7 +22,7 @@ public abstract class ProjectileShooter : GunShooter
         return Instantiate(Projectile(), spawnPosition, owner.transform.rotation) as GameObject;
     }
 
-    private void setProjectileSpeed(GameObject proj)
+    private void SetProjectileSpeed(GameObject proj)
     {
         Rigidbody2D ownerbody = owner.GetComponent<Rigidbody2D>();
         Rigidbody2D projbody = proj.GetComponent<Rigidbody2D>();
@@ -34,4 +34,6 @@ public abstract class ProjectileShooter : GunShooter
     }
 
     public abstract Vector3 ShootForce();
+
+    public override void StopShooting(){}
 }

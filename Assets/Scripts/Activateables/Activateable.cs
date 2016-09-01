@@ -1,20 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 using System.Collections.Generic;
 
 public abstract class Activateable : Destroyable, Respawnable {
 
-    public Actor owner{get{ return _owner; }}
+    public Actor owner { get { return _owner; } }
     private Actor _owner;
+
+    public void SetActive(bool active)
+    {
+        if (active)
+        {
+            Activate();
+        }
+        else
+        {
+            Deactivate();
+        }
+    }
+
+    public abstract void Activate();
+    public abstract void Deactivate();
 
     public virtual void SetOwner(Actor owner)
     {
         this._owner = owner;
     }
-
-    public abstract bool CanAct();
-    public abstract void Act();
 
     public abstract void Reset();
 

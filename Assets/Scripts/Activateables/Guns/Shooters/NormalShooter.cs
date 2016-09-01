@@ -23,11 +23,11 @@ public class NormalShooter : ProjectileShooter
 
     public override Vector3 KnockBackAmount()
     {
-        return -owner.transform.right * (KnockbackMultiplier * bulletMass());
+        return -FacedDirection() * (KnockbackMultiplier * bulletMass());
     }
 
     public override Vector3 ShootForce()
     {
-        return owner.transform.right * (ShootForceMultiplier * bulletMass());
+        return FacedDirection() * (ShootForceMultiplier * bulletMass());
     }
 }
