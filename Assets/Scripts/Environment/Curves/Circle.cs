@@ -8,12 +8,7 @@ public class Circle: Curve
     public float startingAngle = 0;
     public float endAngle = 360;
 
-    void Update()
-    {
-        MoveGameObjects(Time.deltaTime);
-    }
-
-    public override Vector3 PointAt(float x)
+    protected override Vector3 PointAtPos(float x)
     {
         Quaternion rotator = Quaternion.AngleAxis((endAngle - startingAngle)*x + startingAngle, Vector3.forward);
         return rotator * (new Vector3(radius, 0, 0));

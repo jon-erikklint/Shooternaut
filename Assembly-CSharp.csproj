@@ -46,12 +46,15 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Activateables\Activateable.cs" />
+     <Compile Include="Assets\Scripts\Activateables\ClickingActivateable.cs" />
+     <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\BulletOverheatController.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\CooldownController.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\GunController.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\NoController.cs" />
-     <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\OverheatController.cs" />
+     <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\TimeOverheatController.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\Gun.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\GunShooter.cs" />
+     <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\LaserShooter.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\NormalShooter.cs" />
      <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\ProjectileShooter.cs" />
      <Compile Include="Assets\Scripts\Actors\Actor.cs" />
@@ -65,6 +68,9 @@
      <Compile Include="Assets\Scripts\Environment\Curves\Circle.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\Curve.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\CurveCollection.cs" />
+     <Compile Include="Assets\Scripts\Environment\Curves\CurveMover\AutomaticCurveBus.cs" />
+     <Compile Include="Assets\Scripts\Environment\Curves\CurveMover\ConstantCurveBus.cs" />
+     <Compile Include="Assets\Scripts\Environment\Curves\CurveMover\CurveBus.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\Line.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\Polyline.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\WayPointCurve.cs" />
@@ -81,17 +87,22 @@
      <Compile Include="Assets\Scripts\Gamemode\Objectives\ExitReached.cs" />
      <Compile Include="Assets\Scripts\Gamemode\Objectives\NoObjectives.cs" />
      <Compile Include="Assets\Scripts\Gamemode\Objectives\Objective.cs" />
+     <Compile Include="Assets\Scripts\Generics\Tuple.cs" />
      <Compile Include="Assets\Scripts\Health\Health.cs" />
      <Compile Include="Assets\Scripts\Health\HealthInterface.cs" />
      <Compile Include="Assets\Scripts\Health\InfiniteHealth.cs" />
-     <Compile Include="Assets\Scripts\OnRespawn.cs" />
+     <Compile Include="Assets\Scripts\Lasers\DamagingLaser.cs" />
+     <Compile Include="Assets\Scripts\Lasers\Laser.cs" />
      <Compile Include="Assets\Scripts\Projectiles\EnvironmentMine.cs" />
      <Compile Include="Assets\Scripts\Projectiles\HealthedProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\MultipleHitProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\NormalProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\OnDeathCreatorProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\Projectile.cs" />
-     <Compile Include="Assets\Scripts\RespawnManager.cs" />
+     <Compile Include="Assets\Scripts\Respawn\OnRespawn.cs" />
+     <Compile Include="Assets\Scripts\Respawn\RespawnEvent.cs" />
+     <Compile Include="Assets\Scripts\Respawn\RespawnManager.cs" />
+     <Compile Include="Assets\Scripts\Respawn\Respawnable.cs" />
      <Compile Include="Assets\Scripts\UI\CameraHandler.cs" />
      <Compile Include="Assets\Scripts\UI\Conditions\SpeedrunClock.cs" />
      <Compile Include="Assets\Scripts\UI\Conditions\SurvivalLives.cs" />

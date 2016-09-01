@@ -1,109 +1,109 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using System;
-using System.Collections;
+﻿//using UnityEngine;
+//using System.Collections.Generic;
+//using System;
+//using System.Collections;
 
-public class CurveCollection : Curve
-{
-    
-    public List<Curve> curves;
+//public class CurveCollection : Curve
+//{
 
-    protected List<float> startingTimes;
-    protected List<float> startingDistances;
+//    public List<Curve> curves;
 
-    protected override void Init() { }
+//    protected List<float> startingTimes;
+//    protected List<float> startingDistances;
 
-    void Start()
-    {
-        InitializeStartingLists();
-        _length = CalculateLength();
-        _time = CalculateTime();
-    }
+//    protected override void Init() { }
 
-    private void InitializeStartingLists()
-    {
-        startingTimes = new List<float>();
-        startingDistances = new List<float>();
+//    void Start()
+//    {
+//        InitializeStartingLists();
+//        _length = CalculateLength();
+//        _time = CalculateTime();
+//    }
 
-        startingTimes.Add(0);
-        startingDistances.Add(0);
-        for(int i = 0; i < curves.Count-1; i++)
-        {
-            startingTimes.Add(startingTimes[i] + curves[i].time);
-            startingDistances.Add(startingDistances[i] + curves[i].length);
-        }
-        SetGameObjectsAsChilds();
-    }
+//    private void InitializeStartingLists()
+//    {
+//        startingTimes = new List<float>();
+//        startingDistances = new List<float>();
 
-    void Update()
-    {
-        MoveGameObjects(Time.deltaTime);
-    }
+//        startingTimes.Add(0);
+//        startingDistances.Add(0);
+//        for (int i = 0; i < curves.Count - 1; i++)
+//        {
+//            startingTimes.Add(startingTimes[i] + curves[i].time);
+//            startingDistances.Add(startingDistances[i] + curves[i].length);
+//        }
+//        SetGameObjectsAsChilds();
+//    }
 
-    protected override float CalculateLength()
-    {
-        float result = 0.0f;
-        foreach (Curve curve in curves)
-            result += curve.length;
-        return result;
-    }
+//    void Update()
+//    {
+//        MoveGameObjects(Time.deltaTime);
+//    }
 
-    protected override float CalculateTime()
-    {
-        float result = 0.0f;
-        foreach (Curve curve in curves)
-            result += curve.time;
-        return result;
-    }
+//    protected override float CalculateLength()
+//    {
+//        float result = 0.0f;
+//        foreach (Curve curve in curves)
+//            result += curve.length;
+//        return result;
+//    }
 
-    public override Vector3 PointAt(float x)
-    {
-        int i = BinarySearch(startingDistances, x);
-        float x2 = x - startingDistances[i];
-        return curves[i].PointAt(x2);
-    }
+//    protected override float CalculateTime()
+//    {
+//        float result = 0.0f;
+//        foreach (Curve curve in curves)
+//            result += curve.time;
+//        return result;
+//    }
 
-    public override Vector3 PointAtTime(float t)
-    {
-        int i = BinarySearch(startingTimes, t);
-        float t2 = t - startingTimes[i];
-        return curves[i].PointAtTime(t2);
-    }
+//    public override Vector3 PointAt(float x)
+//    {
+//        int i = BinarySearch(startingDistances, x);
+//        float x2 = x - startingDistances[i];
+//        return curves[i].PointAt(x2);
+//    }
 
-    public override float XAtTime(float t)
-    {
-        int i = BinarySearch(startingTimes, t);
-        return startingDistances[i] + curves[i].XAtTime(t - startingTimes[i]);
-    }
+//    public override Vector3 PointAtTime(float t)
+//    {
+//        int i = BinarySearch(startingTimes, t);
+//        float t2 = t - startingTimes[i];
+//        return curves[i].PointAtTime(t2);
+//    }
 
-    public override Vector3 RotationVector(float x, float dt)
-    {
-        int i = BinarySearch(startingDistances, x);
-        return curves[i].RotationVector(x, dt);
-    }
+//    public override float XAtTime(float t)
+//    {
+//        int i = BinarySearch(startingTimes, t);
+//        return startingDistances[i] + curves[i].XAtTime(t - startingTimes[i]);
+//    }
 
-    public override float SpeedAtTime(float t)
-    {
-        int i = BinarySearch(startingTimes, t);
-        return curves[i].startSpeed + curves[i].acceleration * t;
-    }
+//    public override Vector3 RotationVector(float x, float dt)
+//    {
+//        int i = BinarySearch(startingDistances, x);
+//        return curves[i].RotationVector(x, dt);
+//    }
 
-    private int BinarySearch(List<float> list, float value)
-    {
-        int i = list.Count-1;
-        while (i > 0 && list[i] > value) i--;
-        return i;
-    }
+//    public override float SpeedAtTime(float t)
+//    {
+//        int i = BinarySearch(startingTimes, t);
+//        return curves[i].startSpeed + curves[i].acceleration * t;
+//    }
 
-    protected override void DoOnValidate()
-    {
-        InitializeStartingLists();
-        base.DoOnValidate();
-    }
+//    private int BinarySearch(List<float> list, float value)
+//    {
+//        int i = list.Count - 1;
+//        while (i > 0 && list[i] > value) i--;
+//        return i;
+//    }
 
-    public void Debuug()
-    {
-        Debug.Log("moi");
-    }
+//    protected override void DoOnValidate()
+//    {
+//        InitializeStartingLists();
+//        base.DoOnValidate();
+//    }
 
-}
+//    public void Debuug()
+//    {
+//        Debug.Log("moi");
+//    }
+
+//}

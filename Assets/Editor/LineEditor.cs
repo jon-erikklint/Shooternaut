@@ -1,54 +1,54 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System.Collections;
+﻿//using UnityEngine;
+//using UnityEditor;
+//using System.Collections;
 
-[CustomEditor(typeof(Line), true)]
-public class LineEditor : CurveEditor
-{
+//[CustomEditor(typeof(Line), true)]
+//public class LineEditor : CurveEditor
+//{
 
-    Line line;
-    GameObject t0;
-    GameObject t1;
+//    Line line;
+//    GameObject t0;
+//    GameObject t1;
 
-    protected override void DoOnEnable()
-    {
-        line = target as Line;
-        t0 = line.startingPoint;
-        t1 = line.endPoint;
+//    protected override void DoOnEnable()
+//    {
+//        line = target as Line;
+//        t0 = line.startingPoint;
+//        t1 = line.endPoint;
 
-        t0 = EditorHelper.CreateSphereIfNull(t0, "Starting point", line.transform.position);
-        t1 = EditorHelper.CreateSphereIfNull(t1, "End point", line.transform.position);
+//        t0 = EditorHelper.CreateSphereIfNull(t0, "Starting point", line.transform.position);
+//        t1 = EditorHelper.CreateSphereIfNull(t1, "End point", line.transform.position);
 
-        line.startingPoint = t0;
-        line.endPoint = t1;
+//        line.startingPoint = t0;
+//        line.endPoint = t1;
 
-        Debug.Log(t0);
+//        Debug.Log(t0);
 
-        t0.transform.parent = line.transform;
-        t1.transform.parent = line.transform;
+//        t0.transform.parent = line.transform;
+//        t1.transform.parent = line.transform;
 
-        t0.SetActive(true);
-        t1.SetActive(true);
+//        t0.SetActive(true);
+//        t1.SetActive(true);
 
-        base.DoOnEnable();
-    }
+//        base.DoOnEnable();
+//    }
 
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-    }
+//    public override void OnInspectorGUI()
+//    {
+//        base.OnInspectorGUI();
+//    }
 
-    void OnDisable()
-    {
-        t0.SetActive(false);
-        t1.SetActive(false);
-    }
+//    void OnDisable()
+//    {
+//        t0.SetActive(false);
+//        t1.SetActive(false);
+//    }
 
-    //void OnDestroy()
-    //{
-    //    Debug.Log("BOOM!");
-    //    DestroyImmediate(t1);
-    //    DestroyImmediate(t2);
-    //}
+//    //void OnDestroy()
+//    //{
+//    //    Debug.Log("BOOM!");
+//    //    DestroyImmediate(t1);
+//    //    DestroyImmediate(t2);
+//    //}
 
-}
+//}
