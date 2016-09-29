@@ -35,7 +35,7 @@ public class TimeOverheatController : GunController {
         return shoot;
     }
 
-    public override void StopShooting()
+    public override void Deactivate()
     {
         lastShoot = Time.time;
         shooting = false;

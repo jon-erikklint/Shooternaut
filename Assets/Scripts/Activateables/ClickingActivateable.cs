@@ -8,6 +8,8 @@ public abstract class ClickingActivateable : Activateable{
     public bool active { get { return _active; } }
     private bool _active;
 
+    private bool acting = false;
+
     public override void Activate()
     {
         _active = true;
@@ -24,7 +26,11 @@ public abstract class ClickingActivateable : Activateable{
         {
             if (CanAct())
             {
+                acting = true;
                 Act();
+            }else if (acting)
+            {
+                CantActAnymore();
             }
         }
 
@@ -33,5 +39,7 @@ public abstract class ClickingActivateable : Activateable{
 
     public abstract bool CanAct();
     public abstract void Act();
+    public abstract void CantActAnymore();
+
     public virtual void Passive() { }
 }

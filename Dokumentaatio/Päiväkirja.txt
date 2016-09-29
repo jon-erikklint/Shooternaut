@@ -201,3 +201,10 @@ Jore
 1.9.2016 19:28
 ---
 Laserit lisätty
+
+____________________________
+
+Jore
+29.9.2016 16:50
+---
+Aseiden ampumisen lopettamista paranneltu.

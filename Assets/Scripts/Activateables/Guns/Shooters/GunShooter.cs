@@ -13,7 +13,8 @@ public abstract class GunShooter : MonoBehaviour {
     }
 
     public abstract void Shoot();
-    public abstract void StopShooting();
+    public abstract void CantShoot();
+    public abstract void Deactivate();
 
     public abstract Vector3 KnockBackAmount();
 

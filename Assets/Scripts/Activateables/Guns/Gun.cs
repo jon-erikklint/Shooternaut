@@ -27,22 +27,20 @@ public class Gun : ClickingActivateable
 
     public override bool CanAct()
     {
-        bool shoots = controller.CanShoot();
-
-        if (!shoots)
-        {
-            shooter.StopShooting();
-        }
-
-        return shoots;
+        return controller.CanShoot();
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
 
-        shooter.StopShooting();
-        controller.StopShooting();
+        shooter.Deactivate();
+        controller.Deactivate();
+    }
+
+    public override void CantActAnymore()
+    {
+        shooter.CantShoot();
     }
 
     public virtual void KnockBack()
@@ -63,4 +61,5 @@ public class Gun : ClickingActivateable
         shooter.Reset();
         controller.Reset();
     }
+
 }

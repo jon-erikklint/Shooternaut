@@ -23,11 +23,21 @@ public class LaserShooter : GunShooter
         UpdateLaser();
     }
 
-    public override void StopShooting()
+    private void StopShooting()
     {
         shooting = false;
 
         DestroyLaser();
+    }
+
+    public override void CantShoot()
+    {
+        StopShooting();
+    }
+
+    public override void Deactivate()
+    {
+        StopShooting();
     }
 
     public override Vector3 KnockBackAmount()

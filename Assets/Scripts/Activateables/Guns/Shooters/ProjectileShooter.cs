@@ -35,5 +35,6 @@ public abstract class ProjectileShooter : GunShooter
 
     public abstract Vector3 ShootForce();
 
-    public override void StopShooting(){}
+    public override void CantShoot(){}
+    public override void Deactivate(){}
 }
