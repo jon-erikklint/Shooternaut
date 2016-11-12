@@ -18,7 +18,8 @@ public class OnRespawn : MonoBehaviour {
 
     public void Respawn()
     {
-        if(respawnStates.Count <= 0)
+
+        if (respawnStates.Count <= 0)
         {
             Destroy(this.gameObject);
             return;
@@ -30,7 +31,8 @@ public class OnRespawn : MonoBehaviour {
         {
             if (respawnStates.ContainsKey(respawnable))
             {
-                respawnable.Respawn(respawnStates[respawnable]);
+                List<object> newList = new List<object>(respawnStates[respawnable]);
+                respawnable.Respawn(newList);
             }
             else
             {

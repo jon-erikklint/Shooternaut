@@ -79,6 +79,7 @@ public class Player : Actor
 
     public override List<object> RespawnPointReached(RespawnPoint respawn)
     {
+        Debug.Log("millon");
         List<object> list = base.RespawnPointReached(respawn);
         
         list.Add(respawn.spawnpoint);

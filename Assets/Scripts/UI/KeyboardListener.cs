@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 public class KeyboardListener : MonoBehaviour {
 
 	void Update () {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             FindObjectOfType<GameManager>().Reset();
         }
 
-        if (Input.GetKey(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             SceneManager.LoadScene(0);
         }

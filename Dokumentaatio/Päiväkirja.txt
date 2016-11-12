@@ -208,3 +208,10 @@ Jore
 29.9.2016 16:50
 ---
 Aseiden ampumisen lopettamista paranneltu.
+
+____________________________
+
+Jore
+12.11.2016 14:11
+---
+Mysteerinen respawnbugi korjattu.
