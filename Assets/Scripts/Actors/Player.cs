@@ -9,15 +9,6 @@ public class Player : Actor
     public UnityEvent playerDies;
     public UnityEvent playerActs;
 
-    public Activateable mouseLeft;
-    public Activateable mouseRight;
-
-    public override void init()
-    {
-        mouseLeft.SetOwner(this);
-        mouseRight.SetOwner(this);
-    }
-
     void Update()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -31,22 +22,22 @@ public class Player : Actor
     {
         if(Input.GetMouseButtonDown(0))
         {
-            SetActivateable(true, mouseLeft);
+            SetActivateable(true, mainActivateable);
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            SetActivateable(true, mouseRight);
+            SetActivateable(true, secondaryActivateable);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            SetActivateable(false, mouseLeft);
+            SetActivateable(false, mainActivateable);
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            SetActivateable(false, mouseRight);
+            SetActivateable(false, secondaryActivateable);
         }
     }
 
@@ -67,19 +58,8 @@ public class Player : Actor
         return tag.Equals("Bullet");
     }
 
-    public Activateable GetRight()
-    {
-        if (mouseLeft.Equals(mouseRight))
-        {
-            return null;
-        }
-
-        return mouseRight;
-    }
-
     public override List<object> RespawnPointReached(RespawnPoint respawn)
     {
-        Debug.Log("millon");
         List<object> list = base.RespawnPointReached(respawn);
         
         list.Add(respawn.spawnpoint);

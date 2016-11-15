@@ -215,3 +215,12 @@ Jore
 12.11.2016 14:11
 ---
 Mysteerinen respawnbugi korjattu.
+
+____________________________
+
+Jore
+15.11.2016 12:42
+---
+Mover-interface tehty, HealthInterfaceen ja Activateableen lis‰tty muutama 
+metodi. Actoriin lis‰tty uudet osat ja grab-ominaisuus. Turretit ja pelaaja
+p‰ivitetty k‰ytt‰m‰‰n uutta rajapintaa siin‰ m‰‰rin miss‰ se on pystyss‰.

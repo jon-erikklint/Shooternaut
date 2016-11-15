@@ -17,7 +17,7 @@ public class TurningShooter : Shooter{
         startRotation = new Quaternion(r.x, r.y, r.z, r.w);
     }
 
-    public override void Act()
+    void Update()
     {
         float rotation = 360 * (Time.deltaTime / secondsPerRevolution);
 

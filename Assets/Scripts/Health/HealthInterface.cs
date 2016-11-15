@@ -1,18 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface HealthInterface {
+public abstract class HealthInterface: MonoBehaviour{
 
-    void LoseHealth(float amount);
+    public abstract void LoseHealth(float amount);
 
-    void GetHealth(float amount);
+    public abstract void GetHealth(float amount);
 
-    void SetHealth(float amount);
+    public abstract void SetHealth(float amount);
 
-    float CurrentHealth();
+    public abstract float CurrentHealth();
 
-    bool Dead();
+    public abstract bool Dead();
 
-    void Reset();
+    public abstract bool FullHealth();
+
+    public abstract void Reset();
 
 }

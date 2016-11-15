@@ -50,8 +50,8 @@ public class UIManager : MonoBehaviour {
     private void InitializePlayerUI()
     {
         Player player = FindObjectOfType<Player>();
-        Activateable left = player.mouseLeft;
-        Activateable right = player.GetRight();
+        Activateable left = player.mainActivateable;
+        Activateable right = player.secondaryActivateable;
 
         float y = yMin + 50;
         float leftX = xMin + 170;
@@ -59,9 +59,9 @@ public class UIManager : MonoBehaviour {
 
         InitializeUiElement(left.UIElement(), leftX, y);
 
-        if(right != null)
+        if(right != null && !left.Equals(right))
         {
-            InitializeUiElement(player.mouseRight.UIElement(), rightX, y);
+            InitializeUiElement(player.secondaryActivateable.UIElement(), rightX, y);
         }
     }
 

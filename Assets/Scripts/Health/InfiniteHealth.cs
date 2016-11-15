@@ -2,28 +2,33 @@
 using System.Collections;
 using System;
 
-public class InfiniteHealth : MonoBehaviour, HealthInterface
+public class InfiniteHealth : HealthInterface
 {
-    public bool Dead()
+    public override bool FullHealth()
+    {
+        return true;
+    }
+
+    public override bool Dead()
     {
         return false;
     }
 
-    public void LoseHealth(float amount){}
+    public override void LoseHealth(float amount){}
 
-    public void GetHealth(float amount){}
+    public override void GetHealth(float amount){}
 
-    public void Reset(){}
+    public override void Reset(){}
 
-    public void SetHealth(float amount){}
+    public override void SetHealth(float amount){}
 
     public override string ToString()
     {
         return "Infinite";
     }
 
-    public float CurrentHealth()
+    public override float CurrentHealth()
     {
-        return 0;
+        return 1;
     }
 }

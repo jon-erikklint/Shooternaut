@@ -14,12 +14,22 @@ public class CooldownController : GunController {
         prevFire = -2 * coolDownTime;
     }
 
-    public override bool CanShoot()
+    public override bool TryToShoot()
     {
-        if (Time.time - prevFire < coolDownTime) return false;
+        if (!CanShoot()) return false;
 
         prevFire = Time.time;
         return true;
+    }
+
+    public override bool CanShoot()
+    {
+        return Time.time - prevFire >= coolDownTime;
+    }
+
+    public override bool FullClip()
+    {
+        return CanShoot();
     }
 
     public override void Reset()

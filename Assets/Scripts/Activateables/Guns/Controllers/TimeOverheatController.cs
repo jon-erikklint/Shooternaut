@@ -23,7 +23,7 @@ public class TimeOverheatController : GunController {
         _currentCharge = maxCharge;
     }
 
-    public override bool CanShoot()
+    public override bool TryToShoot()
     {
         bool shoot = currentCharge > 0;
 
@@ -33,6 +33,16 @@ public class TimeOverheatController : GunController {
         }
 
         return shoot;
+    }
+
+    public override bool CanShoot()
+    {
+        return currentCharge > 0;
+    }
+
+    public override bool FullClip()
+    {
+        return currentCharge == maxCharge;
     }
 
     public override void Deactivate()
@@ -68,4 +78,5 @@ public class TimeOverheatController : GunController {
     {
         return _currentCharge + "/" + maxCharge;
     }
+
 }

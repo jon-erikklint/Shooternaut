@@ -7,30 +7,15 @@ public class Shooter : Actor
 {
     public float activationDelay;
 
-    private float startTime;
-
-    private ClickingActivateable action;
-
     public override void init()
     {
-        action = GetComponentInChildren<ClickingActivateable>();
-        action.SetOwner(this);
-        startTime = Time.time;
+        Invoke("StartToShoot", activationDelay);
     }
 
-    void Update()
+    void StartToShoot()
     {
-        if (activationDelay > Time.time - startTime) return;
-
-        if (action.CanAct())
-        {
-            action.Act();
-        }
-
-        Act();
+        mainActivateable.Activate();
     }
-
-    public virtual void Act() { }
 
     public override bool Hit(string tag)
     {
@@ -41,6 +26,6 @@ public class Shooter : Actor
     {
         base.Respawn(lastState);
 
-        startTime = Time.time;
+        init();
     }
 }

@@ -27,7 +27,7 @@ public class Gun : ClickingActivateable
 
     public override bool CanAct()
     {
-        return controller.CanShoot();
+        return controller.TryToShoot();
     }
 
     public override void Deactivate()
@@ -62,4 +62,13 @@ public class Gun : ClickingActivateable
         controller.Reset();
     }
 
+    public override bool CanActivate()
+    {
+        return controller.CanShoot();
+    }
+
+    public override bool FullActivate()
+    {
+        return controller.FullClip();
+    }
 }

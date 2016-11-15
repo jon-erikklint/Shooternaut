@@ -31,6 +31,9 @@ public abstract class Activateable : Destroyable, Respawnable {
 
     public abstract GameObject UIElement();
 
+    public abstract bool CanActivate();
+    public abstract bool FullActivate();
+
     public List<object> RespawnPointReached(RespawnPoint respawn)
     {
         return new List<object>();

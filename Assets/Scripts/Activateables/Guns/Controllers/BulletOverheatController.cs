@@ -41,9 +41,9 @@ public class BulletOverheatController : GunController {
         changeCharge(charge);
     }
 
-    public override bool CanShoot()
+    public override bool TryToShoot()
     {
-        if(currentCharge >= shootCharge && Time.time - lastShot > shootCooldown)
+        if(CanShoot())
         {
             SaveShot();
 
@@ -51,6 +51,16 @@ public class BulletOverheatController : GunController {
         }
 
         return false;
+    }
+
+    public override bool CanShoot()
+    {
+        return currentCharge >= shootCharge && Time.time - lastShot > shootCooldown;
+    }
+
+    public override bool FullClip()
+    {
+        return currentCharge == maxCharge;
     }
 
     private void SaveShot()
@@ -75,4 +85,6 @@ public class BulletOverheatController : GunController {
         currentCharge = maxCharge;
         lastShot = 0;
     }
+
+    
 }

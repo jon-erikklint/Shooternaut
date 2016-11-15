@@ -6,18 +6,111 @@ using System.Collections.Generic;
 public abstract class Actor : Destroyable, Respawnable {
 
     public HealthInterface health;
-    public float invulnerabilityTime;
 
+    public List<Activateable> activateables;
+    public Activateable mainActivateable;
+    public Activateable secondaryActivateable;
+
+    public List<Mover> movers;
+    public Mover mainMover;
+    public Mover secondaryMover;
+
+    public Grabbable grabbed;
+
+    public float invulnerabilityTime;
     private float lastHit;
 
     void Awake()
     {
-        health = GetComponent<HealthInterface>();
+        InitializeActivateables();
+
+        grabbed = null;
         lastHit = 0;
         init();
     }
 
-    public abstract void init();
+    private void InitializeActivateables()
+    {
+        if(mainActivateable == null && activateables.Count > 0)
+        {
+            mainActivateable = activateables[0];
+        }
+
+        if(secondaryActivateable == null)
+        {
+            if(activateables.Count > 1)
+            {
+                secondaryActivateable = activateables[1];
+            }
+            else if(activateables.Count > 0)
+            {
+                secondaryActivateable = activateables[0];
+            }
+        }
+
+        foreach (Activateable activateable in activateables)
+        {
+            activateable.SetOwner(this);
+        }
+    }
+
+    public virtual void init() { }
+
+    public bool IsGrabbed()
+    {
+        return grabbed != null;
+    }
+
+    public Grabbable GrabbedItem()
+    {
+        return grabbed;
+    }
+
+    public void Grab()
+    {
+        Vector2 actorPosition = Position();
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(actorPosition, 1);
+
+        Grabbable closest = null;
+        float distanceToClosest = 1;
+
+        foreach(Collider2D collider in colliders)
+        {
+            Grabbable grabbable = collider.GetComponent<Grabbable>();
+            if(grabbable != null)
+            {
+                if (!grabbable.CanGrab(this))
+                {
+                    continue;
+                }
+
+                Vector2 grabbablePosition = collider.transform.position;
+                float distanceToGrabbable = (actorPosition - grabbablePosition).magnitude;
+
+                if ( distanceToGrabbable < distanceToClosest)
+                {
+                    distanceToClosest = distanceToGrabbable;
+                    closest = grabbable;
+                }
+            }
+        }
+
+        if(closest != null)
+        {
+            grabbed = closest;
+            closest.Grab(this);
+        }
+    }
+
+    public void ReleaseGrip()
+    {
+        if(grabbed != null)
+        {
+            grabbed.Release(this);
+            grabbed = null;
+        }
+    }
 
     public void LoseHealth(float amount)
     {
