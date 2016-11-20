@@ -66,7 +66,6 @@ public class CarriableItem : Grabbable
         trb.AddForce(force, ForceMode2D.Impulse);
 
         Rigidbody2D arb = actor.GetComponent<Rigidbody2D>();
-        arb.mass = arb.mass - trb.mass;
         arb.AddForce(force * -1, ForceMode2D.Impulse);
 
         return true;
@@ -76,6 +75,7 @@ public class CarriableItem : Grabbable
     {
         Reset();
 
+        trb.velocity = Vector3.zero;
         this.transform.position = start;
     }
 
@@ -90,6 +90,10 @@ public class CarriableItem : Grabbable
         col.enabled = true;
         trb.isKinematic = false;
 
-        carrier = null;
+        if(carrier != null)
+        {
+            carrier.GetComponent<Rigidbody2D>().mass -= trb.mass;
+            carrier = null;
+        }
     }
 }

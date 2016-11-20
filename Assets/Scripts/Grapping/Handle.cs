@@ -47,11 +47,14 @@ public class Handle : Grabbable
 
     public override void Reset()
     {
-        Rigidbody2D rb = grabbed.GetComponent<Rigidbody2D>();
+        if(grabbed != null)
+        {
+            Rigidbody2D rb = grabbed.GetComponent<Rigidbody2D>();
 
-        rb.isKinematic = false;
+            rb.isKinematic = false;
 
-        grabbed.transform.SetParent(previousParent);
+            grabbed.transform.SetParent(previousParent);
+        }
 
         grabbed = null;
     }
