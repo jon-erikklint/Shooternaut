@@ -166,16 +166,16 @@ public abstract class Actor : Destroyable, Respawnable {
         health.Reset();
 	}
 
-	public void OnCollisionEnter2D()
+	public void OnCollisionEnter2D(Collision2D collision)
 	{
 		onGround = true;
-		DoOnCollisionEnter ();
+		DoOnCollisionEnter (collision);
 	}
 
-	public void OnCollisionExit2D()
+	public void OnCollisionExit2D(Collision2D collision)
 	{
 		onGround = false;
-		DoOnCollisionExit ();
+		DoOnCollisionExit (collision);
 	}
 
 	public bool OnGround()
@@ -183,8 +183,8 @@ public abstract class Actor : Destroyable, Respawnable {
 		return onGround;
 	}
 
-	public virtual void DoOnCollisionEnter () { }
-	public virtual void DoOnCollisionExit () { }
+	public virtual void DoOnCollisionEnter (Collision2D collision) { }
+	public virtual void DoOnCollisionExit (Collision2D collision) { }
 
     public Vector3 Position()
     {
