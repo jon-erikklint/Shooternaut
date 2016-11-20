@@ -71,4 +71,9 @@ public class Gun : ClickingActivateable
     {
         return controller.FullClip();
     }
+
+    public override ActivateableType Type()
+    {
+        return ActivateableType.Gun;
+    }
 }

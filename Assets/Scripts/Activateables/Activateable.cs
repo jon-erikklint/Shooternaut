@@ -43,4 +43,7 @@ public abstract class Activateable : Destroyable, Respawnable {
     {
         Reset();
     }
+
+    public abstract ActivateableType Type();
+    
 }

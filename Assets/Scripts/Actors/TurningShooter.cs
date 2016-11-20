@@ -8,9 +8,9 @@ public class TurningShooter : Shooter{
 
     private Quaternion startRotation;
 
-    public override void init()
+    public override void Init()
     {
-        base.init();
+        base.Init();
 
         Quaternion r = transform.rotation;
 

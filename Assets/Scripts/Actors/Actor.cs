@@ -26,7 +26,7 @@ public abstract class Actor : Destroyable, Respawnable {
 
         grabbed = null;
         lastHit = 0;
-        init();
+        Init();
     }
 
     private void InitializeActivateables()
@@ -54,7 +54,7 @@ public abstract class Actor : Destroyable, Respawnable {
         }
     }
 
-    public virtual void init() { }
+    public virtual void Init() { }
 
     public bool IsGrabbed()
     {

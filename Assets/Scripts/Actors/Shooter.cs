@@ -7,7 +7,7 @@ public class Shooter : Actor
 {
     public float activationDelay;
 
-    public override void init()
+    public override void Init()
     {
         Invoke("StartToShoot", activationDelay);
     }
@@ -26,6 +26,6 @@ public class Shooter : Actor
     {
         base.Respawn(lastState);
 
-        init();
+        Init();
     }
 }

@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Activateables\Activateable.cs" />
+    <Compile Include="Assets\Scripts\Activateables\ActivateableType.cs" />
     <Compile Include="Assets\Scripts\Activateables\ClickingActivateable.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\BulletOverheatController.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Controllers\CooldownController.cs" />
