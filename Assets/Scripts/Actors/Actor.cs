@@ -17,6 +17,8 @@ public abstract class Actor : Destroyable, Respawnable {
 
     public Grabbable grabbed;
 
+	private bool onGround;
+
     public float invulnerabilityTime;
     private float lastHit;
 
@@ -25,6 +27,7 @@ public abstract class Actor : Destroyable, Respawnable {
         InitializeActivateables();
 
         grabbed = null;
+		onGround = false;
         lastHit = 0;
         Init();
     }
@@ -161,7 +164,27 @@ public abstract class Actor : Destroyable, Respawnable {
         lastHit = 0;
 
         health.Reset();
-    }
+	}
+
+	public void OnCollisionEnter2D()
+	{
+		onGround = true;
+		DoOnCollisionEnter ();
+	}
+
+	public void OnCollisionExit2D()
+	{
+		onGround = false;
+		DoOnCollisionExit ();
+	}
+
+	public bool OnGround()
+	{
+		return onGround;
+	}
+
+	public virtual void DoOnCollisionEnter () { }
+	public virtual void DoOnCollisionExit () { }
 
     public Vector3 Position()
     {
