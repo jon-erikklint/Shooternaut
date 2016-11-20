@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface Grabbable {
+public abstract class Grabbable: MonoBehaviour {
 
-    bool CanGrab(Actor actor);
+    public abstract bool CanGrab(Actor actor);
 
-    bool Grab(Actor actor);
-    bool Release(Actor actor);
+    public abstract bool Grab(Actor actor);
+    public abstract bool Release(Actor actor);
 }

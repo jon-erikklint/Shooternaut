@@ -28,4 +28,9 @@ public class Shooter : Actor
 
         Init();
     }
+
+    public override float Strength()
+    {
+        return 0;
+    }
 }

@@ -39,6 +39,18 @@ public class Player : Actor
         {
             SetActivateable(false, secondaryActivateable);
         }
+
+        if (Input.GetKeyDown("k"))
+        {
+            if (!IsGrabbed())
+            {
+                base.Grab();
+            }
+            else
+            {
+                base.ReleaseGrip();
+            }
+        }
     }
 
     private void SetActivateable(bool active, Activateable act)
@@ -78,5 +90,10 @@ public class Player : Actor
 
         lastState.RemoveRange(lastElement, 1);
         base.Respawn(lastState);
+    }
+
+    public override float Strength()
+    {
+        return 5;
     }
 }

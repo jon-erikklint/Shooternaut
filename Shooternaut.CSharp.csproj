@@ -107,7 +107,9 @@
     <Compile Include="Assets\Scripts\Gamemode\Objectives\NoObjectives.cs" />
     <Compile Include="Assets\Scripts\Gamemode\Objectives\Objective.cs" />
     <Compile Include="Assets\Scripts\Generics\Tuple.cs" />
+    <Compile Include="Assets\Scripts\Grapping\CarriableItem.cs" />
     <Compile Include="Assets\Scripts\Grapping\Grabbable.cs" />
+    <Compile Include="Assets\Scripts\Grapping\Handle.cs" />
     <Compile Include="Assets\Scripts\Health\Health.cs" />
     <Compile Include="Assets\Scripts\Health\HealthInterface.cs" />
     <Compile Include="Assets\Scripts\Health\InfiniteHealth.cs" />

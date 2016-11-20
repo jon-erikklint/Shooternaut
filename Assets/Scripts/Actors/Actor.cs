@@ -73,14 +73,15 @@ public abstract class Actor : Destroyable, Respawnable {
     {
         Vector2 actorPosition = Position();
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(actorPosition, 1);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(actorPosition, 2);
 
         Grabbable closest = null;
-        float distanceToClosest = 1;
+        float distanceToClosest = 2;
 
         foreach(Collider2D collider in colliders)
         {
             Grabbable grabbable = collider.GetComponent<Grabbable>();
+
             if(grabbable != null)
             {
                 if (!grabbable.CanGrab(this))
@@ -194,4 +195,6 @@ public abstract class Actor : Destroyable, Respawnable {
 	{
 		return onGround;
 	}
+
+    public abstract float Strength();
 }
