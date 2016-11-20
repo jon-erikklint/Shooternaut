@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class Handle : Grabbable
 {
@@ -39,6 +40,13 @@ public class Handle : Grabbable
             return false;
         }
 
+        Reset();
+
+        return true;
+    }
+
+    public override void Reset()
+    {
         Rigidbody2D rb = grabbed.GetComponent<Rigidbody2D>();
 
         rb.isKinematic = false;
@@ -46,7 +54,15 @@ public class Handle : Grabbable
         grabbed.transform.SetParent(previousParent);
 
         grabbed = null;
+    }
 
-        return true;
+    public override void Respawn(List<object> lastState)
+    {
+        Reset();
+    }
+
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
+    {
+        return new List<object>();
     }
 }

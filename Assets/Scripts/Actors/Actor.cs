@@ -57,6 +57,31 @@ public abstract class Actor : Destroyable, Respawnable {
         }
     }
 
+    private void InitializeMovers()
+    {
+        if (mainMover == null &&movers.Count > 0)
+        {
+            mainMover = movers[0];
+        }
+
+        if (secondaryMover == null)
+        {
+            if (movers.Count > 1)
+            {
+                secondaryMover = movers[1];
+            }
+            else if (movers.Count > 0)
+            {
+                secondaryMover = movers[0];
+            }
+        }
+
+        foreach (Mover mover in movers)
+        {
+            mover.Init(this);
+        }
+    }
+
     public virtual void Init() { }
 
     public bool IsGrabbed()

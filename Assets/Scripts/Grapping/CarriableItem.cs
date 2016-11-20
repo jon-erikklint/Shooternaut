@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class CarriableItem : Grabbable
 {
@@ -10,10 +11,14 @@ public class CarriableItem : Grabbable
     private Rigidbody2D trb;
     private Collider2D col;
 
+    private Vector3 start;
+
     void Awake()
     {
         trb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+
+        start = transform.position;
     }
 
     public override bool CanGrab(Actor actor)
@@ -55,19 +60,36 @@ public class CarriableItem : Grabbable
             return false;
         }
 
-        Vector3 force = carrier.Angle() * carrier.Strength();
+        Reset();
 
-        transform.SetParent(lastParent);
-        col.enabled = true;
-        trb.isKinematic = false;
+        Vector3 force = actor.Angle() * actor.Strength();
         trb.AddForce(force, ForceMode2D.Impulse);
 
         Rigidbody2D arb = actor.GetComponent<Rigidbody2D>();
         arb.mass = arb.mass - trb.mass;
         arb.AddForce(force * -1, ForceMode2D.Impulse);
 
-        carrier = null;
-
         return true;
+    }
+
+    public override void Respawn(List<object> lastState)
+    {
+        Reset();
+
+        this.transform.position = start;
+    }
+
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
+    {
+        return new List<object>();
+    }
+
+    public override void Reset()
+    {
+        transform.SetParent(lastParent);
+        col.enabled = true;
+        trb.isKinematic = false;
+
+        carrier = null;
     }
 }
