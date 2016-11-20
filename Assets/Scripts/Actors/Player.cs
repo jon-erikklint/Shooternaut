@@ -9,6 +9,8 @@ public class Player : Actor
     public UnityEvent playerDies;
     public UnityEvent playerActs;
 
+    public float jumpForce = 10;
+
     void Update()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -50,6 +52,11 @@ public class Player : Actor
             {
                 base.ReleaseGrip();
             }
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            mainMover.Move(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, jumpForce);
         }
     }
 

@@ -224,3 +224,11 @@ Jore
 Mover-interface tehty, HealthInterfaceen ja Activateableen lis‰tty muutama 
 metodi. Actoriin lis‰tty uudet osat ja grab-ominaisuus. Turretit ja pelaaja
 p‰ivitetty k‰ytt‰m‰‰n uutta rajapintaa siin‰ m‰‰rin miss‰ se on pystyss‰.
+
+____________________________
+
+Osama & Jore
+20.11.2016 19:21
+---
+Hypyn raakaversio tehty. CarriableItem- ja Handle-ilmentym‰ 
+Grabbable-luokasta luotu. Jorre test -karttaa siirretty 10 yksikkˆ‰.

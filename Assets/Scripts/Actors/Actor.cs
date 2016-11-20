@@ -25,6 +25,7 @@ public abstract class Actor : Destroyable, Respawnable {
     void Awake()
     {
         InitializeActivateables();
+        InitializeMovers();
 
         grabbed = null;
 		onGround = false;
@@ -59,7 +60,7 @@ public abstract class Actor : Destroyable, Respawnable {
 
     private void InitializeMovers()
     {
-        if (mainMover == null &&movers.Count > 0)
+        if (mainMover == null && movers.Count > 0)
         {
             mainMover = movers[0];
         }
