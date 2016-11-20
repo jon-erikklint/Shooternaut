@@ -152,7 +152,21 @@ public abstract class Actor : Destroyable, Respawnable {
 
             LoseHealth(proj.Damage());
         }
+        else
+        {
+            onGround = true;
+        }
     }
+
+	public void OnCollisionExit2D(Collision2D collision)
+	{
+        if(!Hit(collision.gameObject.tag))
+            onGround = false;
+		DoOnCollisionExit (collision);
+	}
+
+	public virtual void DoOnCollisionEnter (Collision2D collision) { }
+	public virtual void DoOnCollisionExit (Collision2D collision) { }
 
     public virtual List<object> RespawnPointReached(RespawnPoint respawn)
     {
@@ -166,26 +180,6 @@ public abstract class Actor : Destroyable, Respawnable {
         health.Reset();
 	}
 
-	public void OnCollisionEnter2D(Collision2D collision)
-	{
-		onGround = true;
-		DoOnCollisionEnter (collision);
-	}
-
-	public void OnCollisionExit2D(Collision2D collision)
-	{
-		onGround = false;
-		DoOnCollisionExit (collision);
-	}
-
-	public bool OnGround()
-	{
-		return onGround;
-	}
-
-	public virtual void DoOnCollisionEnter (Collision2D collision) { }
-	public virtual void DoOnCollisionExit (Collision2D collision) { }
-
     public Vector3 Position()
     {
         return transform.position;
@@ -195,4 +189,9 @@ public abstract class Actor : Destroyable, Respawnable {
     {
         return transform.right;
     }
+
+	public bool OnGround()
+	{
+		return onGround;
+	}
 }
