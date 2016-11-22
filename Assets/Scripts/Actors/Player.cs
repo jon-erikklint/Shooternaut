@@ -11,11 +11,18 @@ public class Player : Actor
 
     public float jumpForce = 10;
 
+    private Transform looker;
+
+    public override void Init()
+    {
+        looker = transform.FindChild("Look");
+    }
+
     void Update()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
-        transform.right = mousePosition - transform.position;
+        looker.right = mousePosition - transform.position;
 
         Act();
     }
@@ -102,5 +109,15 @@ public class Player : Actor
     public override float Strength()
     {
         return 5;
+    }
+
+    public override Vector3 Angle()
+    {
+        return looker.right;
+    }
+
+    public override Quaternion FacingQuaternion()
+    {
+        return looker.rotation;
     }
 }

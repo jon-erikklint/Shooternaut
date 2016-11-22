@@ -241,3 +241,11 @@ Jore
 Movereita tehty lisää (turner, jetpack ja floaterin ensiversio), handleen
 tehty mahdollisuus erilliseen tarrauspaikkaan ja turning turret muutettu
 käyttämään movereita.
+
+____________________________
+
+Jore
+22.11.2016 20:09
+---
+Handle muutettu toimimaan tapauksissa joissa handle liikkuu, ilman fysiikkaa
+tai sen kanssa. AI-pohja luotu ja siihen tehty muutama apumetodi.

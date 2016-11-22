@@ -15,11 +15,11 @@ public abstract class ProjectileShooter : GunShooter
 
     private GameObject createProjectile()
     {
-        Vector3 offset = owner.transform.right;
+        Vector3 offset = owner.Angle();
         offset.Scale(new Vector3(0.5f, 0.5f, 0.5f));
 
         Vector3 spawnPosition = owner.transform.position + offset;
-        return Instantiate(Projectile(), spawnPosition, owner.transform.rotation) as GameObject;
+        return Instantiate(Projectile(), spawnPosition, owner.FacingQuaternion()) as GameObject;
     }
 
     private void SetProjectileSpeed(GameObject proj)

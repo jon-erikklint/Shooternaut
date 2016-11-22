@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\LaserShooter.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\NormalShooter.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\ProjectileShooter.cs" />
+    <Compile Include="Assets\Scripts\Actors\AI\AI.cs" />
     <Compile Include="Assets\Scripts\Actors\Actor.cs" />
     <Compile Include="Assets\Scripts\Actors\Player.cs" />
     <Compile Include="Assets\Scripts\Actors\Shooter.cs" />

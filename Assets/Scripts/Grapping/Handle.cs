@@ -10,12 +10,18 @@ public class Handle : Grabbable
     private Actor grabbed;
     private Transform previousParent;
 
+    private FixedJoint2D fj;
+    private Rigidbody2D trb;
+
     void Awake()
     {
         if (grabPoint == null)
         {
             grabPoint = this.gameObject;
         }
+
+        fj = grabPoint.GetComponent<FixedJoint2D>();
+        trb = grabPoint.GetComponent<Rigidbody2D>();
     }
 
     public override bool CanGrab(Actor actor)
@@ -33,8 +39,14 @@ public class Handle : Grabbable
         grabbed = actor;
 
         Rigidbody2D rb = actor.GetComponent<Rigidbody2D>();
-        rb.isKinematic = true;
+
+        if (trb != null && !trb.isKinematic)
+        {
+            trb.velocity = rb.velocity;
+        }
+
         rb.velocity = new Vector2();
+        fj.connectedBody = rb;
 
         previousParent = actor.transform.parent;
         actor.transform.SetParent(grabPoint.transform);
@@ -61,9 +73,15 @@ public class Handle : Grabbable
         {
             Rigidbody2D rb = grabbed.GetComponent<Rigidbody2D>();
 
-            rb.isKinematic = false;
+            fj.connectedBody = null;
 
             grabbed.transform.SetParent(previousParent);
+
+            if(trb != null && !trb.isKinematic)
+            {
+                trb.velocity = rb.velocity;
+                fj.connectedBody = trb;
+            }
         }
 
         grabbed = null;

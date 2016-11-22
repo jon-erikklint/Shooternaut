@@ -13,5 +13,5 @@ public abstract class Grabbable: MonoBehaviour, Respawnable {
     public abstract void Reset();
 
     public abstract void Respawn(List<object> lastState);
-public abstract List<object> RespawnPointReached(RespawnPoint respawn);
+    public abstract List<object> RespawnPointReached(RespawnPoint respawn);
 }

@@ -22,6 +22,6 @@ public abstract class GunShooter : MonoBehaviour {
 
     protected Vector3 FacedDirection()
     {
-        return owner.transform.right;
+        return owner.Angle();
     }
 }

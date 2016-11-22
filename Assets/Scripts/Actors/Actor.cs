@@ -209,14 +209,19 @@ public abstract class Actor : Destroyable, Respawnable {
         health.Reset();
 	}
 
-    public Vector3 Position()
+    public virtual Vector3 Position()
     {
         return transform.position;
     }
 
-    public Vector3 Angle()
+    public virtual Vector3 Angle()
     {
         return transform.right;
+    }
+
+    public virtual Quaternion FacingQuaternion()
+    {
+        return transform.rotation;
     }
 
 	public bool OnGround()
