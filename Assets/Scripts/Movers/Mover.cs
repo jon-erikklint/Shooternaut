@@ -7,8 +7,12 @@ public abstract class Mover: MonoBehaviour {
 
     public abstract void Move(Vector2 direction, float magnitude);
 
-    public virtual void Init(Actor actor)
+    public virtual void SetOwner(Actor actor)
     {
         this.owner = actor;
+
+        Init();
     }
+
+    protected abstract void Init();
 }

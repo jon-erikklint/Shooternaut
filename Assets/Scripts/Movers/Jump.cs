@@ -6,7 +6,12 @@ public class Jump : Mover
 {
     private float prevJump;
     private float cooldown = 0.1f;
-    
+
+    protected override void Init()
+    {
+        prevJump = Time.time - cooldown;
+    }
+
     public override void Move(Vector2 direction, float magnitude)
     {
         if(owner == null)
@@ -31,11 +36,4 @@ public class Jump : Mover
         owner.GetComponent<Rigidbody2D>().AddForce(direction.normalized * magnitude, ForceMode2D.Impulse);
         hit.rigidbody.AddForce(-direction.normalized * magnitude, ForceMode2D.Impulse);
     }
-
-    public override void Init(Actor actor)
-    {
-        prevJump = Time.time - cooldown;
-        base.Init(actor);
-    }
-
 }

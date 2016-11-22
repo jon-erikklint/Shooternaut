@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TurningShooter : Shooter{
 
-    public float secondsPerRevolution;
+    public float turningSpeed;
 
     private Quaternion startRotation;
 
@@ -19,9 +19,7 @@ public class TurningShooter : Shooter{
 
     void Update()
     {
-        float rotation = 360 * (Time.deltaTime / secondsPerRevolution);
-
-        transform.Rotate(new Vector3(0, 0, rotation));
+        mainMover.Move(new Vector2(1,0), 1*turningSpeed);
     }
 
     public override void Respawn(List<object> lastState)

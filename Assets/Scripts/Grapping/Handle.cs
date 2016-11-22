@@ -5,8 +5,18 @@ using System.Collections.Generic;
 
 public class Handle : Grabbable
 {
+    public GameObject grabPoint;
+
     private Actor grabbed;
     private Transform previousParent;
+
+    void Awake()
+    {
+        if (grabPoint == null)
+        {
+            grabPoint = this.gameObject;
+        }
+    }
 
     public override bool CanGrab(Actor actor)
     {
@@ -27,7 +37,7 @@ public class Handle : Grabbable
         rb.velocity = new Vector2();
 
         previousParent = actor.transform.parent;
-        actor.transform.SetParent(transform);
+        actor.transform.SetParent(grabPoint.transform);
         actor.transform.localPosition = Vector3.zero;
 
         return true;

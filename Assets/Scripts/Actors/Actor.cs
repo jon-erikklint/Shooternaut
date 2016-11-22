@@ -17,6 +17,8 @@ public abstract class Actor : Destroyable, Respawnable {
 
     public Grabbable grabbed;
 
+    public GameObject test;
+
 	private bool onGround;
 
     public float invulnerabilityTime;
@@ -79,7 +81,7 @@ public abstract class Actor : Destroyable, Respawnable {
 
         foreach (Mover mover in movers)
         {
-            mover.Init(this);
+            mover.SetOwner(this);
         }
     }
 
@@ -99,7 +101,7 @@ public abstract class Actor : Destroyable, Respawnable {
     {
         Vector2 actorPosition = Position();
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(actorPosition, 2);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(actorPosition, 1);
 
         Grabbable closest = null;
         float distanceToClosest = 2;

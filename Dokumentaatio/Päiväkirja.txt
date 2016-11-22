@@ -232,3 +232,12 @@ Osama & Jore
 ---
 Hypyn raakaversio tehty. CarriableItem- ja Handle-ilmentymä 
 Grabbable-luokasta luotu. Jorre test -karttaa siirretty 10 yksikköä.
+
+____________________________
+
+Jore
+22.11.2016 14:48
+---
+Movereita tehty lisää (turner, jetpack ja floaterin ensiversio), handleen
+tehty mahdollisuus erilliseen tarrauspaikkaan ja turning turret muutettu
+käyttämään movereita.
