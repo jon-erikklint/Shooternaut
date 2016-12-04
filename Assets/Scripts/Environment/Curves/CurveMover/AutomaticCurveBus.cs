@@ -24,8 +24,9 @@ public abstract class AutomaticCurveBus : CurveBus {
 
     protected virtual void MovePositions(float dt)
     {
-        for (int i = 0; i < gameObjects.Count; i++)
-            MovePosition(i, dt);
+		for (int i = 0; i < gameObjects.Count; i++) {
+			MovePosition(i, dt);
+		}
     }
 
     protected abstract void MovePosition(int i, float dt);
@@ -49,12 +50,11 @@ public abstract class AutomaticCurveBus : CurveBus {
 
         if (rb == null)
         {
-            obj.transform.localPosition = curve.PointAt(currPos);
-            Debug.Log(curve.PointAt(currPos));
+            obj.transform.localPosition = PointAt(currPos);
         }
         else
         {
-            rb.velocity = (curve.GlobalPointAt(currPos) - obj.transform.position)*speedFactor/dt;
+            rb.velocity = (GlobalPointAt(currPos) - obj.transform.position)*speedFactor/dt;
         }
     }
 

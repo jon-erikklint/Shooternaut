@@ -12,7 +12,10 @@ public abstract class CurveBus : MonoBehaviour
 
    void Start () {
         curve = gameObject.GetComponent<Curve>();
-        Debug.Log(curve);
+		if (curve == null) {
+			Debug.LogWarning ( name + " does not have any curve attatched to it!" );
+			gameObjects.Clear ();
+		}
         SetGameObjectsToTheirPositions();
     }
     
@@ -20,6 +23,7 @@ public abstract class CurveBus : MonoBehaviour
     {
         for (int i = 0; i < gameObjects.Count; i++)
         {
+			Debug.Log ("huoh... " + gameObjectsPositions [i] + " " + curve.PointAt(gameObjectsPositions[i]));
             gameObjects[i].transform.localPosition = curve.PointAt(gameObjectsPositions[i]);
         }
     }
@@ -43,9 +47,24 @@ public abstract class CurveBus : MonoBehaviour
         }
     }
 
+	public Vector3 GlobalPointAt(float x)
+	{
+		return curve.GlobalPointAt (x);
+	}
+
+	public Vector3 PointAt(float x)
+	{
+		return curve.PointAt (x);
+	}
+
+	public float XAtPoint(Vector3 position)
+	{
+		return curve.XAtPoint (position);
+	}
+
     void OnValidate()
     {
-        DoOnValidate();
+        //DoOnValidate();
     }
 
     protected virtual void DoOnValidate()

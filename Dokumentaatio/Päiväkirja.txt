@@ -259,3 +259,11 @@ ModularAI:lle tehty ensimm‰isi‰ komponentteja, turreteista tehty uudet MAI:lla
 toimivat versiot. AI:t laitettu respawnaamaan oikein. Actor-rajapintoja hiukan
 hiottu (strength, setRight, ja muutama muu). Vanhoille luokille, jota saatetaan
 k‰ytt‰‰ jossain, tehty legacy-kansio.
+
+____________________________
+
+Osama & Jore
+4.12.2016
+---
+Curvet on back! Line ja PolyLine toiminnassa, AutomaticCurveBus ja PhysicsCurveBus
+toteutettu. Floater-mover tehty ja MAI:n toimintaa tweekattu.

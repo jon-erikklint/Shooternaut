@@ -5,13 +5,13 @@ using System;
 public class Line : Curve
 {
 
-    public GameObject startingPoint;
-    public GameObject endPoint;
+    public Transform startingPoint;
+    public Transform endPoint;
 
     [HideInInspector]
-    public Vector3 v0 { get { return startingPoint.transform.localPosition; } }
+    public Vector3 v0 { get { return startingPoint.localPosition; } }
     [HideInInspector]
-    public Vector3 v1 { get { return endPoint.transform.localPosition; } }
+    public Vector3 v1 { get { return endPoint.localPosition; } }
 
     void Awake()
     {

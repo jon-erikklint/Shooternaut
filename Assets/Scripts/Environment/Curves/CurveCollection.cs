@@ -1,99 +1,56 @@
-﻿//using UnityEngine;
-//using System.Collections.Generic;
-//using System;
-//using System.Collections;
+﻿using UnityEngine;
+using System.Collections.Generic;
+using System;
+using System.Collections;
 
-//public class CurveCollection : Curve
-//{
+public class CurveCollection : Curve
+{
+	[HideInInspector]
+    public List<Curve> curves;
 
-//    public List<Curve> curves;
+    protected List<float> startingDistances;
 
-//    protected List<float> startingTimes;
-//    protected List<float> startingDistances;
+	protected override void Init() {
+	}
 
-//    protected override void Init() { }
+    void Start()
+	{
+		InitializeStartingLists();
+		_length = CalculateLength();
+    }
 
-//    void Start()
-//    {
-//        InitializeStartingLists();
-//        _length = CalculateLength();
-//        _time = CalculateTime();
-//    }
+    private void InitializeStartingLists()
+    {
+        startingDistances = new List<float>();
 
-//    private void InitializeStartingLists()
-//    {
-//        startingTimes = new List<float>();
-//        startingDistances = new List<float>();
+        startingDistances.Add(0);
+        for (int i = 0; i < curves.Count-1; i++)
+        {
+			startingDistances.Add(startingDistances[i] + curves[i].length);
+        }
+    }
 
-//        startingTimes.Add(0);
-//        startingDistances.Add(0);
-//        for (int i = 0; i < curves.Count - 1; i++)
-//        {
-//            startingTimes.Add(startingTimes[i] + curves[i].time);
-//            startingDistances.Add(startingDistances[i] + curves[i].length);
-//        }
-//        SetGameObjectsAsChilds();
-//    }
+    protected override float CalculateLength()
+    {
+        float result = 0.0f;
+        foreach (Curve curve in curves)
+            result += curve.length;
+        return result;
+    }
 
-//    void Update()
-//    {
-//        MoveGameObjects(Time.deltaTime);
-//    }
+	protected override Vector3 PointAtPos(float x)
+    {
+        int i = BinarySearch(startingDistances, x);
+        float x2 = x - startingDistances[i];
+        return curves[i].PointAt(x2);
+    }
 
-//    protected override float CalculateLength()
-//    {
-//        float result = 0.0f;
-//        foreach (Curve curve in curves)
-//            result += curve.length;
-//        return result;
-//    }
-
-//    protected override float CalculateTime()
-//    {
-//        float result = 0.0f;
-//        foreach (Curve curve in curves)
-//            result += curve.time;
-//        return result;
-//    }
-
-//    public override Vector3 PointAt(float x)
-//    {
-//        int i = BinarySearch(startingDistances, x);
-//        float x2 = x - startingDistances[i];
-//        return curves[i].PointAt(x2);
-//    }
-
-//    public override Vector3 PointAtTime(float t)
-//    {
-//        int i = BinarySearch(startingTimes, t);
-//        float t2 = t - startingTimes[i];
-//        return curves[i].PointAtTime(t2);
-//    }
-
-//    public override float XAtTime(float t)
-//    {
-//        int i = BinarySearch(startingTimes, t);
-//        return startingDistances[i] + curves[i].XAtTime(t - startingTimes[i]);
-//    }
-
-//    public override Vector3 RotationVector(float x, float dt)
-//    {
-//        int i = BinarySearch(startingDistances, x);
-//        return curves[i].RotationVector(x, dt);
-//    }
-
-//    public override float SpeedAtTime(float t)
-//    {
-//        int i = BinarySearch(startingTimes, t);
-//        return curves[i].startSpeed + curves[i].acceleration * t;
-//    }
-
-//    private int BinarySearch(List<float> list, float value)
-//    {
-//        int i = list.Count - 1;
-//        while (i > 0 && list[i] > value) i--;
-//        return i;
-//    }
+    private int BinarySearch(List<float> list, float value)
+    {
+        int i = list.Count - 1;
+        while (i > 0 && list[i] > value) i--;
+        return i;
+    }
 
 //    protected override void DoOnValidate()
 //    {
@@ -101,9 +58,9 @@
 //        base.DoOnValidate();
 //    }
 
-//    public void Debuug()
-//    {
-//        Debug.Log("moi");
-//    }
+    public void Debuug()
+    {
+        Debug.Log("moi");
+    }
 
-//}
+}
