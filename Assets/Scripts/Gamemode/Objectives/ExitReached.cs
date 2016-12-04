@@ -8,6 +8,7 @@ public class ExitReached : MonoBehaviour, Objective
 
     public void ReacheEnd()
     {
+        Debug.Log("DSF");
         endreached = true;
     }
 

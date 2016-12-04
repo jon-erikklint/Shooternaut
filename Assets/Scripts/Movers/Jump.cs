@@ -34,6 +34,10 @@ public class Jump : Mover
             return;
 
         owner.GetComponent<Rigidbody2D>().AddForce(direction.normalized * magnitude, ForceMode2D.Impulse);
-        hit.rigidbody.AddForce(-direction.normalized * magnitude, ForceMode2D.Impulse);
+
+        if(hit.rigidbody != null)
+        {
+            hit.rigidbody.AddForce(-direction.normalized * magnitude, ForceMode2D.Impulse);
+        }
     }
 }

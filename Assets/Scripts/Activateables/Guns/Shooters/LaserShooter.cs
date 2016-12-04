@@ -63,4 +63,9 @@ public class LaserShooter : GunShooter
     {
         DestroyLaser();
     }
+
+    public override bool AbleToShoot()
+    {
+        return true;
+    }
 }

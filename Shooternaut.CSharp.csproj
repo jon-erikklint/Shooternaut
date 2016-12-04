@@ -128,7 +128,7 @@
     <Compile Include="Assets\Scripts\Lasers\Laser.cs" />
     <Compile Include="Assets\Scripts\LegacyClasses\Shooter.cs" />
     <Compile Include="Assets\Scripts\LegacyClasses\TurningShooter.cs" />
-    <Compile Include="Assets\Scripts\Movers\Float.cs" />
+    <Compile Include="Assets\Scripts\Movers\Floater.cs" />
     <Compile Include="Assets\Scripts\Movers\Jetpack.cs" />
     <Compile Include="Assets\Scripts\Movers\Jump.cs" />
     <Compile Include="Assets\Scripts\Movers\Mover.cs" />

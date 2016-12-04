@@ -229,6 +229,12 @@ public abstract class Actor : Destroyable, Respawnable {
         return transform.right;
     }
 
+    public virtual float Width()
+    {
+        Vector3 scale = transform.lossyScale;
+        return Math.Max(scale.x, scale.y);
+    }
+
     public virtual void SetAngle(Vector3 newAngle)
     {
         transform.right = newAngle;

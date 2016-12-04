@@ -12,6 +12,8 @@ public abstract class GunShooter : MonoBehaviour {
         owner = gun.owner;
     }
 
+    public abstract bool AbleToShoot();
+
     public abstract void Shoot();
     public abstract void CantShoot();
     public abstract void Deactivate();

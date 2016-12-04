@@ -31,11 +31,13 @@ public class Player : Actor
     {
         if(Input.GetMouseButtonDown(0))
         {
+            playerActs.Invoke();
             SetActivateable(true, mainActivateable);
         }
 
         if (Input.GetMouseButtonDown(1))
         {
+            playerActs.Invoke();
             SetActivateable(true, secondaryActivateable);
         }
 
@@ -51,6 +53,8 @@ public class Player : Actor
 
         if (Input.GetKeyDown("k"))
         {
+            playerActs.Invoke();
+
             if (!IsGrabbed())
             {
                 base.Grab();
@@ -63,6 +67,8 @@ public class Player : Actor
 
         if (Input.GetKey(KeyCode.Space))
         {
+            playerActs.Invoke();
+
             mainMover.Move(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, jumpForce);
         }
     }

@@ -27,7 +27,7 @@ public class Gun : ClickingActivateable
 
     public override bool CanAct()
     {
-        return controller.TryToShoot();
+        return controller.TryToShoot(); //&& shooter.AbleToShoot();
     }
 
     public override void Deactivate()

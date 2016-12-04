@@ -30,4 +30,11 @@ public class NormalShooter : ProjectileShooter
     {
         return FacedDirection() * (ShootForceMultiplier * bulletMass());
     }
+
+    public override float ProjectileRadius()
+    {
+        Vector3 scale = projectilePrefab.transform.lossyScale;
+
+        return Math.Max(scale.x, scale.y);
+    }
 }

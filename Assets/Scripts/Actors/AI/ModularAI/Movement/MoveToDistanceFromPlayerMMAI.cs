@@ -35,6 +35,6 @@ public class MoveToDistanceFromPlayerMMAI : MAIMovementComponent
             return true;
         }
 
-        return ai.isPlayerBetween(maxDistanceToPlayer, minDistanceToPlayer);
+        return ai.isPlayerNearby(maxDistanceToPlayer);
     }
 }
