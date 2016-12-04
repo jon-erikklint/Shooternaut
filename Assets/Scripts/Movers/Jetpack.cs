@@ -13,6 +13,7 @@ public class Jetpack : Mover
 
     public override void Move(Vector2 direction, float magnitude)
     {
+        owner.SetAngle(direction);
         orb.AddForce(direction.normalized * magnitude, ForceMode2D.Force);
     }
 }

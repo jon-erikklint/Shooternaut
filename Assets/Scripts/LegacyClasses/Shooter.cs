@@ -17,20 +17,10 @@ public class Shooter : Actor
         mainActivateable.Activate();
     }
 
-    public override bool Hit(string tag)
-    {
-        return false;
-    }
-
     public override void Respawn(List<object> lastState)
     {
         base.Respawn(lastState);
 
         Init();
-    }
-
-    public override float Strength()
-    {
-        return 0;
     }
 }

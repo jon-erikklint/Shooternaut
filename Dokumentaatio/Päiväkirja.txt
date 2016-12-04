@@ -249,3 +249,13 @@ Jore
 ---
 Handle muutettu toimimaan tapauksissa joissa handle liikkuu, ilman fysiikkaa
 tai sen kanssa. AI-pohja luotu ja siihen tehty muutama apumetodi.
+
+____________________________
+
+Jore
+4.12.2016 15:09
+---
+ModularAI:lle tehty ensimm‰isi‰ komponentteja, turreteista tehty uudet MAI:lla
+toimivat versiot. AI:t laitettu respawnaamaan oikein. Actor-rajapintoja hiukan
+hiottu (strength, setRight, ja muutama muu). Vanhoille luokille, jota saatetaan
+k‰ytt‰‰ jossain, tehty legacy-kansio.

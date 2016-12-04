@@ -17,7 +17,8 @@ public abstract class Actor : Destroyable, Respawnable {
 
     public Grabbable grabbed;
 
-    public GameObject test;
+    public float strength;
+    public List<string> hitTags;
 
 	private bool onGround;
 
@@ -32,6 +33,7 @@ public abstract class Actor : Destroyable, Respawnable {
         grabbed = null;
 		onGround = false;
         lastHit = 0;
+
         Init();
     }
 
@@ -171,7 +173,10 @@ public abstract class Actor : Destroyable, Respawnable {
         }
     }
 
-    public abstract bool Hit(string tag);
+    protected virtual bool Hit(string tag)
+    {
+        return hitTags.Contains(tag);
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -189,7 +194,7 @@ public abstract class Actor : Destroyable, Respawnable {
 
 	public void OnCollisionExit2D(Collision2D collision)
 	{
-        if(!Hit(collision.gameObject.tag))
+        if(!hitTags.Contains(collision.gameObject.tag))
             onGround = false;
 		DoOnCollisionExit (collision);
 	}
@@ -207,6 +212,11 @@ public abstract class Actor : Destroyable, Respawnable {
         lastHit = 0;
 
         health.Reset();
+
+        foreach(Activateable activateable in activateables)
+        {
+            activateable.Reset();
+        }
 	}
 
     public virtual Vector3 Position()
@@ -219,6 +229,11 @@ public abstract class Actor : Destroyable, Respawnable {
         return transform.right;
     }
 
+    public virtual void SetAngle(Vector3 newAngle)
+    {
+        transform.right = newAngle;
+    }
+
     public virtual Quaternion FacingQuaternion()
     {
         return transform.rotation;
@@ -229,5 +244,8 @@ public abstract class Actor : Destroyable, Respawnable {
 		return onGround;
 	}
 
-    public abstract float Strength();
+    public virtual float Strength()
+    {
+        return strength;
+    }
 }

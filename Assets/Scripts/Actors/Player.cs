@@ -77,13 +77,6 @@ public class Player : Actor
         playerDies.Invoke();
     }
 
-    public override bool Hit(string tag)
-    {
-        playerActs.Invoke();
-
-        return tag.Equals("Bullet");
-    }
-
     public override List<object> RespawnPointReached(RespawnPoint respawn)
     {
         List<object> list = base.RespawnPointReached(respawn);
@@ -106,18 +99,23 @@ public class Player : Actor
         base.Respawn(lastState);
     }
 
-    public override float Strength()
-    {
-        return 5;
-    }
-
     public override Vector3 Angle()
     {
         return looker.right;
     }
 
+    public override void SetAngle(Vector3 newAngle)
+    {
+        looker.right = newAngle;
+    }
+
     public override Quaternion FacingQuaternion()
     {
         return looker.rotation;
+    }
+
+    protected override bool Hit(string tag)
+    {
+        return tag.Equals("Bullet");
     }
 }
