@@ -16,7 +16,7 @@ public class ModularAI : AI {
     public override void Init()
     {
         base.Init();
-
+        
         updateComponents = new List<MAIComponent>();
 
         InitComponent(mainMovementComponent, mainMover);
@@ -61,6 +61,22 @@ public class ModularAI : AI {
         foreach(MAIComponent component in updateComponents)
         {
             component.Act();
+        }
+    }
+
+    protected override void Deactivate()
+    {
+        foreach(MAIComponent component in updateComponents)
+        {
+            component.TurnOff();
+        }
+    }
+
+    protected override void Activate()
+    {
+        foreach (MAIComponent component in updateComponents)
+        {
+            component.TurnOn();
         }
     }
 }

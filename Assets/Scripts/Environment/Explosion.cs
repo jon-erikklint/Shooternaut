@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
-public class Explosion : Destroyable {
+public class Explosion : Destroyable, Respawnable {
 
     public float maxDamage;
 
@@ -11,30 +12,21 @@ public class Explosion : Destroyable {
     public float duration = 0.5f;
 
     private float birth;
-
-    private CircleCollider2D col;
     
 	void Start () {
-        col = gameObject.GetComponent<CircleCollider2D>();
-        col.radius = 0;
-        col.isTrigger = true;
         birth = Time.time;
-
-        StartCoroutine("IncreaseRadius");
 	}
 	
-    IEnumerator IncreaseRadius()
+    void Update()
     {
-        float deltaTime = Time.time - birth;
-        while(deltaTime <= duration)
+        if(Time.time > birth + duration)
         {
-            
-            deltaTime = Time.time - birth;
-            col.radius = radius * deltaTime / duration;
-            yield return null;
+            DestroySelf();
+            return;
         }
 
-        Destroy(gameObject);
+        float currentRadius = radius * (Time.time-birth) / duration;
+        transform.localScale = new Vector3(currentRadius, currentRadius);
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -57,9 +49,13 @@ public class Explosion : Destroyable {
         actor.LoseHealth(damageDealt);
     }
 
-    public override void DestroySelf()
+    public List<object> RespawnPointReached(RespawnPoint respawn)
     {
-        StopAllCoroutines();
-        base.DestroySelf();
+        return new List<object>();
+    }
+
+    public void Respawn(List<object> lastState)
+    {
+        DestroySelf();
     }
 }

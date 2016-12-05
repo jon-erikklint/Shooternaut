@@ -13,12 +13,15 @@ public abstract class AI : Actor
     public bool active { get { return _active; } }
     private bool _active;
 
+    private Deactivator deac;
+
     public override void Init()
     {
         startingPosition = transform.position;
         startingRotation = GetComponent<Rigidbody2D>().rotation;
 
         player = FindObjectOfType<Player>();
+        deac = FindObjectOfType<Deactivator>();
 
         _active = true;
     }
@@ -49,29 +52,23 @@ public abstract class AI : Actor
 
     public override void Respawn(List<object> lastState)
     {
-        transform.position = startingPosition;
+        deac.ActivateGameobject(gameObject, startingPosition, startingRotation, Vector3.zero);
 
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = 0;
-        rb.rotation = startingRotation;
-
-
-        GetComponent<Collider2D>().enabled = true;
-        GetComponent<Renderer>().enabled = true;
         _active = true;
+        Activate();
 
         base.Respawn(lastState);
     }
 
     public override void DestroySelf()
     {
-        GetComponent<Collider2D>().enabled = false;
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector3.zero;
-        GetComponent<Renderer>().enabled = false;
+        deac.DeactivateGameObject(gameObject);
 
+        Deactivate();
         _active = false;
     }
+
+    protected virtual void Deactivate() { }
+    protected virtual void Activate() {}
 
 }

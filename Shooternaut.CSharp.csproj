@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\LaserShooter.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\NormalShooter.cs" />
     <Compile Include="Assets\Scripts\Activateables\Guns\Shooters\ProjectileShooter.cs" />
+    <Compile Include="Assets\Scripts\Activateables\Other\SelfExplosionButton.cs" />
     <Compile Include="Assets\Scripts\Actors\AI\AI.cs" />
     <Compile Include="Assets\Scripts\Actors\AI\ModularAI\Activateable\ConstantAMAI.cs" />
     <Compile Include="Assets\Scripts\Actors\AI\ModularAI\Activateable\MAIActivateableComponent.cs" />
@@ -85,12 +86,14 @@
     <Compile Include="Assets\Scripts\Actors\AI\ModularAI\Grabbing\NullGrabbingComponent.cs" />
     <Compile Include="Assets\Scripts\Actors\AI\ModularAI\MAIComponent.cs" />
     <Compile Include="Assets\Scripts\Actors\AI\ModularAI\ModularAI.cs" />
+    <Compile Include="Assets\Scripts\Actors\AI\ModularAI\Movement\ChaserMMAI.cs" />
     <Compile Include="Assets\Scripts\Actors\AI\ModularAI\Movement\ConstantMMAI.cs" />
     <Compile Include="Assets\Scripts\Actors\AI\ModularAI\Movement\MAIMovementComponent.cs" />
     <Compile Include="Assets\Scripts\Actors\AI\ModularAI\Movement\MoveToDistanceFromPlayerMMAI.cs" />
     <Compile Include="Assets\Scripts\Actors\AI\ModularAI\Movement\NullMovementComponent.cs" />
     <Compile Include="Assets\Scripts\Actors\Actor.cs" />
     <Compile Include="Assets\Scripts\Actors\Player.cs" />
+    <Compile Include="Assets\Scripts\Deactivator.cs" />
     <Compile Include="Assets\Scripts\Destroyable.cs" />
     <Compile Include="Assets\Scripts\Environment\Buttons\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Environment\Buttons\Trigger.cs" />
@@ -101,6 +104,7 @@
     <Compile Include="Assets\Scripts\Environment\Curves\CurveMover\AutomaticCurveBus.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\CurveMover\ConstantCurveBus.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\CurveMover\CurveBus.cs" />
+    <Compile Include="Assets\Scripts\Environment\Curves\CurveMover\PhysicsCurveBus.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\Line.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\Polyline.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\WayPointCurve.cs" />

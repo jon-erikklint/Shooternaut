@@ -267,3 +267,10 @@ Osama & Jore
 ---
 Curvet on back! Line ja PolyLine toiminnassa, AutomaticCurveBus ja PhysicsCurveBus
 toteutettu. Floater-mover tehty ja MAI:n toimintaa tweekattu.
+____________________________
+
+Jore
+5.12.2016 15:26
+---
+Chaser-ai tehty. Sitä varten miinat ja räjähdykset laitettu toimimaan jälleen 
+järkevästi. Muutama AI:n respawnbugi korjattu.

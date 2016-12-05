@@ -31,4 +31,8 @@ public abstract class MAIActivateableComponent : MAIComponent {
 
     public abstract bool NextState();
 
+    public override void TurnOff()
+    {
+        activateable.Deactivate();
+    }
 }

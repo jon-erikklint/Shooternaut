@@ -86,8 +86,11 @@ public class Player : Actor
     public override List<object> RespawnPointReached(RespawnPoint respawn)
     {
         List<object> list = base.RespawnPointReached(respawn);
-        
-        list.Add(respawn.spawnpoint);
+
+        Vector3 spawnCoord = respawn.spawnpoint;
+        spawnCoord.z = transform.position.z;
+
+        list.Add(spawnCoord);
 
         return list;
     }
@@ -97,8 +100,7 @@ public class Player : Actor
         int lastElement = lastState.Count - 1;
 
         Vector3 respawnLocation = (Vector3) lastState[lastElement];
-
-        this.transform.position = respawnLocation;
+        transform.position = respawnLocation;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         lastState.RemoveRange(lastElement, 1);

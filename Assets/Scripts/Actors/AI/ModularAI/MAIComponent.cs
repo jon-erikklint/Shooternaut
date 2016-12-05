@@ -13,5 +13,8 @@ public abstract class MAIComponent : MonoBehaviour {
     }
 
     public virtual void WakeUp() { }
+
     public virtual void Act() { }
+    public virtual void TurnOff() { }
+    public virtual void TurnOn() { }
 }
