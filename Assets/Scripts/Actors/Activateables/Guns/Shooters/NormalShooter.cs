@@ -14,21 +14,21 @@ public class NormalShooter : ProjectileShooter
         return projectilePrefab;
     }
 
-    private float bulletMass()
+    private float BulletMass()
     {
         Rigidbody2D rb = projectilePrefab.GetComponent<Rigidbody2D>();
 
         return rb.mass;
     }
 
-    public override Vector3 KnockBackAmount()
+    public override Vector2 KnockBackAmount()
     {
-        return -FacedDirection() * (KnockbackMultiplier * bulletMass());
+        return -FacedDirection() * (KnockbackMultiplier * BulletMass());
     }
 
-    public override Vector3 ShootForce()
+    public override Vector2 ShootForce()
     {
-        return FacedDirection() * (ShootForceMultiplier * bulletMass());
+        return FacedDirection() * (ShootForceMultiplier * BulletMass());
     }
 
     public override float ProjectileRadius()

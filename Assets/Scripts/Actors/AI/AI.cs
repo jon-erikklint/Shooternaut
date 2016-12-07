@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public abstract class AI : Actor
 {
+    public float fov;
+
     protected Player player;
 
     private Vector3 startingPosition;
@@ -45,9 +47,17 @@ public abstract class AI : Actor
 
     public bool isPlayerInLOS()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Position()+Angle().normalized*Width(), VectorToPlayer());
+        Vector2 vtp = VectorToPlayer();
+        float playerAngle = (float) (Math.Atan2(vtp.y, vtp.x) * 180 / Math.PI);
+        float lookAngle = GetComponent<Rigidbody2D>().rotation;
+        float overflow = Math.Abs(lookAngle) + fov / 2 - 180;
+    
 
-        return hit.collider.tag.Equals("Player");
+        if (Math.Abs(GetComponent<Rigidbody2D>().rotation - playerAngle) > fov / 2 || overflow < 0 && Math.Abs(playerAngle) > overflow) return false;
+
+        RaycastHit2D hit = Physics2D.Raycast(Position()+VectorToPlayer().normalized*Width(), VectorToPlayer());
+
+        return hit.collider != null && hit.collider.tag.Equals("Player");
     }
 
     public override bool Hit(string tag)

@@ -107,7 +107,7 @@ public class Player : Actor
         return base.Respawn(lastState);
     }
 
-    public override Vector3 Angle()
+    public override Vector2 Angle()
     {
         return looker.right;
     }

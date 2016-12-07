@@ -217,12 +217,12 @@ public abstract class Actor : Respawnable, Destroyable {
         return true;
 	}
 
-    public virtual Vector3 Position()
+    public virtual Vector2 Position()
     {
         return transform.position;
     }
 
-    public virtual Vector3 Angle()
+    public virtual Vector2 Angle()
     {
         return transform.right;
     }

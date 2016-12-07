@@ -40,7 +40,7 @@ public class LaserShooter : GunShooter
         StopShooting();
     }
 
-    public override Vector3 KnockBackAmount()
+    public override Vector2 KnockBackAmount()
     {
         return owner.Angle() * -knockback;
     }

@@ -18,12 +18,12 @@ public abstract class GunShooter : MonoBehaviour {
     public abstract void CantShoot();
     public abstract void Deactivate();
 
-    public abstract Vector3 KnockBackAmount();
+    public abstract Vector2 KnockBackAmount();
 
     public virtual void Reset() { }
 
-    protected Vector3 FacedDirection()
+    protected Vector2 FacedDirection()
     {
-        return owner.Angle();
+        return ((Vector2)owner.Angle()).normalized;
     }
 }

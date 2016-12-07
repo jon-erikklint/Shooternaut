@@ -298,3 +298,10 @@ Räjähdyksistä tehty muokattavampia ja niihin liittyvä respawnbugi korjattu.
 Muutoksista syntynyt ammusten typerä toiminta korjattu. Kuusi turrettiprefabia
 tehty ja pelaajaa seuraava ampumis-ai laitettukääntymään kohti pelaajaa.
 Skriptien kansiorakennetta järkevöitetty.
+____________________________
+
+Jore
+7.12.2016 18:50
+---
+Ampumiseen ja vektoreihin liittyviä bugeja korjattu. LOS-päivitys aloitettu,
+kesken koska univelkaiset aivot eivät toimi ollenkaan.

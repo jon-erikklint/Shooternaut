@@ -14,20 +14,20 @@ public abstract class ProjectileShooter : GunShooter
 
     public override void Shoot()
     {
-        GameObject projectile = createProjectile();
+        GameObject projectile = CreateProjectile();
 
         SetProjectileSpeed(projectile);
     }
 
     private Vector3 CreationPoint()
     {
-        Vector3 offset = owner.Angle();
-        offset.Scale(new Vector3(0.5f, 0.5f, 0.4f));
+        Vector2 offset = FacedDirection();
+        Vector2 realOffset = new Vector3(owner.Width()*offset.x, owner.Width()*offset.y, 0);
 
-        return owner.Position() + offset;
+        return owner.Position() + realOffset;
     }
 
-    private GameObject createProjectile()
+    private GameObject CreateProjectile()
     {
         return Instantiate(Projectile(), CreationPoint(), owner.FacingQuaternion()) as GameObject;
     }
@@ -36,14 +36,14 @@ public abstract class ProjectileShooter : GunShooter
     {
         Rigidbody2D ownerbody = owner.GetComponent<Rigidbody2D>();
         Rigidbody2D projbody = proj.GetComponent<Rigidbody2D>();
-        Vector3 startSpeedAddition = new Vector3(ownerbody.velocity.x * projbody.mass, ownerbody.velocity.y * projbody.mass, 0);
 
-        Vector3 projectileVelocity = ShootForce() + startSpeedAddition;
+        Vector2 startSpeedAddition = new Vector2(ownerbody.velocity.x * projbody.mass, ownerbody.velocity.y * projbody.mass);
+        Vector2 projectileVelocity = ShootForce() + startSpeedAddition;
 
         projbody.AddForce(projectileVelocity, ForceMode2D.Impulse);
     }
 
-    public abstract Vector3 ShootForce();
+    public abstract Vector2 ShootForce();
 
     public override void CantShoot(){}
     public override void Deactivate(){}
