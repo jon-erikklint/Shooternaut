@@ -7,14 +7,26 @@ public class Explosion : Respawnable, Destroyable {
 
     public float damagePerSecond;
 
-    public float radius = 3.0f;
-    public float energy = 50.0f;
-    public float duration = 0.5f;
+    public float maxRadius;
+    public float minRadius;
+
+    public float maxEnergy;
+    public float minEnergy;
+
+    public float maxEnergyRadius;
+    public float minEnergyRadius;
+
+    public float duration;
+
+    private float currentRadius;
+    private float currentRadiusMultiplier;
 
     private float birth;
     
-	void Start () {
+	public override void Init () {
         birth = Time.time;
+        currentRadius = minRadius;
+        currentRadiusMultiplier = currentRadius / maxRadius;
 	}
 	
     void Update()
@@ -25,14 +37,27 @@ public class Explosion : Respawnable, Destroyable {
             return;
         }
 
-        float currentRadius = radius * (Time.time-birth) / duration;
+        currentRadius = ((maxRadius - minRadius) * (Time.time-birth) / duration) + minRadius;
+        currentRadiusMultiplier = currentRadius / maxRadius;
+
         transform.localScale = new Vector3(currentRadius, currentRadius);
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
         Vector3 displacement = other.transform.position - transform.position;
-        other.GetComponent<Rigidbody2D>().AddForce(displacement/displacement.sqrMagnitude * energy/duration);
+        float distance = displacement.magnitude;
+
+        float energy = minEnergy*currentRadiusMultiplier;
+        if(distance < maxEnergyRadius*currentRadiusMultiplier)
+        {
+            energy = maxEnergy;
+        }else if(distance < minEnergyRadius*currentRadiusMultiplier)
+        {
+            energy += (maxEnergy - minEnergy) * (minEnergyRadius*currentRadiusMultiplier - distance)/(currentRadiusMultiplier * (minEnergyRadius- maxEnergyRadius));
+        }
+
+        other.GetComponent<Rigidbody2D>().AddForce(displacement.normalized * energy/duration);
 
         DoDamage(other.GetComponent<Actor>());
     }

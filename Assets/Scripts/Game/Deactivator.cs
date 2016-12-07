@@ -36,8 +36,6 @@ public class Deactivator: MonoBehaviour{
 
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0;
-
-        rb.isKinematic = !active;
     }
 
     private void ActivateCollider(Collider2D col, bool active)

@@ -289,3 +289,12 @@ Jore
 Respawnsysteemistä tehty siistimpää: onRespawn poistettu ja sen toiminnallisuus
 lisätty RespawnManagerille. Eli ei enää OnRespawn-skriptin tunkemista joka
 paikkaan!
+____________________________
+
+Jore
+7.12.2016 15:15
+---
+Räjähdyksistä tehty muokattavampia ja niihin liittyvä respawnbugi korjattu.
+Muutoksista syntynyt ammusten typerä toiminta korjattu. Kuusi turrettiprefabia
+tehty ja pelaajaa seuraava ampumis-ai laitettukääntymään kohti pelaajaa.
+Skriptien kansiorakennetta järkevöitetty.

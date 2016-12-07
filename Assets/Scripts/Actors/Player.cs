@@ -122,7 +122,7 @@ public class Player : Actor
         return looker.rotation;
     }
 
-    protected override bool Hit(string tag)
+    public override bool Hit(string tag)
     {
         return tag.Equals("Bullet");
     }

@@ -15,10 +15,7 @@ public abstract class Projectile : Respawnable, Destroyable
     void OnCollisionEnter2D(Collision2D col)
     {
         OnHit();
-    }
 
-    void OnCollisionExit2D(Collision2D col)
-    {
         if (GetsDestroyed(col.collider.tag))
         {
             OnDestruction();

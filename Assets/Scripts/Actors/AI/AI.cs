@@ -50,6 +50,11 @@ public abstract class AI : Actor
         return hit.collider.tag.Equals("Player");
     }
 
+    public override bool Hit(string tag)
+    {
+        return tag.Equals("PlayerBullet") || tag.Equals("Bullet");
+    }
+
     public override bool Respawn(List<object> lastState)
     {
         deac.ActivateGameobject(gameObject, startingPosition, startingRotation, Vector3.zero);

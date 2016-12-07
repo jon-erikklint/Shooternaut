@@ -169,7 +169,7 @@ public abstract class Actor : Respawnable, Destroyable {
         }
     }
 
-    protected virtual bool Hit(string tag)
+    public virtual bool Hit(string tag)
     {
         return hitTags.Contains(tag);
     }

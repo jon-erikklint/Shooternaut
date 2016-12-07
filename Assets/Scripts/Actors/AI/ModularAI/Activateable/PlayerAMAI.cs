@@ -16,6 +16,18 @@ public class PlayerAMAI : MAIActivateableComponent
             return false;
         }
 
-        return maxDistance < 0 || ai.isPlayerBetween(maxDistance, minDistance);
+        bool shoot = maxDistance < 0 || ai.isPlayerBetween(maxDistance, minDistance);
+
+        if (shoot)
+        {
+            TurnToPlayer();
+        }
+
+        return shoot;
+    }
+
+    private void TurnToPlayer()
+    {
+        ai.SetAngle(ai.VectorToPlayer());
     }
 }
