@@ -56,7 +56,6 @@ public class GameManager : MonoBehaviour {
 
         if (gamemode.Victory())
         {
-            Debug.Log("#SDF");
             Victory();
         }
 

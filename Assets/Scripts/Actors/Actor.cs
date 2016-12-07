@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public abstract class Actor : Destroyable, Respawnable {
+public abstract class Actor : MonoBehaviour, Destroyable, Respawnable {
 
     public HealthInterface health;
 
@@ -253,5 +253,10 @@ public abstract class Actor : Destroyable, Respawnable {
     public virtual float Strength()
     {
         return strength;
+    }
+
+    public virtual void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }

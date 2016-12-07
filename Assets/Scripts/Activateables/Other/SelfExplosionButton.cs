@@ -63,9 +63,4 @@ public class SelfExplosionButton : Activateable
     {
         return ActivateableType.Button;
     }
-
-    public override GameObject UIElement()
-    {
-        return null;
-    }
 }

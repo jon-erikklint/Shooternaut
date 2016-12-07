@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour {
 
     private Transform canvas;
 
+    public ActivateableUI mainActivateable;
+    public ActivateableUI secondaryActivateable;
+
     void Start () {
         xMin = - (Screen.width / 2);
         xMax = Screen.width / 2;
@@ -50,19 +53,9 @@ public class UIManager : MonoBehaviour {
     private void InitializePlayerUI()
     {
         Player player = FindObjectOfType<Player>();
-        Activateable left = player.mainActivateable;
-        Activateable right = player.secondaryActivateable;
 
-        float y = yMin + 50;
-        float leftX = xMin + 170;
-        float rightX = xMax - 170;
-
-        InitializeUiElement(left.UIElement(), leftX, y);
-
-        if(right != null && !left.Equals(right))
-        {
-            InitializeUiElement(player.secondaryActivateable.UIElement(), rightX, y);
-        }
+        mainActivateable.activateable = player.mainActivateable;
+        secondaryActivateable.activateable = player.secondaryActivateable;
     }
 
     private void InitializeUiElement(GameObject element, float x, float y)

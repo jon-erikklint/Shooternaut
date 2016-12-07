@@ -21,4 +21,9 @@ public class NoController : GunController {
 
     public override void Reset(){}
 
+    public override string ToString()
+    {
+        return "Infinite";
+    }
+
 }

@@ -36,4 +36,9 @@ public class CooldownController : GunController {
     {
         prevFire = 0;
     }
+
+    public override string ToString()
+    {
+        return "Cooldown: "+(Math.Max(prevFire + coolDownTime - Time.time, 0)).ToString("0.00");
+    }
 }

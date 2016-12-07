@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Projectile : Destroyable
+public abstract class Projectile : MonoBehaviour, Destroyable
 {
     private bool isBeingDestroyed = false;
 
@@ -43,7 +43,7 @@ public abstract class Projectile : Destroyable
         }
     }
 
-    public override void DestroySelf()
+    public virtual void DestroySelf()
     {
         OnDestruction();
         Destroy(this.gameObject, 0.01f);

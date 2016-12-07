@@ -2,9 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class GunUI : MonoBehaviour {
+public class ActivateableUI : MonoBehaviour {
 
-    public GunController gun;
+    public Activateable activateable;
 
     private Text text;
 
@@ -15,6 +15,6 @@ public class GunUI : MonoBehaviour {
 
     void Update()
     {
-        text.text = gun.ToString();
+        text.text = activateable.ToString();
     }
 }

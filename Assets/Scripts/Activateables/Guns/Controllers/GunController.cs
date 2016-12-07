@@ -19,14 +19,6 @@ public abstract class GunController : MonoBehaviour{
 
     public virtual void Deactivate() { }
 
-    public GameObject UIElement()
-    {
-        GameObject uiElement = transform.GetChild(0).gameObject;
-        uiElement.GetComponent<GunUI>().gun = this;
-
-        return uiElement;
-    }
-
     public abstract void Reset();
     
 }

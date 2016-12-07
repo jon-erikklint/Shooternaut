@@ -274,3 +274,10 @@ Jore
 ---
 Chaser-ai tehty. Sitä varten miinat ja räjähdykset laitettu toimimaan jälleen 
 järkevästi. Muutama AI:n respawnbugi korjattu.
+____________________________
+
+Jore
+7.12.2016 12:26
+---
+Activateablejen ui tehty järkevämmäksi, miinoja hiukan hiottu, Destroyable muutettu
+rajapinnaksi. Muutama ToString metodi luotu GunControllereille.

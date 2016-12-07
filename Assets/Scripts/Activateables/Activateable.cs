@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
-public abstract class Activateable : Destroyable, Respawnable {
+public abstract class Activateable : MonoBehaviour, Destroyable, Respawnable {
 
     public Actor owner { get { return _owner; } }
     private Actor _owner;
@@ -29,8 +30,6 @@ public abstract class Activateable : Destroyable, Respawnable {
 
     public abstract void Reset();
 
-    public abstract GameObject UIElement();
-
     public abstract bool CanActivate();
     public abstract bool FullActivate();
 
@@ -45,5 +44,9 @@ public abstract class Activateable : Destroyable, Respawnable {
     }
 
     public abstract ActivateableType Type();
-    
+
+    public virtual void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
 }

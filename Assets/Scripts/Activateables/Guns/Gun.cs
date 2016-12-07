@@ -48,14 +48,6 @@ public class Gun : ClickingActivateable
         owner.GetComponent<Rigidbody2D>().AddForce(shooter.KnockBackAmount(), ForceMode2D.Impulse);
     }
 
-    public override GameObject UIElement()
-    {
-        GameObject uiElement = transform.GetChild(0).gameObject;
-        uiElement.GetComponent<GunUI>().gun = controller;
-
-        return uiElement;
-    }
-
     public override void Reset()
     {
         shooter.Reset();
@@ -75,5 +67,10 @@ public class Gun : ClickingActivateable
     public override ActivateableType Type()
     {
         return ActivateableType.Gun;
+    }
+
+    public override string ToString()
+    {
+        return controller.ToString();
     }
 }
