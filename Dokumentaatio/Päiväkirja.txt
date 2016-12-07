@@ -305,3 +305,10 @@ Jore
 ---
 Ampumiseen ja vektoreihin liittyviä bugeja korjattu. LOS-päivitys aloitettu,
 kesken koska univelkaiset aivot eivät toimi ollenkaan.
+____________________________
+
+Osama
+7.12.2016 22:48
+---
+Player- ja BlockPlayer-layerit luotu. Zone-rajapinta luotu (toteutus puuttuu).'
+AI:n isPlayerInLOS korjattu vektorimagiikalla.
