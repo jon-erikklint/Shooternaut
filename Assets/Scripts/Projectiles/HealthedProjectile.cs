@@ -34,7 +34,7 @@ public class HealthedProjectile : Projectile
         return health.Dead();
     }
 
-    public override void init()
+    public override void Init()
     {
         damages = new Dictionary<string, float>();
 
@@ -71,5 +71,17 @@ public class HealthedProjectile : Projectile
 
             this.health = healt;
         }
+    }
+
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
+    {
+        return new List<object>();
+    }
+
+    public override bool Respawn(List<object> lastState)
+    {
+        DestroySelf();
+
+        return false;
     }
 }

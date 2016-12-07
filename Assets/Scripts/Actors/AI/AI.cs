@@ -50,14 +50,14 @@ public abstract class AI : Actor
         return hit.collider.tag.Equals("Player");
     }
 
-    public override void Respawn(List<object> lastState)
+    public override bool Respawn(List<object> lastState)
     {
         deac.ActivateGameobject(gameObject, startingPosition, startingRotation, Vector3.zero);
 
         _active = true;
         Activate();
 
-        base.Respawn(lastState);
+        return base.Respawn(lastState);
     }
 
     public override void DestroySelf()

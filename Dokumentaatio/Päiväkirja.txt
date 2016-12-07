@@ -281,3 +281,11 @@ Jore
 ---
 Activateablejen ui tehty j‰rkev‰mm‰ksi, miinoja hiukan hiottu, Destroyable muutettu
 rajapinnaksi. Muutama ToString metodi luotu GunControllereille.
+____________________________
+
+Jore
+7.12.2016 13:36
+---
+Respawnsysteemist‰ tehty siistimp‰‰: onRespawn poistettu ja sen toiminnallisuus
+lis‰tty RespawnManagerille. Eli ei en‰‰ OnRespawn-skriptin tunkemista joka
+paikkaan!

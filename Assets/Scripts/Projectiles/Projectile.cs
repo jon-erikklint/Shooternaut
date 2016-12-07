@@ -1,51 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Projectile : MonoBehaviour, Destroyable
+public abstract class Projectile : Respawnable, Destroyable
 {
     private bool isBeingDestroyed = false;
-
-    void Start()
-    {
-        init();
-    }
-
-    public abstract void init();
 
     public abstract int Damage();
 
     public virtual void OnHit() { }
-
     public virtual void OnDestruction() { }
 
     public abstract bool GetsDestroyed(string colliderTag);
 
-
     void OnCollisionEnter2D(Collision2D col)
     {
         OnHit();
-
-        if (GetsDestroyed(col.collider.tag))
-        {
-            this.GetComponent<Renderer>().enabled = false;
-            isBeingDestroyed = true;
-        }
-
-        
     }
 
     void OnCollisionExit2D(Collision2D col)
     {
-
-        if (isBeingDestroyed)
+        if (GetsDestroyed(col.collider.tag))
         {
+            OnDestruction();
             DestroySelf();
         }
-    }
-
-    public virtual void DestroySelf()
-    {
-        OnDestruction();
-        Destroy(this.gameObject, 0.01f);
     }
 }

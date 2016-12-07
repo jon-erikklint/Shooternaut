@@ -4,19 +4,21 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 
 public class RespawnManager : MonoBehaviour {
-
-    public UnityEvent respawn;
-    public RespawnpointEvent respawnPointReached;
-
-    public Player player;
+    
+    private Dictionary<Respawnable, List<object>> respawnStates;
+    private List<Respawnable> newRespawnables;
+    
     public Survival survival;
 
-    void Start()
+    void Awake()
     {
         AddRespawnPointListeners();
 
-        player = FindObjectOfType<Player>();
-        player.playerDies.AddListener(TryRespawn);
+        FindObjectOfType<Player>().playerDies.AddListener(TryRespawn);
+        survival = FindObjectOfType<Survival>();
+
+        respawnStates = new Dictionary<Respawnable, List<object>>();
+        newRespawnables = new List<Respawnable>();
     }
 
     private void AddRespawnPointListeners()
@@ -25,13 +27,8 @@ public class RespawnManager : MonoBehaviour {
 
         foreach(RespawnPoint respawn in respawns)
         {
-            respawn.respawnPointReached.AddListener(SpawnpointReached);
+            respawn.respawnPointReached.AddListener(RespawnPointReached);
         }
-    }
-
-    public void SpawnpointReached(RespawnPoint newSpawnpoint)
-    {
-        respawnPointReached.Invoke(newSpawnpoint);
     }
 
     public void TryRespawn()
@@ -42,11 +39,6 @@ public class RespawnManager : MonoBehaviour {
         }
     }
 
-    public void Respawn()
-    {
-        respawn.Invoke();
-    }
-
     public bool CanRespawn()
     {
         if (survival == null)
@@ -55,5 +47,64 @@ public class RespawnManager : MonoBehaviour {
         }
 
         return survival.lives > 0;
+    }
+
+    public void Respawn()
+    {
+        foreach (Respawnable respawnable in newRespawnables)
+        {
+            if(respawnable != null)
+            {
+                respawnable.DestroySelf();
+            }
+        }
+
+        newRespawnables = new List<Respawnable>();
+
+        List<Respawnable> destroy = new List<Respawnable>();
+
+        foreach (Respawnable respawnable in respawnStates.Keys)
+        {
+            bool survived;
+            if (respawnable == null)
+            {
+                survived = false;
+            }
+            else
+            {
+                List<object> newList = new List<object>(respawnStates[respawnable]);
+                survived = respawnable.Respawn(newList);
+            }
+            
+
+            if (!survived)
+            {
+                destroy.Add(respawnable);
+            }
+        }
+
+        foreach(Respawnable d in destroy)
+        {
+            respawnStates.Remove(d);
+        }
+    }
+
+    public void RespawnPointReached(RespawnPoint respawnPoint)
+    {
+        List<Respawnable> respawnables = new List<Respawnable>(respawnStates.Keys);
+        respawnables.AddRange(newRespawnables);
+
+        respawnStates = new Dictionary<Respawnable, List<object>>();
+        newRespawnables = new List<Respawnable>();
+
+        foreach (Respawnable respawnable in respawnables)
+        {
+            respawnStates.Add(respawnable, respawnable.RespawnPointReached(respawnPoint));
+        }
+    }
+
+    public void AddMe(Respawnable respawnable)
+    {
+        newRespawnables.Add(respawnable);
     }
 }

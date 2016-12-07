@@ -10,7 +10,7 @@ public class NormalProjectile : Projectile
 
     public HashSet<string> tagsThatDestroyThis;
 
-    public override void init()
+    public override void Init()
     {
         initialize(destroyerTags);
     }
@@ -37,5 +37,15 @@ public class NormalProjectile : Projectile
 
     public override void OnHit(){}
 
-    public override void OnDestruction(){}
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
+    {
+        return new List<object>();
+    }
+
+    public override bool Respawn(List<object> lastState)
+    {
+        DestroySelf();
+
+        return false;
+    }
 }

@@ -143,7 +143,6 @@
     <Compile Include="Assets\Scripts\Projectiles\NormalProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\OnDeathCreatorProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\Projectile.cs" />
-    <Compile Include="Assets\Scripts\Respawn\OnRespawn.cs" />
     <Compile Include="Assets\Scripts\Respawn\RespawnEvent.cs" />
     <Compile Include="Assets\Scripts\Respawn\RespawnManager.cs" />
     <Compile Include="Assets\Scripts\Respawn\Respawnable.cs" />

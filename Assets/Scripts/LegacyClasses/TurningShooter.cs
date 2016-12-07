@@ -22,10 +22,10 @@ public class TurningShooter : Shooter{
         mainMover.Move(new Vector2(1,0), 1*turningSpeed);
     }
 
-    public override void Respawn(List<object> lastState)
+    public override bool Respawn(List<object> lastState)
     {
-        base.Respawn(lastState);
-        
         transform.rotation = startRotation;
+
+        return base.Respawn(lastState);
     }
 }

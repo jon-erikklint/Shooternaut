@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class EnvironmentMine : OnDeathCreatorProjectile, Respawnable {
+public class EnvironmentMine : OnDeathCreatorProjectile{
 
     public Vector3 startVelocity;
 
@@ -11,9 +11,9 @@ public class EnvironmentMine : OnDeathCreatorProjectile, Respawnable {
 
     private Rigidbody2D rb;
 
-    public override void init()
+    public override void Init()
     {
-        base.init();
+        base.Init();
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -52,13 +52,15 @@ public class EnvironmentMine : OnDeathCreatorProjectile, Respawnable {
         rb.AddForce(startVelocity * rb.mass, ForceMode2D.Impulse);
     }
 
-    public List<object> RespawnPointReached(RespawnPoint respawn)
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
     {
         return new List<object>();
     }
 
-    public void Respawn(List<object> lastState)
+    public override bool Respawn(List<object> lastState)
     {
         Activate();
+
+        return true;
     }
 }

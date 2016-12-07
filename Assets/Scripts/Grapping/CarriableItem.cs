@@ -71,12 +71,14 @@ public class CarriableItem : Grabbable
         return true;
     }
 
-    public override void Respawn(List<object> lastState)
+    public override bool Respawn(List<object> lastState)
     {
         Reset();
 
         trb.velocity = Vector3.zero;
         this.transform.position = start;
+
+        return true;
     }
 
     public override List<object> RespawnPointReached(RespawnPoint respawn)

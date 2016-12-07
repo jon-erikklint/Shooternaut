@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public abstract class Condition: MonoBehaviour{
+public abstract class Condition: Respawnable{
 
     public abstract void Begin();
     public abstract void End();

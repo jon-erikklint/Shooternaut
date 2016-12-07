@@ -87,9 +87,11 @@ public class Handle : Grabbable
         grabbed = null;
     }
 
-    public override void Respawn(List<object> lastState)
+    public override bool Respawn(List<object> lastState)
     {
         Reset();
+
+        return true;
     }
 
     public override List<object> RespawnPointReached(RespawnPoint respawn)

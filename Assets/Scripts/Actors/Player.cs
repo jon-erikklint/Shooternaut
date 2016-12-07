@@ -95,7 +95,7 @@ public class Player : Actor
         return list;
     }
 
-    public override void Respawn(List<object> lastState)
+    public override bool Respawn(List<object> lastState)
     {
         int lastElement = lastState.Count - 1;
 
@@ -104,7 +104,7 @@ public class Player : Actor
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         lastState.RemoveRange(lastElement, 1);
-        base.Respawn(lastState);
+        return base.Respawn(lastState);
     }
 
     public override Vector3 Angle()

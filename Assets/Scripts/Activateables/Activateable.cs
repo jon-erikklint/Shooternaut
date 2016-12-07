@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public abstract class Activateable : MonoBehaviour, Destroyable, Respawnable {
+public abstract class Activateable : Respawnable, Destroyable{
 
     public Actor owner { get { return _owner; } }
     private Actor _owner;
@@ -33,19 +33,21 @@ public abstract class Activateable : MonoBehaviour, Destroyable, Respawnable {
     public abstract bool CanActivate();
     public abstract bool FullActivate();
 
-    public List<object> RespawnPointReached(RespawnPoint respawn)
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
     {
         return new List<object>();
     }
 
-    public void Respawn(List<object> lastState)
+    public override bool Respawn(List<object> lastState)
     {
         Reset();
+
+        return true;
     }
 
     public abstract ActivateableType Type();
 
-    public virtual void DestroySelf()
+    public override void DestroySelf()
     {
         Destroy(gameObject);
     }

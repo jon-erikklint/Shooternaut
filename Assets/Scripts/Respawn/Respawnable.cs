@@ -2,11 +2,22 @@
 using System.Collections;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using System;
 
-public interface Respawnable {
+public abstract class Respawnable: MonoBehaviour, Destroyable {
 
-    List<object> RespawnPointReached(RespawnPoint respawn);
+    void Start()
+    {
+        FindObjectOfType<RespawnManager>().AddMe(this);
 
-    void Respawn(List<object> lastState);
+        Init();
+    }
 
+    public virtual void Init() { }
+
+    public abstract List<object> RespawnPointReached(RespawnPoint respawn);
+
+    public abstract bool Respawn(List<object> lastState);
+
+    public virtual void DestroySelf() { Destroy(gameObject); }
 }

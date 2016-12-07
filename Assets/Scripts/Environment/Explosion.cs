@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class Explosion : MonoBehaviour, Destroyable, Respawnable {
+public class Explosion : Respawnable, Destroyable {
 
     public float damagePerSecond;
 
@@ -49,18 +49,15 @@ public class Explosion : MonoBehaviour, Destroyable, Respawnable {
         actor.LoseHealth(damageDealt);
     }
 
-    public List<object> RespawnPointReached(RespawnPoint respawn)
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
     {
         return new List<object>();
     }
 
-    public void Respawn(List<object> lastState)
+    public override bool Respawn(List<object> lastState)
     {
         DestroySelf();
-    }
 
-    public void DestroySelf()
-    {
-        Destroy(gameObject);
+        return false;
     }
 }

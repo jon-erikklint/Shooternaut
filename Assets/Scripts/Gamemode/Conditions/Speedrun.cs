@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class Speedrun : Condition
 {
@@ -54,4 +55,13 @@ public class Speedrun : Condition
     {
         uiElement.GetComponentInChildren<SpeedrunClock>().speedrun = this;
     }
+
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
+    {
+        return new List<object>();
+    }
+
+    public override bool Respawn(List<object> lastState){ return true; }
+
+    public override void DestroySelf(){}
 }

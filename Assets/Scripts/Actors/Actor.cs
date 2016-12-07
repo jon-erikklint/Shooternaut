@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public abstract class Actor : MonoBehaviour, Destroyable, Respawnable {
+public abstract class Actor : Respawnable, Destroyable {
 
     public HealthInterface health;
 
@@ -33,8 +33,6 @@ public abstract class Actor : MonoBehaviour, Destroyable, Respawnable {
         grabbed = null;
 		onGround = false;
         lastHit = 0;
-
-        Init();
     }
 
     private void InitializeActivateables()
@@ -86,8 +84,6 @@ public abstract class Actor : MonoBehaviour, Destroyable, Respawnable {
             mover.SetOwner(this);
         }
     }
-
-    public virtual void Init() { }
 
     public bool IsGrabbed()
     {
@@ -202,12 +198,12 @@ public abstract class Actor : MonoBehaviour, Destroyable, Respawnable {
 	public virtual void DoOnCollisionEnter (Collision2D collision) { }
 	public virtual void DoOnCollisionExit (Collision2D collision) { }
 
-    public virtual List<object> RespawnPointReached(RespawnPoint respawn)
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
     {
         return new List<object>();
     }
 
-    public virtual void Respawn(List<object> lastState)
+    public override bool Respawn(List<object> lastState)
     {
         lastHit = 0;
 
@@ -217,6 +213,8 @@ public abstract class Actor : MonoBehaviour, Destroyable, Respawnable {
         {
             activateable.Reset();
         }
+
+        return true;
 	}
 
     public virtual Vector3 Position()
@@ -253,10 +251,5 @@ public abstract class Actor : MonoBehaviour, Destroyable, Respawnable {
     public virtual float Strength()
     {
         return strength;
-    }
-
-    public virtual void DestroySelf()
-    {
-        Destroy(gameObject);
     }
 }

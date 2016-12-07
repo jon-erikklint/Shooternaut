@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class Survival : Condition, Respawnable
+public class Survival : Condition
 {
     public int lives;
 
@@ -32,13 +32,17 @@ public class Survival : Condition, Respawnable
         uiElement.GetComponentInChildren<SurvivalLives>().survival = this;
     }
 
-    public List<object> RespawnPointReached(RespawnPoint respawn)
+    public override List<object> RespawnPointReached(RespawnPoint respawn)
     {
         return new List<object>();
     }
 
-    public void Respawn(List<object> lastState)
+    public override bool Respawn(List<object> lastState)
     {
         lives--;
+
+        return true;
     }
+
+    public override void DestroySelf(){}
 }
