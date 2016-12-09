@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public abstract class Actor : Respawnable, Destroyable {
+public abstract class Actor : Respawnable{
 
     public HealthInterface health;
 
@@ -165,7 +165,7 @@ public abstract class Actor : Respawnable, Destroyable {
     {
         if (health.Dead())
         {
-            DestroySelf();
+            Destroy();
         }
     }
 

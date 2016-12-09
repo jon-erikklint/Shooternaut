@@ -7,7 +7,7 @@ public class Spikes : MonoBehaviour {
     {
         if (col.collider.tag.Equals("Player"))
         {
-            col.gameObject.GetComponent<Player>().DestroySelf();
+            col.gameObject.GetComponent<Player>().Destroy();
         }
     }
 }

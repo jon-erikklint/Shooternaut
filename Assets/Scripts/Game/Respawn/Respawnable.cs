@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using System.Collections.Generic;
 using System;
 
-public abstract class Respawnable: MonoBehaviour, Destroyable {
+public abstract class Respawnable: Destroyable {
 
     void Start()
     {
@@ -18,6 +18,4 @@ public abstract class Respawnable: MonoBehaviour, Destroyable {
     public abstract List<object> RespawnPointReached(RespawnPoint respawn);
 
     public abstract bool Respawn(List<object> lastState);
-
-    public virtual void DestroySelf() { Destroy(gameObject); }
 }

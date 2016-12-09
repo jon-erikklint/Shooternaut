@@ -14,7 +14,7 @@ public class RespawnManager : MonoBehaviour {
     {
         AddRespawnPointListeners();
 
-        FindObjectOfType<Player>().playerDies.AddListener(TryRespawn);
+        FindObjectOfType<Player>().deathEvent.AddListener(TryRespawn);
         survival = FindObjectOfType<Survival>();
 
         respawnStates = new Dictionary<Respawnable, List<object>>();
@@ -31,7 +31,7 @@ public class RespawnManager : MonoBehaviour {
         }
     }
 
-    public void TryRespawn()
+    public void TryRespawn(Destroyable player)
     {
         if (CanRespawn())
         {
@@ -55,7 +55,7 @@ public class RespawnManager : MonoBehaviour {
         {
             if(respawnable != null)
             {
-                respawnable.DestroySelf();
+                respawnable.Destroy();
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Projectile : Respawnable, Destroyable
+public abstract class Projectile : Respawnable
 {
     public abstract int Damage();
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 public class Player : Actor
 {
-    public UnityEvent playerDies;
     public UnityEvent playerActs;
 
     public float jumpForce = 10;
@@ -85,10 +84,7 @@ public class Player : Actor
         act.SetActive(active);
     }
 
-    public override void DestroySelf()
-    {
-        playerDies.Invoke();
-    }
+    protected override void DestroySelf(){}
 
     public override List<object> RespawnPointReached(RespawnPoint respawn)
     {

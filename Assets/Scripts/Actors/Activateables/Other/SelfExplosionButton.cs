@@ -32,7 +32,7 @@ public class SelfExplosionButton : Activateable
         location.z = go.transform.position.z;
         go.transform.position = location;
 
-        owner.DestroySelf();
+        owner.Destroy();
     }
 
     public override bool CanActivate()

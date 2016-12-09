@@ -21,5 +21,6 @@ public abstract class Condition: Respawnable{
     }
 
     public abstract void initialize(GameObject uiElement);
-    
+
+    protected override void DestroySelf() { }
 }

@@ -43,6 +43,4 @@ public class Survival : Condition
 
         return true;
     }
-
-    public override void DestroySelf(){}
 }

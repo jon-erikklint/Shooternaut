@@ -15,13 +15,13 @@ public class Spawner : Activateable
     private float lastActive;
 
     private List<GameObject> currentAliveSpawns;
-    private int spawnedAmount;
+    private List<GameObject> allSpawns;
 
     public override void Init()
     {
         lastActive = Time.time - spawnInterval;
         currentAliveSpawns = new List<GameObject>();
-        spawnedAmount = 0;
+        allSpawns = new List<GameObject>();
     }
 
     void Update()
@@ -38,8 +38,9 @@ public class Spawner : Activateable
         GameObject spawned = InstantiateSpawn();
 
         currentAliveSpawns.Add(spawned);
+        allSpawns.Add(spawned);
 
-        spawnedAmount++;
+        spawned.GetComponent<Destroyable>().deathEvent.AddListener(SpawnDies);
     }
 
     private GameObject InstantiateSpawn()
@@ -64,6 +65,12 @@ public class Spawner : Activateable
         return spawned;
     }
 
+    public void SpawnDies(Destroyable destroyable)
+    {
+        Debug.Log("ASD");
+        currentAliveSpawns.Remove(destroyable.gameObject);
+    }
+
     public virtual int CurrentlyAliveSpawns()
     {
         return currentAliveSpawns.Count;
@@ -71,7 +78,7 @@ public class Spawner : Activateable
 
     public virtual int SpawnedSpawns()
     {
-        return spawnedAmount;
+        return allSpawns.Count;
     }
 
     public override bool CanActivate()
@@ -89,15 +96,16 @@ public class Spawner : Activateable
         base.Reset();
 
         lastActive = 0;
-        spawnedAmount = 0;
 
-        foreach(GameObject gameObject in currentAliveSpawns)
+        foreach(GameObject gameObject in allSpawns)
         {
             if(gameObject != null)
             {
                 Destroy(gameObject);
             }
         }
+
+        allSpawns = new List<GameObject>();
         currentAliveSpawns = new List<GameObject>();
     }
 

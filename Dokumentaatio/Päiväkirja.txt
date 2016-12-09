@@ -333,3 +333,10 @@ Jore
 ---
 Spawner luokka luotu (kokonaisuus vielä kesken). ActivationDelay-bugi korjattu
 MAI-komponenteista.
+____________________________
+
+Jore
+9.12.2016 19:30
+---
+AmountLimitSpäwneri tehty. Destroyablesta tehty abstrakti ja sille lisätty oma
+tapahtuma, DeathEvent, jota kutsutaan destroyablen kuollessa.

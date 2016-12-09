@@ -22,7 +22,7 @@ public class KeyboardListener : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            FindObjectOfType<RespawnManager>().TryRespawn();
+            FindObjectOfType<RespawnManager>().TryRespawn(null);
         }
     }
 }

@@ -72,7 +72,7 @@ public abstract class AI : Actor
         return base.Respawn(lastState);
     }
 
-    public override void DestroySelf()
+    protected override void DestroySelf()
     {
         deac.DeactivateGameObject(gameObject);
 

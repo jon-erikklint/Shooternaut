@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public abstract class Activateable : Respawnable, Destroyable{
+public abstract class Activateable : Respawnable{
 
     public Actor owner { get { return _owner; } }
     private Actor _owner;
@@ -58,9 +58,4 @@ public abstract class Activateable : Respawnable, Destroyable{
     }
 
     public abstract ActivateableType Type();
-
-    public override void DestroySelf()
-    {
-        Destroy(gameObject);
-    }
 }

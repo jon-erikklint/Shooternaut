@@ -62,6 +62,4 @@ public class Speedrun : Condition
     }
 
     public override bool Respawn(List<object> lastState){ return true; }
-
-    public override void DestroySelf(){}
 }

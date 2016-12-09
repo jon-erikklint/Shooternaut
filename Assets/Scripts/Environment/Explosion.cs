@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class Explosion : Respawnable, Destroyable {
+public class Explosion : Respawnable {
 
     public float damagePerSecond;
 

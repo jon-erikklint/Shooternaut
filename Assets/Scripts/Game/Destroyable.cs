@@ -1,7 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
-public interface Destroyable
+public abstract class Destroyable: MonoBehaviour
 {
-    void DestroySelf();
+    public DeathEvent deathEvent = new DeathEvent();
+
+    public void Destroy()
+    {
+        DestroySelf();
+
+        Debug.Log("SUD");
+        deathEvent.Invoke(this);
+    }
+
+    protected virtual void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
 }
+
+public class DeathEvent : UnityEvent<Destroyable>{}

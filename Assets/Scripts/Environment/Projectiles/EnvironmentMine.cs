@@ -22,7 +22,7 @@ public class EnvironmentMine : OnDeathCreatorProjectile{
         AddVelocity();
     }
 
-    public override void DestroySelf()
+    protected override void DestroySelf()
     {
         OnDestruction();
 
