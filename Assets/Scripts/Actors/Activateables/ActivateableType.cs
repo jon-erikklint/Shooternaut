@@ -2,5 +2,5 @@
 using System.Collections;
 
 public enum ActivateableType{
-	Gun, Button
+	Gun, Spawner, Button
 }

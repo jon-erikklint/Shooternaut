@@ -5,24 +5,11 @@ using System.Collections.Generic;
 
 public abstract class ClickingActivateable : Activateable{
 
-    public bool active { get { return _active; } }
-    private bool _active;
-
     private bool acting = false;
-
-    public override void Activate()
-    {
-        _active = true;
-    }
-
-    public override void Deactivate()
-    {
-        _active = false;
-    }
 
     void Update()
     {
-        if (_active)
+        if (active)
         {
             if (CanAct())
             {

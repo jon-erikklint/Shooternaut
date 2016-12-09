@@ -8,6 +8,9 @@ public abstract class Activateable : Respawnable, Destroyable{
     public Actor owner { get { return _owner; } }
     private Actor _owner;
 
+    public bool active{ get { return _active; } }
+    private bool _active = false;
+
     public void SetActive(bool active)
     {
         if (active)
@@ -20,15 +23,24 @@ public abstract class Activateable : Respawnable, Destroyable{
         }
     }
 
-    public abstract void Activate();
-    public abstract void Deactivate();
+    public virtual void Activate()
+    {
+        _active = true;
+    }
+    public virtual void Deactivate()
+    {
+        _active = false;
+    }
 
     public virtual void SetOwner(Actor owner)
     {
         this._owner = owner;
     }
 
-    public abstract void Reset();
+    public virtual void Reset()
+    {
+        _active = false;
+    }
 
     public abstract bool CanActivate();
     public abstract bool FullActivate();

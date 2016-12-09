@@ -326,3 +326,10 @@ Jore
 BreakableWall tehty. Pelaajan jalat toimivat ja Jumper-luokkaa tehty helpommin
 muokattavammaksi. Hyppytiheyttä laskettu huomattavasti samoin kuin jalkojen
 vaikutuspituutta.
+____________________________
+
+Jore
+9.12.2016 15:27
+---
+Spawner luokka luotu (kokonaisuus vielä kesken). ActivationDelay-bugi korjattu
+MAI-komponenteista.

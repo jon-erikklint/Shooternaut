@@ -209,11 +209,6 @@ public abstract class Actor : Respawnable, Destroyable {
 
         health.Reset();
 
-        foreach(Activateable activateable in activateables)
-        {
-            activateable.Reset();
-        }
-
         return true;
 	}
 

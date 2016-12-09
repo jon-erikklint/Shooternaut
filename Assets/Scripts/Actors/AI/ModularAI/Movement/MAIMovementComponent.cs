@@ -39,4 +39,9 @@ public abstract class MAIMovementComponent : MAIComponent {
         mover.Move(NextDirection(), NextMagnitude());
     }
 
+    public override void TurnOn()
+    {
+        startTime = Time.time;
+    }
+
 }

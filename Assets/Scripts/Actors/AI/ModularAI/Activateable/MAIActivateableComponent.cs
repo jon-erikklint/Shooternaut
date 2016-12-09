@@ -35,4 +35,9 @@ public abstract class MAIActivateableComponent : MAIComponent {
     {
         activateable.Deactivate();
     }
+
+    public override void TurnOn()
+    {
+        startTime = Time.time;
+    }
 }

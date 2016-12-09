@@ -50,6 +50,8 @@ public class Gun : ClickingActivateable
 
     public override void Reset()
     {
+        base.Reset();
+
         shooter.Reset();
         controller.Reset();
     }

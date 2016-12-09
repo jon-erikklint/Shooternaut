@@ -9,25 +9,16 @@ public class SelfExplosionButton : Activateable
 
     private float startTime;
 
-    private bool setUp = false;
-
     public override void Activate()
     {
-        if (!setUp)
-        {
-            setUp = true;
-            startTime = Time.time;
-        }
-    }
+        base.Activate();
 
-    public override void Deactivate()
-    {
-        setUp = false;
+        startTime = Time.time;
     }
 
     void Update()
     {
-        if(setUp && Time.time > startTime + delay)
+        if(active && Time.time > startTime + delay)
         {
             Explode();
         }
@@ -52,11 +43,6 @@ public class SelfExplosionButton : Activateable
     public override bool FullActivate()
     {
         return true;
-    }
-
-    public override void Reset()
-    {
-        setUp = false;
     }
 
     public override ActivateableType Type()
