@@ -318,3 +318,11 @@ Jore
 9.12.2016 13:31
 ---
 LOS-metodiin pieni korjaus. Gate-luokka luotu ja toimii.
+____________________________
+
+Jore
+9.12.2016 14:19
+---
+BreakableWall tehty. Pelaajan jalat toimivat ja Jumper-luokkaa tehty helpommin
+muokattavammaksi. Hyppytiheyttä laskettu huomattavasti samoin kuin jalkojen
+vaikutuspituutta.

@@ -3,8 +3,6 @@ using System.Collections;
 
 public abstract class Projectile : Respawnable, Destroyable
 {
-    private bool isBeingDestroyed = false;
-
     public abstract int Damage();
 
     public virtual void OnHit() { }

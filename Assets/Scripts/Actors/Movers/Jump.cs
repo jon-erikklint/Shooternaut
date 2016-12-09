@@ -4,8 +4,10 @@ using System;
 
 public class Jump : Mover
 {
+    public float jumpFeetLength = 0.25f;
+    public float cooldown = 0.1f;
+
     private float prevJump;
-    private float cooldown = 0.1f;
 
     protected override void Init()
     {
@@ -23,12 +25,9 @@ public class Jump : Mover
         if (Time.time - prevJump < cooldown)
             return;
 
-        Transform feet = owner.transform.FindChild("Feet");
+        Vector2 feetPosition = owner.FeetPosition();
 
-        if (feet == null)
-            return;
-
-        RaycastHit2D hit = Physics2D.Raycast(feet.position, -direction, 0.5f);
+        RaycastHit2D hit = Physics2D.Raycast(feetPosition, -direction, jumpFeetLength);
 
         if (hit.collider == null || hit.collider.gameObject.tag != "Wall")
             return;

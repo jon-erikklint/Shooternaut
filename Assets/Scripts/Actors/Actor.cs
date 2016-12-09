@@ -16,7 +16,7 @@ public abstract class Actor : Respawnable, Destroyable {
     public Mover secondaryMover;
 
     public Grabbable grabbed;
-
+    
     public float strength;
     public List<string> hitTags;
 
@@ -233,7 +233,7 @@ public abstract class Actor : Respawnable, Destroyable {
         return Math.Max(scale.x, scale.y);
     }
 
-    public virtual void SetAngle(Vector3 newAngle)
+    public virtual void SetAngle(Vector2 newAngle)
     {
         transform.right = newAngle;
     }
@@ -251,5 +251,10 @@ public abstract class Actor : Respawnable, Destroyable {
     public virtual float Strength()
     {
         return strength;
+    }
+
+    public virtual Vector2 FeetPosition()
+    {
+        return Angle() * -1;
     }
 }

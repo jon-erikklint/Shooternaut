@@ -12,17 +12,24 @@ public class Player : Actor
     public float jumpForce = 10;
 
     private Transform looker;
+    private Transform feet;
+
+    private float feetLength;
 
     public override void Init()
     {
         looker = transform.FindChild("Look");
+        feet = transform.FindChild("Feet");
+
+        feetLength = feet.localPosition.magnitude;
     }
 
     void Update()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
-        looker.right = mousePosition - transform.position;
+
+        SetAngle(mousePosition - transform.position);
 
         Act();
     }
@@ -69,7 +76,7 @@ public class Player : Actor
         {
             playerActs.Invoke();
 
-            mainMover.Move(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, jumpForce);
+            mainMover.Move(Angle(), jumpForce);
         }
     }
 
@@ -112,9 +119,16 @@ public class Player : Actor
         return looker.right;
     }
 
-    public override void SetAngle(Vector3 newAngle)
+    public override void SetAngle(Vector2 newAngle)
     {
         looker.right = newAngle;
+        
+        feet.localPosition = newAngle.normalized*feetLength*-1;
+    }
+
+    public override Vector2 FeetPosition()
+    {
+        return feet.position;
     }
 
     public override Quaternion FacingQuaternion()
