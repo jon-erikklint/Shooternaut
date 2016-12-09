@@ -9,8 +9,7 @@ public abstract class Destroyable: MonoBehaviour
     public void Destroy()
     {
         DestroySelf();
-
-        Debug.Log("SUD");
+        
         deathEvent.Invoke(this);
     }
 

@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\Actors\Health\Health.cs" />
     <Compile Include="Assets\Scripts\Actors\Health\HealthInterface.cs" />
     <Compile Include="Assets\Scripts\Actors\Health\InfiniteHealth.cs" />
+    <Compile Include="Assets\Scripts\Actors\Movers\Dampener.cs" />
     <Compile Include="Assets\Scripts\Actors\Movers\Floater.cs" />
     <Compile Include="Assets\Scripts\Actors\Movers\Jetpack.cs" />
     <Compile Include="Assets\Scripts\Actors\Movers\Jump.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Assets\Scripts\Environment\Curves\WayPointCurve.cs" />
     <Compile Include="Assets\Scripts\Environment\Exit.cs" />
     <Compile Include="Assets\Scripts\Environment\Explosion.cs" />
+    <Compile Include="Assets\Scripts\Environment\HealthPack.cs" />
     <Compile Include="Assets\Scripts\Environment\Lasers\DamagingLaser.cs" />
     <Compile Include="Assets\Scripts\Environment\Lasers\Laser.cs" />
     <Compile Include="Assets\Scripts\Environment\Projectiles\EnvironmentMine.cs" />

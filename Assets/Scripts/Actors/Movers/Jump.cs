@@ -5,7 +5,7 @@ using System;
 public class Jump : Mover
 {
     public float jumpFeetLength = 0.25f;
-    public float cooldown = 0.1f;
+    public float cooldown = 1f;
 
     private float prevJump;
 

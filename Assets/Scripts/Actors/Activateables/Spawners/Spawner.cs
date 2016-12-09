@@ -67,7 +67,6 @@ public class Spawner : Activateable
 
     public void SpawnDies(Destroyable destroyable)
     {
-        Debug.Log("ASD");
         currentAliveSpawns.Remove(destroyable.gameObject);
     }
 

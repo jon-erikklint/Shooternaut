@@ -340,3 +340,9 @@ Jore
 ---
 AmountLimitSpäwneri tehty. Destroyablesta tehty abstrakti ja sille lisätty oma
 tapahtuma, DeathEvent, jota kutsutaan destroyablen kuollessa.
+____________________________
+
+Jore
+9.12.2016 20:13
+---
+Helepäkit tehty + dampener-mover.
