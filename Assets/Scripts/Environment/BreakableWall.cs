@@ -12,9 +12,36 @@ public class BreakableWall : Respawnable
     public bool broken { get { return _broken; } }
     private bool _broken;
 
+    public float alphaResetTime = 2;
+    private float colorMultiplier;
+
+    private Color rendColor;
+    private Material rendMaterial;
+
     public override void Init()
     {
         _broken = false;
+        colorMultiplier = 1;
+
+        rendMaterial = GetComponent<Renderer>().material;
+        rendColor = rendMaterial.color;
+    }
+
+    void Update()
+    {
+        if(colorMultiplier < 1)
+        {
+            colorMultiplier = Math.Min(1, colorMultiplier + Time.deltaTime / alphaResetTime);
+
+            Color color = new Color(RightColor(rendColor.r), RightColor(rendColor.g), RightColor(rendColor.b));
+
+            rendMaterial.color = color;
+        }
+    }
+
+    private float RightColor(float channel)
+    {
+        return channel + ((1 - channel) * (1 - colorMultiplier));
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -24,6 +51,10 @@ public class BreakableWall : Respawnable
         if(momentum >= momentumBreakLimit)
         {
             Break();
+        }
+        else
+        {
+            colorMultiplier = 1 - momentum / momentumBreakLimit;
         }
     }
 
@@ -45,6 +76,9 @@ public class BreakableWall : Respawnable
         {
             Fix();
         }
+
+        colorMultiplier = 1;
+        rendMaterial.color = rendColor;
 
         return true;
     }

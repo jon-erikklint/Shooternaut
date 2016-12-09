@@ -54,10 +54,6 @@ public class ModularAI : AI {
 
     void Update()
     {
-        if (!active)
-        {
-            return;
-        }
         foreach(MAIComponent component in updateComponents)
         {
             component.Act();

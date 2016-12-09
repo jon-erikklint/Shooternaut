@@ -26,22 +26,16 @@ public class EnvironmentMine : OnDeathCreatorProjectile{
     {
         OnDestruction();
 
-        GetComponent<Renderer>().enabled = false;
-        GetComponent<Collider2D>().enabled = false;
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.isKinematic = true;
-        rb.velocity = Vector3.zero;
+        gameObject.SetActive(false);
     }
 
     public void Activate()
     {
+        gameObject.SetActive(true);
+
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector3.zero;
-        rb.isKinematic = false;
-
-        GetComponent<Renderer>().enabled = true;
-        GetComponent<Collider2D>().enabled = true;
+        rb.angularVelocity = 0;
 
         transform.position = startPosition;
         AddVelocity();

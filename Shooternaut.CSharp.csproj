@@ -136,7 +136,6 @@
     <Compile Include="Assets\Scripts\Environment\Triggers\Gate.cs" />
     <Compile Include="Assets\Scripts\Environment\Triggers\Trigger.cs" />
     <Compile Include="Assets\Scripts\Environment\Zones\Zone.cs" />
-    <Compile Include="Assets\Scripts\Game\Deactivator.cs" />
     <Compile Include="Assets\Scripts\Game\Destroyable.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game\Gamemode\Achievements\Achievement.cs" />

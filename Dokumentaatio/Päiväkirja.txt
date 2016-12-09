@@ -346,3 +346,10 @@ Jore
 9.12.2016 20:13
 ---
 Helepäkit tehty + dampener-mover.
+____________________________
+
+Jore
+9.12.2016 21:59
+---
+BreakableWalleille tehty vaalenemisefekti ammuksen osuessa niihin. Paranneltu
+hiukan joitakin Respawn-metodeita.

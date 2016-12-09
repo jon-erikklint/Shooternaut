@@ -13,20 +13,13 @@ public abstract class AI : Actor
     private Vector3 startingPosition;
     private float startingRotation;
 
-    public bool active { get { return _active; } }
-    private bool _active;
-
-    private Deactivator deac;
-
     public override void Init()
     {
         startingPosition = transform.position;
         startingRotation = GetComponent<Rigidbody2D>().rotation;
 
         player = FindObjectOfType<Player>();
-        deac = FindObjectOfType<Deactivator>();
-
-        _active = true;
+        
 		cosfov = Mathf.Cos(fov*Mathf.PI/360);
     }
 
@@ -64,9 +57,14 @@ public abstract class AI : Actor
 
     public override bool Respawn(List<object> lastState)
     {
-        deac.ActivateGameobject(gameObject, startingPosition, startingRotation, Vector3.zero);
+        gameObject.SetActive(true);
+        transform.position = startingPosition;
 
-        _active = true;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0;
+        rb.rotation = startingRotation;
+        
         Activate();
 
         return base.Respawn(lastState);
@@ -74,10 +72,9 @@ public abstract class AI : Actor
 
     protected override void DestroySelf()
     {
-        deac.DeactivateGameObject(gameObject);
+        gameObject.SetActive(false);
 
         Deactivate();
-        _active = false;
     }
 
     protected virtual void Deactivate() { }
