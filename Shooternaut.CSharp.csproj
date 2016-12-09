@@ -105,6 +105,7 @@
     <Compile Include="Assets\Scripts\Actors\Movers\Turn.cs" />
     <Compile Include="Assets\Scripts\Actors\Player.cs" />
     <Compile Include="Assets\Scripts\Environment\Buttons\Destroyer.cs" />
+    <Compile Include="Assets\Scripts\Environment\Buttons\Gate.cs" />
     <Compile Include="Assets\Scripts\Environment\Buttons\Trigger.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\BezierCurve.cs" />
     <Compile Include="Assets\Scripts\Environment\Curves\Circle.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Assets\Scripts\Environment\Projectiles\Projectile.cs" />
     <Compile Include="Assets\Scripts\Environment\RespawnPoint.cs" />
     <Compile Include="Assets\Scripts\Environment\Spikes.cs" />
+    <Compile Include="Assets\Scripts\Environment\Zones\Zone.cs" />
     <Compile Include="Assets\Scripts\Game\Deactivator.cs" />
     <Compile Include="Assets\Scripts\Game\Destroyable.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />

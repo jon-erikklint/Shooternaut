@@ -312,3 +312,9 @@ Osama
 ---
 Player- ja BlockPlayer-layerit luotu. Zone-rajapinta luotu (toteutus puuttuu).'
 AI:n isPlayerInLOS korjattu vektorimagiikalla.
+____________________________
+
+Jore
+9.12.2016 13:31
+---
+LOS-metodiin pieni korjaus. Gate-luokka luotu ja toimii.
