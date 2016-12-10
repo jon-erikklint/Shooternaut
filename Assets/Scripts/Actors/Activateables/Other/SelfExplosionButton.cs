@@ -11,9 +11,12 @@ public class SelfExplosionButton : Activateable
 
     public override void Activate()
     {
-        base.Activate();
+        if (!active)
+        {
+            startTime = Time.time;
+        }
 
-        startTime = Time.time;
+        base.Activate();
     }
 
     void Update()
