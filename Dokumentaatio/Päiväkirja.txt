@@ -359,3 +359,10 @@ Jore
 11.12.2016 15:09
 ---
 Uudet UI-luokat.
+____________________________
+
+Osama & Jore
+11.12.2016
+---
+Kaksi uutta (keskeneräistä) karttaa, Curveja hieman korjailtu.
+Bugi löydetty: Pyörivä handler sekoilee.
