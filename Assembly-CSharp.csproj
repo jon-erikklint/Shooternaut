@@ -135,10 +135,12 @@
      <Compile Include="Assets\Scripts\Game\Respawn\Respawnable.cs" />
      <Compile Include="Assets\Scripts\LegacyClasses\Shooter.cs" />
      <Compile Include="Assets\Scripts\LegacyClasses\TurningShooter.cs" />
-     <Compile Include="Assets\Scripts\UI\ActivateableUI.cs" />
+     <Compile Include="Assets\Scripts\UI\Ammo\ActivateableMeter.cs" />
+     <Compile Include="Assets\Scripts\UI\Ammo\ActivateableUI.cs" />
      <Compile Include="Assets\Scripts\UI\CameraHandler.cs" />
      <Compile Include="Assets\Scripts\UI\Conditions\SpeedrunClock.cs" />
      <Compile Include="Assets\Scripts\UI\Conditions\SurvivalLives.cs" />
+     <Compile Include="Assets\Scripts\UI\HealthMeter.cs" />
      <Compile Include="Assets\Scripts\UI\KeyboardListener.cs" />
      <Compile Include="Assets\Scripts\UI\Menu\MapOptions.cs" />
      <Compile Include="Assets\Scripts\UI\Menu\PlayMapButton.cs" />

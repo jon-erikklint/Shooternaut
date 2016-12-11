@@ -23,8 +23,8 @@ public abstract class CurveBus : MonoBehaviour
     {
         for (int i = 0; i < gameObjects.Count; i++)
         {
-			Debug.Log ("huoh... " + gameObjectsPositions [i] + " " + curve.PointAt(gameObjectsPositions[i]));
-            gameObjects[i].transform.localPosition = curve.PointAt(gameObjectsPositions[i]);
+			gameObjects [i].transform.parent = this.transform;
+			gameObjects[i].transform.localPosition = curve.PointAt(gameObjectsPositions[i]);
         }
     }
 

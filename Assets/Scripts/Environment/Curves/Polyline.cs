@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Polyline : CurveCollection {
 
-	public GameObject prefab;
+	public GameObject linePrefab;
     public List<Transform> wayPoints;
     public List<float> speeds;
     public List<float> rotations;
@@ -22,7 +22,7 @@ public class Polyline : CurveCollection {
     }
 	private void AddLine(Transform start, Transform end)
 	{
-		GameObject gameObject = Instantiate (prefab);
+		GameObject gameObject = Instantiate (linePrefab);
 		Line line = gameObject.GetComponent<Line> ();
 		line.startingPoint = start;
 		line.endPoint = end;
