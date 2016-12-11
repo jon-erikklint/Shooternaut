@@ -11,8 +11,9 @@ public class UIManager : MonoBehaviour {
 
     private Transform canvas;
 
-    public ActivateableUI mainActivateable;
-    public ActivateableUI secondaryActivateable;
+    public HealthMeter healthMeter;
+    public ActivateableMeter mainActivateable;
+    public ActivateableMeter secondaryActivateable;
 
     void Start () {
         xMin = - (Screen.width / 2);
@@ -56,6 +57,7 @@ public class UIManager : MonoBehaviour {
 
         mainActivateable.activateable = player.mainActivateable;
         secondaryActivateable.activateable = player.secondaryActivateable;
+        healthMeter.health = player.health;
     }
 
     private void InitializeUiElement(GameObject element, float x, float y)

@@ -86,5 +86,8 @@ public class BulletOverheatController : GunController {
         lastShot = 0;
     }
 
-    
+    public override float Amount()
+    {
+        return currentCharge / maxCharge;
+    }
 }

@@ -71,6 +71,11 @@ public class Gun : ClickingActivateable
         return ActivateableType.Gun;
     }
 
+    public override float ActivateAmount()
+    {
+        return controller.Amount();
+    }
+
     public override string ToString()
     {
         return controller.ToString();

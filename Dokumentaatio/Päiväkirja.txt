@@ -353,3 +353,9 @@ Jore
 ---
 BreakableWalleille tehty vaalenemisefekti ammuksen osuessa niihin. Paranneltu
 hiukan joitakin Respawn-metodeita.
+____________________________
+
+Jore
+11.12.2016 15:09
+---
+Uudet UI-luokat.

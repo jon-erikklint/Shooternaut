@@ -44,6 +44,7 @@ public abstract class Activateable : Respawnable{
 
     public abstract bool CanActivate();
     public abstract bool FullActivate();
+    public abstract float ActivateAmount();
 
     public override List<object> RespawnPointReached(RespawnPoint respawn)
     {

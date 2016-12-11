@@ -15,6 +15,8 @@ public abstract class HealthInterface: MonoBehaviour{
 
     public abstract bool FullHealth();
 
+    public abstract float HealthPercentage();
+
     public abstract void Reset();
 
 }

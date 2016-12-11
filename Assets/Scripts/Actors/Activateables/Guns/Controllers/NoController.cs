@@ -26,4 +26,8 @@ public class NoController : GunController {
         return "Infinite";
     }
 
+    public override float Amount()
+    {
+        return 1;
+    }
 }

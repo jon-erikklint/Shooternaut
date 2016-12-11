@@ -112,4 +112,9 @@ public class Spawner : Activateable
     {
         return ActivateableType.Spawner;
     }
+
+    public override float ActivateAmount()
+    {
+        return (Time.time - lastActive) / spawnInterval;
+    }
 }

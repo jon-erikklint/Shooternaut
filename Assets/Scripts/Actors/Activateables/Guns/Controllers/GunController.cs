@@ -17,6 +17,8 @@ public abstract class GunController : MonoBehaviour{
     public abstract bool CanShoot();
     public abstract bool FullClip();
 
+    public abstract float Amount();
+
     public virtual void Deactivate() { }
 
     public abstract void Reset();

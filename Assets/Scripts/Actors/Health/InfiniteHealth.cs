@@ -31,4 +31,9 @@ public class InfiniteHealth : HealthInterface
     {
         return 1;
     }
+
+    public override float HealthPercentage()
+    {
+        return 1;
+    }
 }

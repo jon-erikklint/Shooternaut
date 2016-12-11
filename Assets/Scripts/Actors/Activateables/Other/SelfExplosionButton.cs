@@ -52,4 +52,9 @@ public class SelfExplosionButton : Activateable
     {
         return ActivateableType.Button;
     }
+
+    public override float ActivateAmount()
+    {
+        return (Time.time - startTime) / delay;
+    }
 }

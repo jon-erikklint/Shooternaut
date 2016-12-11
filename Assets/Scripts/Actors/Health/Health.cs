@@ -77,5 +77,8 @@ public class Health : HealthInterface{
         return _currentHealth;
     }
 
-    
+    public override float HealthPercentage()
+    {
+        return currentHealth / maxHealth;
+    }
 }

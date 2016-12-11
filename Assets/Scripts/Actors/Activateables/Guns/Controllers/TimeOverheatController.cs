@@ -79,4 +79,8 @@ public class TimeOverheatController : GunController {
         return _currentCharge + "/" + maxCharge;
     }
 
+    public override float Amount()
+    {
+        return currentCharge / maxCharge;
+    }
 }
