@@ -5,29 +5,29 @@ using System.Collections.Generic;
 public abstract class Zone: MonoBehaviour {
 	public List<string> tags;
 
-	protected virtual void DoOnCollisionEnterForTags(Collision2D col) {}
-	protected virtual void DoOnCollisionEnterForOthers(Collision2D col) {}
-	protected virtual void DoOnCollisionExitForTags(Collision2D col) {}
-	protected virtual void DoOnCollisionExitForOthers(Collision2D col) {}
-	protected virtual void DoOnCollisionStayForTags(Collision2D col) {}
-	protected virtual void DoOnCollisionStayForOthers(Collision2D col) {}
+	protected virtual void DoOnEnterForTags(Collider2D col) {}
+	protected virtual void DoOnEnterForOthers(Collider2D col) {}
+	protected virtual void DoOnExitForTags(Collider2D col) {}
+	protected virtual void DoOnExitForOthers(Collider2D col) {}
+	protected virtual void DoOnStayForTags(Collider2D col) {}
+	protected virtual void DoOnStayForOthers(Collider2D col) {}
 
-	void OnCollisionEnter2D(Collision2D col)
+	void OnTriggerEnter2D(Collider2D col)
 	{
 		Debug.Log ("moi");
 		if (tags.Contains (col.gameObject.tag)) {
-			DoOnCollisionEnterForTags (col);
+			DoOnEnterForTags (col);
 		} else {
-			DoOnCollisionEnterForOthers (col);
+			DoOnEnterForOthers (col);
 		}
 	}
 
-	void OnCollisionExit2D(Collision2D col)
+	void OnTriggerExit2D(Collider2D col)
 	{
 		if (tags.Contains (col.gameObject.tag)) {
-			DoOnCollisionExitForTags (col);
+			DoOnExitForTags (col);
 		} else {
-			DoOnCollisionExitForOthers (col);
+			DoOnExitForOthers (col);
 		}
 	}
 }

@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class NoCollisionZone : Zone {
-	protected override void DoOnCollisionEnterForTags(Collision2D col)	
+	protected override void DoOnEnterForTags(Collider2D col)	
 	{
-		Physics2D.IgnoreCollision (gameObject.GetComponent<Collider2D>(), col.collider);
+		Physics2D.IgnoreCollision (gameObject.GetComponent<Collider2D>(), col);
 	}
 }
