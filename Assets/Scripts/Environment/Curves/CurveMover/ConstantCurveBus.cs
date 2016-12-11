@@ -4,7 +4,7 @@ using System;
 
 public class ConstantCurveBus : AutomaticCurveBus {
 
-    public float speed = 1.0f;
+	float speed = 1;
     public bool rotatesFreely;
     public float angularVelocity = 1.0f;
 
@@ -12,7 +12,6 @@ public class ConstantCurveBus : AutomaticCurveBus {
 
     protected override void MovePosition(int i, float dt)
     {
-//        GameObject obj = gameObjects[i];
         float currPos = gameObjectsPositions[i];
         gameObjectsPositions[i] = currPos + dt*speed;
     }
@@ -29,7 +28,7 @@ public class ConstantCurveBus : AutomaticCurveBus {
         else
         {
             if (!rotatesFreely)
-                rb.angularVelocity = angularVelocity * speedFactor;
+                rb.angularVelocity = angularVelocity * speed;
         }
     }
 }

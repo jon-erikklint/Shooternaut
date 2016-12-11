@@ -5,6 +5,7 @@ public abstract class AutomaticCurveBus : CurveBus {
 
     public bool isMoving = true;
     public float speedFactor = 1;
+	float prevTime;
 	
 	// Update is called once per frame
 	void Update () {
@@ -54,7 +55,11 @@ public abstract class AutomaticCurveBus : CurveBus {
         }
         else
         {
-            rb.velocity = (GlobalPointAt(currPos) - obj.transform.position)*speedFactor/dt;
+			if (prevTime == 0) {
+				prevTime = Time.time;
+				return;
+			}
+			rb.velocity = (GlobalPointAt(currPos) - obj.transform.position).normalized*speedFactor;
         }
     }
 
