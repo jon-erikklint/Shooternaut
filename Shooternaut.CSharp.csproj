@@ -135,6 +135,8 @@
     <Compile Include="Assets\Scripts\Environment\Triggers\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Environment\Triggers\Gate.cs" />
     <Compile Include="Assets\Scripts\Environment\Triggers\Trigger.cs" />
+    <Compile Include="Assets\Scripts\Environment\Zones\CollisionZone.cs" />
+    <Compile Include="Assets\Scripts\Environment\Zones\NoCollisionZone.cs" />
     <Compile Include="Assets\Scripts\Environment\Zones\Zone.cs" />
     <Compile Include="Assets\Scripts\Game\Destroyable.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
