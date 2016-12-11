@@ -101,6 +101,8 @@
      <Compile Include="Assets\Scripts\Environment\Curves\Line.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\Polyline.cs" />
      <Compile Include="Assets\Scripts\Environment\Curves\WayPointCurve.cs" />
+     <Compile Include="Assets\Scripts\Environment\DamagingSpikes.cs" />
+     <Compile Include="Assets\Scripts\Environment\DeathSpikes.cs" />
      <Compile Include="Assets\Scripts\Environment\Exit.cs" />
      <Compile Include="Assets\Scripts\Environment\Explosion.cs" />
      <Compile Include="Assets\Scripts\Environment\HealthPack.cs" />
@@ -113,7 +115,6 @@
      <Compile Include="Assets\Scripts\Environment\Projectiles\OnDeathCreatorProjectile.cs" />
      <Compile Include="Assets\Scripts\Environment\Projectiles\Projectile.cs" />
      <Compile Include="Assets\Scripts\Environment\RespawnPoint.cs" />
-     <Compile Include="Assets\Scripts\Environment\Spikes.cs" />
      <Compile Include="Assets\Scripts\Environment\Triggers\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Environment\Triggers\Gate.cs" />
      <Compile Include="Assets\Scripts\Environment\Triggers\Trigger.cs" />

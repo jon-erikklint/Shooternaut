@@ -57,7 +57,7 @@ public class Player : Actor
             SetActivateable(false, secondaryActivateable);
         }
 
-        if (Input.GetKeyDown("k"))
+        if (Input.GetKeyDown("g"))
         {
             playerActs.Invoke();
 
